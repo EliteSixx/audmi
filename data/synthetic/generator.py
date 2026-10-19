@@ -56,8 +56,10 @@ OUTPUT_FILES = (
 )
 SEVERITIES = ("informational", "low", "medium", "high", "critical")
 SEVERITY_WEIGHTS = (0.12, 0.23, 0.34, 0.22, 0.09)
-CATEGORIES = ("malware", "intrusion", "policy", "availability", "identity", "network")
-ASSET_TYPES = ("server", "workstation", "network_device", "database", "security_appliance")
+CATEGORIES = ("malware", "intrusion", "policy",
+              "availability", "identity", "network")
+ASSET_TYPES = ("server", "workstation", "network_device",
+               "database", "security_appliance")
 
 
 @dataclass
@@ -102,7 +104,8 @@ def generate_dataset(seed: int = 42) -> SyntheticDataset:
     rng = random.Random(seed)
 
     cse_records = [
-        CSE(f"CSE-{index:02d}", f"Regional Cyber Security Entity {index:02d}", "regional")
+        CSE(f"CSE-{index:02d}",
+            f"Regional Cyber Security Entity {index:02d}", "regional")
         for index in range(1, 7)
     ]
     assets: list[Asset] = []
@@ -117,7 +120,8 @@ def generate_dataset(seed: int = 42) -> SyntheticDataset:
                 asset_id=f"AST-{int(cse.cse_id[-2:]):02d}-{local_index:03d}",
                 cse_id=cse.cse_id,
                 criticality=criticality,
-                asset_type=_choose(rng, ASSET_TYPES, (0.30, 0.32, 0.16, 0.11, 0.11)),
+                asset_type=_choose(
+                    rng, ASSET_TYPES, (0.30, 0.32, 0.16, 0.11, 0.11)),
             )
             assets.append(asset)
             assets_by_cse[cse.cse_id].append(asset)
@@ -136,7 +140,8 @@ def generate_dataset(seed: int = 42) -> SyntheticDataset:
     alert_index = 0
     for cse, cse_count in zip(cse_records, cse_alert_counts):
         cse_number = int(cse.cse_id[-2:])
-        regular_assets = [a for a in assets_by_cse[cse.cse_id] if a not in low_activity_assets]
+        regular_assets = [a for a in assets_by_cse[cse.cse_id]
+                          if a not in low_activity_assets]
         for local_alert_index in range(cse_count):
             alert_index += 1
             if cse_number == 3 and local_alert_index < 320:
@@ -180,7 +185,8 @@ def generate_dataset(seed: int = 42) -> SyntheticDataset:
         a for a in alerts_by_cse["CSE-02"] if a.severity in {"critical", "high"}
     ]
     rng.shuffle(cse2_critical_alerts)
-    repeated_alerts = [a for a in alerts if a.asset_id in {x.asset_id for x in repeat_assets}]
+    repeated_alerts = [a for a in alerts if a.asset_id in {
+        x.asset_id for x in repeat_assets}]
     rng.shuffle(repeated_alerts)
     cse4_alerts = list(alerts_by_cse["CSE-04"])
     rng.shuffle(cse4_alerts)
@@ -189,7 +195,10 @@ def generate_dataset(seed: int = 42) -> SyntheticDataset:
         cse2_critical_alerts[:140]
         + repeated_alerts[:160]
         + cse4_alerts[:80]
-        + alerts_by_cse["CSE-06"][:20]
+        + [
+            a for a in alerts_by_cse["CSE-06"]
+            if a.severity in {"critical", "high"}
+        ][:20]
     )
     selected_alert_ids: set[str] = set()
     selected_alerts: list[Alert] = []
@@ -235,12 +244,23 @@ def generate_dataset(seed: int = 42) -> SyntheticDataset:
         if a.alert_id in case_by_alert_id
     ][:80]
     cse4_investigation_cases = cases_by_cse["CSE-04"][:100]
-    cse6_mixed_cases = cases_by_cse["CSE-06"][:20]
+    cse6_mixed_cases = [
+        case
+        for alert in alerts_by_cse["CSE-06"]
+        if alert.severity in {"critical", "high"}
+        and (case := case_by_alert_id.get(alert.alert_id)) is not None
+    ][:20]
 
     # Generate investigations, including a seeded short-duration cohort in CSE-04.
-    reserved_investigation_cases = cse4_investigation_cases + cse6_mixed_cases
-    reserved_investigation_ids = {c.case_id for c in reserved_investigation_cases}
-    investigation_cases = [c for c in cases if c.case_id not in reserved_investigation_ids]
+    reserved_investigation_cases = (
+        cse2_target_cases
+        + cse4_investigation_cases
+        + cse6_mixed_cases
+    )
+    reserved_investigation_ids = {
+        c.case_id for c in reserved_investigation_cases}
+    investigation_cases = [
+        c for c in cases if c.case_id not in reserved_investigation_ids]
     rng.shuffle(investigation_cases)
     investigation_candidates = reserved_investigation_cases + investigation_cases[
         : COUNTS["investigations"] - len(reserved_investigation_cases)
@@ -271,12 +291,14 @@ def generate_dataset(seed: int = 42) -> SyntheticDataset:
     excluded_escalation_cases = {
         c.case_id for c in cse2_target_cases + cse6_missing_escalation_cases
     }
-    escalation_candidates = [c for c in cases if c.case_id not in excluded_escalation_cases]
+    escalation_candidates = [
+        c for c in cases if c.case_id not in excluded_escalation_cases]
     rng.shuffle(escalation_candidates)
     escalation_cases = escalation_candidates[: COUNTS["escalations"]]
     escalations: list[Escalation] = []
     for escalation_index, case in enumerate(escalation_cases, start=1):
-        escalated_at = case.opened_at + timedelta(minutes=rng.randint(10, 1_440))
+        escalated_at = case.opened_at + \
+            timedelta(minutes=rng.randint(10, 1_440))
         if case.closed_at is not None and escalated_at > case.closed_at:
             escalated_at = case.closed_at
         escalations.append(
@@ -294,7 +316,8 @@ def generate_dataset(seed: int = 42) -> SyntheticDataset:
 
     # CSE-03 repeated-alert cases intentionally have no remediation evidence.
     no_remediation_cases = set(c.case_id for c in cse3_repeat_cases[:60])
-    remediation_candidates = [c for c in cases if c.case_id not in no_remediation_cases]
+    remediation_candidates = [
+        c for c in cases if c.case_id not in no_remediation_cases]
     rng.shuffle(remediation_candidates)
     remediation_cases = remediation_candidates[: COUNTS["remediations"]]
     remediations: list[Remediation] = []
@@ -309,7 +332,8 @@ def generate_dataset(seed: int = 42) -> SyntheticDataset:
                 remediation_id=f"REM-{remediation_index:04d}",
                 case_id=case.case_id,
                 action=rng.choice(
-                    ("host isolated", "credentials reset", "rule updated", "service restored", "patch applied")
+                    ("host isolated", "credentials reset",
+                     "rule updated", "service restored", "patch applied")
                 ),
                 completed_at=completed_at,
             )
@@ -418,7 +442,8 @@ def validate_dataset(dataset: SyntheticDataset) -> None:
     all_ids: set[str] = set()
     ids_by_type: dict[str, set[str]] = {}
     for entity_type, records in entity_lists.items():
-        record_ids = [getattr(record, id_fields[entity_type]) for record in records]
+        record_ids = [getattr(record, id_fields[entity_type])
+                      for record in records]
         if len(record_ids) != len(set(record_ids)):
             raise ValueError(f"Duplicate {entity_type} identifiers")
         ids_by_type[entity_type] = set(record_ids)
@@ -432,78 +457,192 @@ def validate_dataset(dataset: SyntheticDataset) -> None:
     assets_by_id = {asset.asset_id: asset for asset in dataset.assets}
     alerts_by_id = {alert.alert_id: alert for alert in dataset.alerts}
     cases_by_id = {case.case_id: case for case in dataset.cases}
-    investigations_by_id = {item.investigation_id: item for item in dataset.investigations}
+    investigations_by_id = {
+        item.investigation_id: item for item in dataset.investigations}
     for asset in dataset.assets:
         if asset.cse_id not in ids_by_type["cse"]:
-            raise ValueError(f"Asset {asset.asset_id} references an unknown CSE")
+            raise ValueError(
+                f"Asset {asset.asset_id} references an unknown CSE")
     for alert in dataset.alerts:
         asset = assets_by_id.get(alert.asset_id)
         if alert.cse_id not in ids_by_type["cse"] or asset is None or asset.cse_id != alert.cse_id:
-            raise ValueError(f"Alert {alert.alert_id} has invalid CSE/asset references")
+            raise ValueError(
+                f"Alert {alert.alert_id} has invalid CSE/asset references")
     for case in dataset.cases:
         alert = alerts_by_id.get(case.alert_id)
         if alert is None or alert.cse_id != case.cse_id or case.opened_at < alert.created_at:
-            raise ValueError(f"Case {case.case_id} has invalid alert reference or chronology")
+            raise ValueError(
+                f"Case {case.case_id} has invalid alert reference or chronology")
     for item in dataset.investigations:
         case = cases_by_id.get(item.case_id)
         if case is None or item.started_at < case.opened_at:
-            raise ValueError(f"Investigation {item.investigation_id} has invalid case reference or chronology")
+            raise ValueError(
+                f"Investigation {item.investigation_id} has invalid case reference or chronology")
         if case.closed_at is not None and item.ended_at is not None and item.ended_at > case.closed_at:
-            raise ValueError(f"Investigation {item.investigation_id} ends after its case closes")
+            raise ValueError(
+                f"Investigation {item.investigation_id} ends after its case closes")
     for item in dataset.escalations:
         case = cases_by_id.get(item.case_id)
         if case is None or item.escalated_at < case.opened_at:
-            raise ValueError(f"Escalation {item.escalation_id} has invalid case reference or chronology")
+            raise ValueError(
+                f"Escalation {item.escalation_id} has invalid case reference or chronology")
     for item in dataset.remediations:
         case = cases_by_id.get(item.case_id)
         if case is None or (item.completed_at is not None and item.completed_at < case.opened_at):
-            raise ValueError(f"Remediation {item.remediation_id} has invalid case reference or chronology")
+            raise ValueError(
+                f"Remediation {item.remediation_id} has invalid case reference or chronology")
 
     escalation_case_ids = {item.case_id for item in dataset.escalations}
     remediation_case_ids = {item.case_id for item in dataset.remediations}
-    condition_types = {condition["condition_type"] for condition in dataset.ground_truth["conditions"]}
+    condition_types = {condition["condition_type"]
+                       for condition in dataset.ground_truth["conditions"]}
     required_conditions = {
         "missing_escalation",
         "repeated_alerts_without_remediation",
         "unusually_short_investigation",
         "negative_space_low_activity",
     }
+
     if not required_conditions.issubset(condition_types):
-        raise ValueError("One or more required seeded ground-truth conditions are missing")
+        raise ValueError(
+            "One or more required seeded ground-truth conditions are missing"
+        )
+
     for condition in dataset.ground_truth["conditions"]:
         if condition["cse_id"] not in ids_by_type["cse"]:
             raise ValueError("Ground truth references an unknown CSE")
+
         for record_id in condition.get("record_ids", []):
             if record_id not in all_ids:
-                raise ValueError(f"Ground truth references unknown record {record_id}")
+                raise ValueError(
+                    f"Ground truth references unknown record {record_id}"
+                )
+
         for asset_id in condition.get("asset_ids", []):
             if asset_id not in ids_by_type["assets"]:
-                raise ValueError(f"Ground truth references unknown asset {asset_id}")
+                raise ValueError(
+                    f"Ground truth references unknown asset {asset_id}"
+                )
+
         if condition["condition_type"] == "missing_escalation":
-            if not condition["record_ids"] or any(x in escalation_case_ids for x in condition["record_ids"]):
-                raise ValueError("Seeded missing-escalation cases must lack escalation records")
+            record_ids = condition["record_ids"]
+
+            if not record_ids:
+                raise ValueError(
+                    "Seeded missing-escalation condition must identify cases"
+                )
+
+            if any(x not in cases_by_id for x in record_ids):
+                raise ValueError(
+                    "Missing-escalation ground truth references unknown cases"
+                )
+
+            if any(x in escalation_case_ids for x in record_ids):
+                raise ValueError(
+                    "Seeded missing-escalation cases must lack escalation records"
+                )
+
+            if any(
+                cases_by_id[x].cse_id != condition["cse_id"]
+                for x in record_ids
+            ):
+                raise ValueError(
+                    "Missing-escalation cases must belong to the specified CSE"
+                )
+
+            alert_by_id = {
+                item.alert_id: item for item in dataset.alerts
+            }
+            investigation_case_ids = {
+                item.case_id for item in dataset.investigations
+            }
+
+            for case_id in record_ids:
+                case = cases_by_id[case_id]
+                alert = alert_by_id.get(case.alert_id)
+
+                if alert is None or alert.severity not in {"high", "critical"}:
+                    raise ValueError(
+                        f"Missing-escalation case {case_id} must have a high/critical alert"
+                    )
+
+                if case_id not in investigation_case_ids:
+                    raise ValueError(
+                        f"Missing-escalation case {case_id} must have investigation evidence"
+                    )
+
         elif condition["condition_type"] == "repeated_alerts_without_remediation":
             if not condition["asset_ids"] or not condition["record_ids"]:
-                raise ValueError("Repeated-alert condition must identify assets and cases")
+                raise ValueError(
+                    "Repeated-alert condition must identify assets and cases"
+                )
             if any(x in remediation_case_ids for x in condition["record_ids"]):
-                raise ValueError("Seeded repeated-alert cases must lack remediation records")
+                raise ValueError(
+                    "Seeded repeated-alert cases must lack remediation records"
+                )
+
+        elif condition["condition_type"] == "unusually_short_investigation":
+            if not condition["record_ids"] or any(
+                x not in investigations_by_id for x in condition["record_ids"]
+            ):
+                raise ValueError(
+                    "Short-investigation ground truth must reference investigations"
+                )
+            if any(
+                investigations_by_id[x].ended_at is None
+                or investigations_by_id[x].ended_at
+                - investigations_by_id[x].started_at > timedelta(minutes=5)
+                for x in condition["record_ids"]
+            ):
+                raise ValueError(
+                    "Seeded short investigations must remain under five minutes"
+                )
+
+        elif condition["condition_type"] == "negative_space_low_activity":
+            asset_ids = condition["asset_ids"]
+            if not asset_ids or any(
+                len([a for a in dataset.alerts if a.asset_id == x]) > 1
+                for x in asset_ids
+            ):
+                raise ValueError(
+                    "Negative-space assets must have very low activity"
+                )
+
+        if condition["condition_type"] == "missing_escalation":
+            # Your new validation block goes here, indented at this level.
+            ...
+        if condition["condition_type"] == "missing_escalation":
+            if not condition["record_ids"] or any(x in escalation_case_ids for x in condition["record_ids"]):
+                raise ValueError(
+                    "Seeded missing-escalation cases must lack escalation records")
+        elif condition["condition_type"] == "repeated_alerts_without_remediation":
+            if not condition["asset_ids"] or not condition["record_ids"]:
+                raise ValueError(
+                    "Repeated-alert condition must identify assets and cases")
+            if any(x in remediation_case_ids for x in condition["record_ids"]):
+                raise ValueError(
+                    "Seeded repeated-alert cases must lack remediation records")
         elif condition["condition_type"] == "unusually_short_investigation":
             if not condition["record_ids"] or any(x not in investigations_by_id for x in condition["record_ids"]):
-                raise ValueError("Short-investigation ground truth must reference investigations")
+                raise ValueError(
+                    "Short-investigation ground truth must reference investigations")
             if any(
                 investigations_by_id[x].ended_at is None
                 or investigations_by_id[x].ended_at - investigations_by_id[x].started_at > timedelta(minutes=5)
                 for x in condition["record_ids"]
             ):
-                raise ValueError("Seeded short investigations must remain under five minutes")
+                raise ValueError(
+                    "Seeded short investigations must remain under five minutes")
         elif condition["condition_type"] == "negative_space_low_activity":
             asset_ids = condition["asset_ids"]
             if not asset_ids or any(len([a for a in dataset.alerts if a.asset_id == x]) > 1 for x in asset_ids):
-                raise ValueError("Negative-space assets must have very low activity")
+                raise ValueError(
+                    "Negative-space assets must have very low activity")
 
 
 def _write_json(path: Path, payload: Any) -> None:
-    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(payload, indent=2,
+                    ensure_ascii=False) + "\n", encoding="utf-8")
 
 
 def write_dataset(dataset: SyntheticDataset, output_dir: Path | str = DEFAULT_OUTPUT_DIR) -> Path:
@@ -524,15 +663,18 @@ def write_dataset(dataset: SyntheticDataset, output_dir: Path | str = DEFAULT_OU
     }
     for filename, payload in payloads.items():
         _write_json(destination / filename, payload)
-    missing = [filename for filename in OUTPUT_FILES if not (destination / filename).is_file()]
+    missing = [filename for filename in OUTPUT_FILES if not (
+        destination / filename).is_file()]
     if missing:
-        raise OSError(f"Generator failed to create expected output files: {missing}")
+        raise OSError(
+            f"Generator failed to create expected output files: {missing}")
     return destination
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--seed", type=int, default=42, help="fixed integer random seed (default: 42)")
+    parser.add_argument("--seed", type=int, default=42,
+                        help="fixed integer random seed (default: 42)")
     parser.add_argument(
         "--output-dir",
         type=Path,

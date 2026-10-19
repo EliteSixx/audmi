@@ -3042,162 +3042,162 @@
   {
     "case_id": "CAS-00381",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008351",
+    "alert_id": "ALT-008352",
     "status": "resolved",
-    "opened_at": "2025-01-15T03:43:26Z",
-    "closed_at": "2025-02-08T03:43:26Z"
+    "opened_at": "2025-05-02T03:38:17Z",
+    "closed_at": "2025-05-26T03:38:17Z"
   },
   {
     "case_id": "CAS-00382",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008352",
+    "alert_id": "ALT-008356",
     "status": "in_progress",
-    "opened_at": "2025-05-02T01:17:17Z",
+    "opened_at": "2025-08-20T12:17:44Z",
     "closed_at": null
   },
   {
     "case_id": "CAS-00383",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008353",
+    "alert_id": "ALT-008357",
     "status": "in_progress",
-    "opened_at": "2025-01-04T09:11:47Z",
+    "opened_at": "2025-03-25T15:13:49Z",
     "closed_at": null
   },
   {
     "case_id": "CAS-00384",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008354",
+    "alert_id": "ALT-008368",
     "status": "resolved",
-    "opened_at": "2025-06-12T09:57:47Z",
-    "closed_at": "2025-06-25T09:57:47Z"
+    "opened_at": "2025-12-25T14:29:29Z",
+    "closed_at": "2026-01-07T14:29:29Z"
   },
   {
     "case_id": "CAS-00385",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008355",
+    "alert_id": "ALT-008369",
     "status": "closed",
-    "opened_at": "2025-02-02T07:31:50Z",
-    "closed_at": "2025-02-16T07:31:50Z"
+    "opened_at": "2025-09-10T02:38:59Z",
+    "closed_at": "2025-09-24T02:38:59Z"
   },
   {
     "case_id": "CAS-00386",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008356",
+    "alert_id": "ALT-008371",
     "status": "resolved",
-    "opened_at": "2025-08-20T08:37:44Z",
-    "closed_at": "2025-09-07T08:37:44Z"
+    "opened_at": "2025-12-14T06:48:11Z",
+    "closed_at": "2026-01-01T06:48:11Z"
   },
   {
     "case_id": "CAS-00387",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008357",
+    "alert_id": "ALT-008378",
     "status": "resolved",
-    "opened_at": "2025-03-25T15:25:49Z",
-    "closed_at": "2025-04-21T15:25:49Z"
+    "opened_at": "2025-12-02T11:59:08Z",
+    "closed_at": "2025-12-29T11:59:08Z"
   },
   {
     "case_id": "CAS-00388",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008358",
+    "alert_id": "ALT-008386",
     "status": "closed",
-    "opened_at": "2025-12-26T09:42:16Z",
-    "closed_at": "2026-01-19T09:42:16Z"
+    "opened_at": "2025-10-12T06:32:06Z",
+    "closed_at": "2025-11-05T06:32:06Z"
   },
   {
     "case_id": "CAS-00389",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008359",
+    "alert_id": "ALT-008402",
     "status": "resolved",
-    "opened_at": "2025-09-02T03:07:17Z",
-    "closed_at": "2025-09-21T03:07:17Z"
+    "opened_at": "2025-10-07T15:27:04Z",
+    "closed_at": "2025-10-26T15:27:04Z"
   },
   {
     "case_id": "CAS-00390",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008360",
+    "alert_id": "ALT-008403",
     "status": "resolved",
-    "opened_at": "2025-01-24T00:57:00Z",
-    "closed_at": "2025-01-30T00:57:00Z"
+    "opened_at": "2025-05-31T23:49:14Z",
+    "closed_at": "2025-06-06T23:49:14Z"
   },
   {
     "case_id": "CAS-00391",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008361",
+    "alert_id": "ALT-008407",
     "status": "closed",
-    "opened_at": "2025-09-03T12:39:25Z",
-    "closed_at": "2025-10-07T12:39:25Z"
+    "opened_at": "2025-08-23T16:41:53Z",
+    "closed_at": "2025-09-26T16:41:53Z"
   },
   {
     "case_id": "CAS-00392",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008362",
+    "alert_id": "ALT-008410",
     "status": "closed",
-    "opened_at": "2025-05-02T00:57:59Z",
-    "closed_at": "2025-05-31T00:57:59Z"
+    "opened_at": "2025-06-15T02:01:00Z",
+    "closed_at": "2025-07-14T02:01:00Z"
   },
   {
     "case_id": "CAS-00393",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008363",
+    "alert_id": "ALT-008412",
     "status": "resolved",
-    "opened_at": "2025-09-04T08:26:45Z",
-    "closed_at": "2025-10-02T08:26:45Z"
+    "opened_at": "2025-07-05T22:39:52Z",
+    "closed_at": "2025-08-02T22:39:52Z"
   },
   {
     "case_id": "CAS-00394",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008364",
+    "alert_id": "ALT-008413",
     "status": "closed",
-    "opened_at": "2025-06-13T08:56:44Z",
-    "closed_at": "2025-06-16T08:56:44Z"
+    "opened_at": "2025-05-29T14:05:12Z",
+    "closed_at": "2025-06-01T14:05:12Z"
   },
   {
     "case_id": "CAS-00395",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008365",
+    "alert_id": "ALT-008415",
     "status": "open",
-    "opened_at": "2025-04-02T11:10:14Z",
+    "opened_at": "2025-04-06T20:06:19Z",
     "closed_at": null
   },
   {
     "case_id": "CAS-00396",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008366",
+    "alert_id": "ALT-008417",
     "status": "open",
-    "opened_at": "2025-03-29T09:41:23Z",
+    "opened_at": "2025-06-09T05:27:54Z",
     "closed_at": null
   },
   {
     "case_id": "CAS-00397",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008367",
+    "alert_id": "ALT-008419",
     "status": "resolved",
-    "opened_at": "2025-06-19T07:12:30Z",
-    "closed_at": "2025-07-19T07:12:30Z"
+    "opened_at": "2025-08-15T21:39:24Z",
+    "closed_at": "2025-09-14T21:39:24Z"
   },
   {
     "case_id": "CAS-00398",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008368",
+    "alert_id": "ALT-008420",
     "status": "resolved",
-    "opened_at": "2025-12-25T18:38:29Z",
-    "closed_at": "2026-01-14T18:38:29Z"
+    "opened_at": "2025-12-16T20:01:00Z",
+    "closed_at": "2026-01-05T20:01:00Z"
   },
   {
     "case_id": "CAS-00399",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008369",
+    "alert_id": "ALT-008423",
     "status": "closed",
-    "opened_at": "2025-09-10T02:29:59Z",
-    "closed_at": "2025-10-14T02:29:59Z"
+    "opened_at": "2025-10-03T10:40:47Z",
+    "closed_at": "2025-11-06T10:40:47Z"
   },
   {
     "case_id": "CAS-00400",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008370",
+    "alert_id": "ALT-008428",
     "status": "closed",
-    "opened_at": "2025-12-20T20:10:06Z",
-    "closed_at": "2026-01-22T20:10:06Z"
+    "opened_at": "2025-07-16T21:24:45Z",
+    "closed_at": "2025-08-18T21:24:45Z"
   },
   {
     "case_id": "CAS-00401",
@@ -4474,9 +4474,9 @@
   {
     "case_id": "CAS-00560",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008423",
+    "alert_id": "ALT-008421",
     "status": "open",
-    "opened_at": "2025-10-03T10:30:47Z",
+    "opened_at": "2025-07-06T08:20:42Z",
     "closed_at": null
   },
   {
@@ -4554,10 +4554,10 @@
   {
     "case_id": "CAS-00570",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008390",
+    "alert_id": "ALT-008376",
     "status": "resolved",
-    "opened_at": "2025-10-25T19:33:25Z",
-    "closed_at": "2025-11-22T19:33:25Z"
+    "opened_at": "2025-06-24T20:48:46Z",
+    "closed_at": "2025-07-22T20:48:46Z"
   },
   {
     "case_id": "CAS-00571",
@@ -5762,9 +5762,9 @@
   {
     "case_id": "CAS-00721",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008416",
+    "alert_id": "ALT-008406",
     "status": "in_progress",
-    "opened_at": "2025-08-27T21:27:21Z",
+    "opened_at": "2025-01-23T03:55:37Z",
     "closed_at": null
   },
   {
@@ -6066,9 +6066,9 @@
   {
     "case_id": "CAS-00759",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008426",
+    "alert_id": "ALT-008425",
     "status": "open",
-    "opened_at": "2025-09-12T17:41:48Z",
+    "opened_at": "2025-12-10T11:24:07Z",
     "closed_at": null
   },
   {
@@ -10066,9 +10066,9 @@
   {
     "case_id": "CAS-01259",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008384",
+    "alert_id": "ALT-008367",
     "status": "open",
-    "opened_at": "2025-10-18T12:41:58Z",
+    "opened_at": "2025-06-19T08:16:30Z",
     "closed_at": null
   },
   {
@@ -11354,10 +11354,10 @@
   {
     "case_id": "CAS-01420",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008418",
+    "alert_id": "ALT-008409",
     "status": "resolved",
-    "opened_at": "2025-08-23T16:36:33Z",
-    "closed_at": "2025-09-07T16:36:33Z"
+    "opened_at": "2025-02-19T05:06:31Z",
+    "closed_at": "2025-03-06T05:06:31Z"
   },
   {
     "case_id": "CAS-01421",
@@ -11770,10 +11770,10 @@
   {
     "case_id": "CAS-01472",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008415",
+    "alert_id": "ALT-008405",
     "status": "resolved",
-    "opened_at": "2025-04-06T23:47:19Z",
-    "closed_at": "2025-05-03T23:47:19Z"
+    "opened_at": "2025-09-01T03:40:55Z",
+    "closed_at": "2025-09-28T03:40:55Z"
   },
   {
     "case_id": "CAS-01473",
@@ -13546,9 +13546,9 @@
   {
     "case_id": "CAS-01694",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008378",
+    "alert_id": "ALT-008361",
     "status": "open",
-    "opened_at": "2025-12-02T10:06:08Z",
+    "opened_at": "2025-09-03T07:26:25Z",
     "closed_at": null
   },
   {
@@ -15098,9 +15098,9 @@
   {
     "case_id": "CAS-01888",
     "cse_id": "CSE-06",
-    "alert_id": "ALT-008383",
+    "alert_id": "ALT-008366",
     "status": "open",
-    "opened_at": "2025-10-24T06:56:46Z",
+    "opened_at": "2025-03-29T09:17:23Z",
     "closed_at": null
   },
   {

@@ -1,602 +1,602 @@
 [
   {
     "remediation_id": "REM-0001",
-    "case_id": "CAS-01100",
-    "action": "rule updated",
-    "completed_at": null
+    "case_id": "CAS-00803",
+    "action": "credentials reset",
+    "completed_at": "2025-05-04T15:47:28Z"
   },
   {
     "remediation_id": "REM-0002",
-    "case_id": "CAS-01522",
-    "action": "credentials reset",
-    "completed_at": "2025-01-27T07:50:19Z"
+    "case_id": "CAS-00991",
+    "action": "service restored",
+    "completed_at": "2025-05-23T05:30:56Z"
   },
   {
     "remediation_id": "REM-0003",
-    "case_id": "CAS-01265",
-    "action": "patch applied",
-    "completed_at": "2025-12-10T17:36:15Z"
+    "case_id": "CAS-01776",
+    "action": "service restored",
+    "completed_at": "2025-01-08T15:50:14Z"
   },
   {
     "remediation_id": "REM-0004",
-    "case_id": "CAS-00908",
-    "action": "credentials reset",
-    "completed_at": null
+    "case_id": "CAS-01596",
+    "action": "host isolated",
+    "completed_at": "2025-11-15T07:19:28Z"
   },
   {
     "remediation_id": "REM-0005",
-    "case_id": "CAS-00522",
-    "action": "patch applied",
-    "completed_at": "2025-07-25T07:55:14Z"
+    "case_id": "CAS-01638",
+    "action": "service restored",
+    "completed_at": "2025-07-28T14:11:41Z"
   },
   {
     "remediation_id": "REM-0006",
-    "case_id": "CAS-00874",
-    "action": "host isolated",
-    "completed_at": "2025-09-30T05:16:05Z"
+    "case_id": "CAS-00031",
+    "action": "rule updated",
+    "completed_at": "2025-12-13T07:22:21Z"
   },
   {
     "remediation_id": "REM-0007",
-    "case_id": "CAS-01056",
+    "case_id": "CAS-00458",
     "action": "patch applied",
-    "completed_at": null
+    "completed_at": "2025-01-17T20:02:17Z"
   },
   {
     "remediation_id": "REM-0008",
-    "case_id": "CAS-01237",
-    "action": "host isolated",
-    "completed_at": "2025-02-24T09:51:23Z"
+    "case_id": "CAS-01662",
+    "action": "patch applied",
+    "completed_at": null
   },
   {
     "remediation_id": "REM-0009",
-    "case_id": "CAS-00811",
-    "action": "credentials reset",
-    "completed_at": "2025-11-19T01:10:11Z"
+    "case_id": "CAS-00549",
+    "action": "service restored",
+    "completed_at": "2025-12-11T12:33:44Z"
   },
   {
     "remediation_id": "REM-0010",
-    "case_id": "CAS-00091",
-    "action": "patch applied",
-    "completed_at": "2025-08-20T19:28:48Z"
-  },
-  {
-    "remediation_id": "REM-0011",
-    "case_id": "CAS-01930",
-    "action": "service restored",
-    "completed_at": "2025-07-07T01:04:50Z"
-  },
-  {
-    "remediation_id": "REM-0012",
-    "case_id": "CAS-01988",
-    "action": "patch applied",
-    "completed_at": "2026-01-08T10:18:03Z"
-  },
-  {
-    "remediation_id": "REM-0013",
-    "case_id": "CAS-00272",
-    "action": "rule updated",
-    "completed_at": "2025-12-12T08:04:47Z"
-  },
-  {
-    "remediation_id": "REM-0014",
-    "case_id": "CAS-01715",
-    "action": "patch applied",
-    "completed_at": "2025-12-05T10:44:22Z"
-  },
-  {
-    "remediation_id": "REM-0015",
-    "case_id": "CAS-00576",
-    "action": "patch applied",
-    "completed_at": "2025-09-01T17:00:33Z"
-  },
-  {
-    "remediation_id": "REM-0016",
-    "case_id": "CAS-00942",
-    "action": "credentials reset",
-    "completed_at": "2025-10-07T16:00:49Z"
-  },
-  {
-    "remediation_id": "REM-0017",
-    "case_id": "CAS-00031",
+    "case_id": "CAS-01159",
     "action": "host isolated",
     "completed_at": null
   },
   {
-    "remediation_id": "REM-0018",
-    "case_id": "CAS-01036",
+    "remediation_id": "REM-0011",
+    "case_id": "CAS-01765",
+    "action": "credentials reset",
+    "completed_at": "2026-01-20T09:46:57Z"
+  },
+  {
+    "remediation_id": "REM-0012",
+    "case_id": "CAS-01874",
+    "action": "patch applied",
+    "completed_at": "2025-08-14T11:07:18Z"
+  },
+  {
+    "remediation_id": "REM-0013",
+    "case_id": "CAS-01883",
     "action": "host isolated",
-    "completed_at": "2025-12-25T21:11:32Z"
+    "completed_at": "2025-02-20T23:10:05Z"
+  },
+  {
+    "remediation_id": "REM-0014",
+    "case_id": "CAS-01753",
+    "action": "rule updated",
+    "completed_at": "2025-04-18T04:33:18Z"
+  },
+  {
+    "remediation_id": "REM-0015",
+    "case_id": "CAS-01581",
+    "action": "service restored",
+    "completed_at": "2025-11-21T14:37:40Z"
+  },
+  {
+    "remediation_id": "REM-0016",
+    "case_id": "CAS-01001",
+    "action": "service restored",
+    "completed_at": "2025-11-11T06:05:18Z"
+  },
+  {
+    "remediation_id": "REM-0017",
+    "case_id": "CAS-01413",
+    "action": "credentials reset",
+    "completed_at": "2025-04-14T09:45:44Z"
+  },
+  {
+    "remediation_id": "REM-0018",
+    "case_id": "CAS-01713",
+    "action": "credentials reset",
+    "completed_at": "2025-07-23T14:14:15Z"
   },
   {
     "remediation_id": "REM-0019",
-    "case_id": "CAS-00342",
-    "action": "host isolated",
-    "completed_at": "2025-03-08T11:40:36Z"
+    "case_id": "CAS-01145",
+    "action": "rule updated",
+    "completed_at": null
   },
   {
     "remediation_id": "REM-0020",
-    "case_id": "CAS-00835",
-    "action": "rule updated",
-    "completed_at": "2025-04-21T16:36:12Z"
+    "case_id": "CAS-01281",
+    "action": "credentials reset",
+    "completed_at": "2025-12-20T20:16:26Z"
   },
   {
     "remediation_id": "REM-0021",
-    "case_id": "CAS-00012",
-    "action": "host isolated",
-    "completed_at": "2025-06-17T09:25:54Z"
+    "case_id": "CAS-01536",
+    "action": "patch applied",
+    "completed_at": "2025-10-03T05:42:20Z"
   },
   {
     "remediation_id": "REM-0022",
-    "case_id": "CAS-00557",
-    "action": "rule updated",
-    "completed_at": "2025-08-28T09:07:03Z"
+    "case_id": "CAS-01507",
+    "action": "credentials reset",
+    "completed_at": null
   },
   {
     "remediation_id": "REM-0023",
-    "case_id": "CAS-00324",
-    "action": "host isolated",
-    "completed_at": "2025-02-07T18:52:57Z"
+    "case_id": "CAS-01525",
+    "action": "patch applied",
+    "completed_at": "2025-09-29T09:26:15Z"
   },
   {
     "remediation_id": "REM-0024",
-    "case_id": "CAS-00671",
-    "action": "patch applied",
-    "completed_at": "2025-10-28T07:29:48Z"
+    "case_id": "CAS-01408",
+    "action": "host isolated",
+    "completed_at": "2025-03-27T19:05:54Z"
   },
   {
     "remediation_id": "REM-0025",
-    "case_id": "CAS-00037",
+    "case_id": "CAS-01133",
     "action": "patch applied",
     "completed_at": null
   },
   {
     "remediation_id": "REM-0026",
-    "case_id": "CAS-01980",
+    "case_id": "CAS-00358",
     "action": "host isolated",
-    "completed_at": "2025-02-15T22:30:09Z"
+    "completed_at": "2025-01-31T04:27:09Z"
   },
   {
     "remediation_id": "REM-0027",
-    "case_id": "CAS-01242",
+    "case_id": "CAS-00560",
     "action": "credentials reset",
-    "completed_at": "2026-01-06T04:12:51Z"
+    "completed_at": "2025-07-25T08:20:42Z"
   },
   {
     "remediation_id": "REM-0028",
-    "case_id": "CAS-01602",
+    "case_id": "CAS-00949",
     "action": "patch applied",
-    "completed_at": "2025-03-16T00:31:21Z"
+    "completed_at": "2025-12-29T14:09:25Z"
   },
   {
     "remediation_id": "REM-0029",
-    "case_id": "CAS-01647",
-    "action": "host isolated",
-    "completed_at": "2025-08-02T21:44:30Z"
+    "case_id": "CAS-01980",
+    "action": "service restored",
+    "completed_at": "2025-02-15T22:30:09Z"
   },
   {
     "remediation_id": "REM-0030",
-    "case_id": "CAS-00815",
-    "action": "credentials reset",
-    "completed_at": "2025-04-08T18:34:32Z"
+    "case_id": "CAS-00584",
+    "action": "patch applied",
+    "completed_at": "2025-03-22T06:46:55Z"
   },
   {
     "remediation_id": "REM-0031",
-    "case_id": "CAS-00443",
+    "case_id": "CAS-01179",
     "action": "rule updated",
-    "completed_at": "2025-05-16T02:51:03Z"
+    "completed_at": "2025-12-19T18:01:52Z"
   },
   {
     "remediation_id": "REM-0032",
-    "case_id": "CAS-00479",
-    "action": "service restored",
-    "completed_at": "2025-06-23T23:51:14Z"
+    "case_id": "CAS-01263",
+    "action": "patch applied",
+    "completed_at": "2025-10-28T08:34:39Z"
   },
   {
     "remediation_id": "REM-0033",
-    "case_id": "CAS-01347",
-    "action": "service restored",
-    "completed_at": "2025-10-12T17:47:30Z"
+    "case_id": "CAS-01333",
+    "action": "patch applied",
+    "completed_at": "2025-06-12T15:02:44Z"
   },
   {
     "remediation_id": "REM-0034",
-    "case_id": "CAS-01401",
-    "action": "service restored",
-    "completed_at": "2025-08-07T11:38:36Z"
+    "case_id": "CAS-00663",
+    "action": "credentials reset",
+    "completed_at": "2025-10-26T06:56:03Z"
   },
   {
     "remediation_id": "REM-0035",
-    "case_id": "CAS-01614",
-    "action": "rule updated",
-    "completed_at": "2025-08-02T02:21:14Z"
+    "case_id": "CAS-01454",
+    "action": "host isolated",
+    "completed_at": null
   },
   {
     "remediation_id": "REM-0036",
-    "case_id": "CAS-01129",
-    "action": "credentials reset",
-    "completed_at": "2025-04-04T18:34:52Z"
+    "case_id": "CAS-01992",
+    "action": "host isolated",
+    "completed_at": "2025-01-20T07:06:09Z"
   },
   {
     "remediation_id": "REM-0037",
-    "case_id": "CAS-00290",
-    "action": "rule updated",
-    "completed_at": "2025-03-01T01:58:40Z"
+    "case_id": "CAS-01007",
+    "action": "host isolated",
+    "completed_at": "2025-09-19T19:13:49Z"
   },
   {
     "remediation_id": "REM-0038",
-    "case_id": "CAS-01487",
-    "action": "service restored",
-    "completed_at": "2025-11-20T15:58:32Z"
+    "case_id": "CAS-00248",
+    "action": "rule updated",
+    "completed_at": "2025-03-05T20:22:36Z"
   },
   {
     "remediation_id": "REM-0039",
-    "case_id": "CAS-01281",
-    "action": "credentials reset",
-    "completed_at": "2025-12-29T20:16:26Z"
+    "case_id": "CAS-01861",
+    "action": "host isolated",
+    "completed_at": "2025-02-27T08:04:56Z"
   },
   {
     "remediation_id": "REM-0040",
-    "case_id": "CAS-00329",
-    "action": "credentials reset",
-    "completed_at": null
+    "case_id": "CAS-00396",
+    "action": "rule updated",
+    "completed_at": "2025-06-10T05:27:54Z"
   },
   {
     "remediation_id": "REM-0041",
-    "case_id": "CAS-00904",
+    "case_id": "CAS-00371",
     "action": "host isolated",
-    "completed_at": "2025-10-30T10:13:25Z"
+    "completed_at": "2025-12-15T10:38:28Z"
   },
   {
     "remediation_id": "REM-0042",
-    "case_id": "CAS-01063",
-    "action": "host isolated",
-    "completed_at": null
+    "case_id": "CAS-00373",
+    "action": "patch applied",
+    "completed_at": "2025-10-05T14:12:41Z"
   },
   {
     "remediation_id": "REM-0043",
-    "case_id": "CAS-00379",
-    "action": "credentials reset",
-    "completed_at": "2025-08-12T10:46:07Z"
+    "case_id": "CAS-00854",
+    "action": "patch applied",
+    "completed_at": null
   },
   {
     "remediation_id": "REM-0044",
-    "case_id": "CAS-00041",
-    "action": "service restored",
-    "completed_at": "2025-02-15T07:17:08Z"
+    "case_id": "CAS-00821",
+    "action": "host isolated",
+    "completed_at": "2025-02-19T16:46:14Z"
   },
   {
     "remediation_id": "REM-0045",
-    "case_id": "CAS-00521",
-    "action": "rule updated",
-    "completed_at": "2025-08-05T16:14:57Z"
+    "case_id": "CAS-00091",
+    "action": "credentials reset",
+    "completed_at": "2025-08-22T19:28:48Z"
   },
   {
     "remediation_id": "REM-0046",
-    "case_id": "CAS-01135",
-    "action": "rule updated",
-    "completed_at": "2025-09-21T16:51:58Z"
+    "case_id": "CAS-01126",
+    "action": "patch applied",
+    "completed_at": "2025-08-01T00:16:43Z"
   },
   {
     "remediation_id": "REM-0047",
-    "case_id": "CAS-00563",
-    "action": "rule updated",
-    "completed_at": "2025-04-20T07:22:26Z"
+    "case_id": "CAS-01203",
+    "action": "host isolated",
+    "completed_at": "2025-02-04T13:01:12Z"
   },
   {
     "remediation_id": "REM-0048",
-    "case_id": "CAS-00917",
+    "case_id": "CAS-01699",
     "action": "credentials reset",
-    "completed_at": "2025-06-21T21:42:26Z"
+    "completed_at": "2025-06-14T23:52:43Z"
   },
   {
     "remediation_id": "REM-0049",
-    "case_id": "CAS-01663",
-    "action": "patch applied",
-    "completed_at": "2025-07-28T23:02:59Z"
+    "case_id": "CAS-00227",
+    "action": "rule updated",
+    "completed_at": "2025-02-13T12:09:01Z"
   },
   {
     "remediation_id": "REM-0050",
-    "case_id": "CAS-01997",
+    "case_id": "CAS-00847",
     "action": "service restored",
-    "completed_at": null
+    "completed_at": "2025-12-13T06:26:03Z"
   },
   {
     "remediation_id": "REM-0051",
-    "case_id": "CAS-00506",
-    "action": "patch applied",
-    "completed_at": null
+    "case_id": "CAS-00287",
+    "action": "service restored",
+    "completed_at": "2025-04-23T00:37:53Z"
   },
   {
     "remediation_id": "REM-0052",
-    "case_id": "CAS-01032",
-    "action": "credentials reset",
-    "completed_at": "2025-12-10T16:45:37Z"
+    "case_id": "CAS-00479",
+    "action": "service restored",
+    "completed_at": "2025-07-02T23:51:14Z"
   },
   {
     "remediation_id": "REM-0053",
-    "case_id": "CAS-00903",
+    "case_id": "CAS-00599",
     "action": "rule updated",
-    "completed_at": "2025-03-10T05:31:26Z"
+    "completed_at": "2025-09-16T11:39:35Z"
   },
   {
     "remediation_id": "REM-0054",
-    "case_id": "CAS-01894",
+    "case_id": "CAS-01807",
     "action": "credentials reset",
-    "completed_at": null
+    "completed_at": "2025-10-17T13:14:19Z"
   },
   {
     "remediation_id": "REM-0055",
-    "case_id": "CAS-00071",
+    "case_id": "CAS-00386",
     "action": "rule updated",
-    "completed_at": "2025-02-16T07:46:40Z"
+    "completed_at": "2025-12-17T06:48:11Z"
   },
   {
     "remediation_id": "REM-0056",
-    "case_id": "CAS-00746",
-    "action": "host isolated",
-    "completed_at": null
+    "case_id": "CAS-00632",
+    "action": "service restored",
+    "completed_at": "2025-07-19T09:37:30Z"
   },
   {
     "remediation_id": "REM-0057",
-    "case_id": "CAS-01228",
+    "case_id": "CAS-00041",
     "action": "credentials reset",
-    "completed_at": "2025-04-27T18:42:39Z"
+    "completed_at": "2025-02-13T07:17:08Z"
   },
   {
     "remediation_id": "REM-0058",
-    "case_id": "CAS-00611",
+    "case_id": "CAS-01398",
     "action": "credentials reset",
-    "completed_at": "2025-03-16T11:45:02Z"
+    "completed_at": null
   },
   {
     "remediation_id": "REM-0059",
-    "case_id": "CAS-01187",
-    "action": "patch applied",
-    "completed_at": null
+    "case_id": "CAS-00890",
+    "action": "host isolated",
+    "completed_at": "2025-12-27T06:51:28Z"
   },
   {
     "remediation_id": "REM-0060",
-    "case_id": "CAS-01994",
-    "action": "patch applied",
-    "completed_at": "2025-05-03T07:27:34Z"
-  },
-  {
-    "remediation_id": "REM-0061",
-    "case_id": "CAS-00325",
+    "case_id": "CAS-00983",
     "action": "host isolated",
-    "completed_at": "2025-06-21T08:50:16Z"
-  },
-  {
-    "remediation_id": "REM-0062",
-    "case_id": "CAS-00096",
-    "action": "service restored",
-    "completed_at": "2025-09-08T09:01:13Z"
-  },
-  {
-    "remediation_id": "REM-0063",
-    "case_id": "CAS-01721",
-    "action": "patch applied",
-    "completed_at": "2025-04-11T03:44:21Z"
-  },
-  {
-    "remediation_id": "REM-0064",
-    "case_id": "CAS-00620",
-    "action": "credentials reset",
-    "completed_at": "2025-06-30T00:07:52Z"
-  },
-  {
-    "remediation_id": "REM-0065",
-    "case_id": "CAS-01848",
-    "action": "rule updated",
     "completed_at": null
   },
   {
-    "remediation_id": "REM-0066",
-    "case_id": "CAS-01476",
+    "remediation_id": "REM-0061",
+    "case_id": "CAS-01197",
+    "action": "credentials reset",
+    "completed_at": "2025-05-27T18:16:57Z"
+  },
+  {
+    "remediation_id": "REM-0062",
+    "case_id": "CAS-00615",
     "action": "service restored",
-    "completed_at": "2025-09-12T12:21:22Z"
+    "completed_at": "2025-11-14T02:34:58Z"
+  },
+  {
+    "remediation_id": "REM-0063",
+    "case_id": "CAS-00769",
+    "action": "rule updated",
+    "completed_at": "2025-03-26T18:41:15Z"
+  },
+  {
+    "remediation_id": "REM-0064",
+    "case_id": "CAS-01709",
+    "action": "rule updated",
+    "completed_at": "2025-05-02T03:13:38Z"
+  },
+  {
+    "remediation_id": "REM-0065",
+    "case_id": "CAS-00460",
+    "action": "rule updated",
+    "completed_at": "2025-02-06T08:57:13Z"
+  },
+  {
+    "remediation_id": "REM-0066",
+    "case_id": "CAS-00956",
+    "action": "credentials reset",
+    "completed_at": "2025-03-14T03:10:45Z"
   },
   {
     "remediation_id": "REM-0067",
-    "case_id": "CAS-01232",
-    "action": "service restored",
-    "completed_at": "2025-04-21T08:38:06Z"
+    "case_id": "CAS-00996",
+    "action": "patch applied",
+    "completed_at": "2025-11-02T03:52:15Z"
   },
   {
     "remediation_id": "REM-0068",
-    "case_id": "CAS-01961",
-    "action": "rule updated",
+    "case_id": "CAS-00064",
+    "action": "service restored",
     "completed_at": null
   },
   {
     "remediation_id": "REM-0069",
-    "case_id": "CAS-00334",
+    "case_id": "CAS-01568",
     "action": "patch applied",
-    "completed_at": "2025-07-14T22:28:19Z"
+    "completed_at": null
   },
   {
     "remediation_id": "REM-0070",
-    "case_id": "CAS-00996",
-    "action": "host isolated",
-    "completed_at": "2025-10-29T03:52:15Z"
+    "case_id": "CAS-01927",
+    "action": "credentials reset",
+    "completed_at": "2025-01-23T07:47:42Z"
   },
   {
     "remediation_id": "REM-0071",
-    "case_id": "CAS-01370",
-    "action": "host isolated",
-    "completed_at": "2025-11-04T09:37:09Z"
+    "case_id": "CAS-01789",
+    "action": "rule updated",
+    "completed_at": "2026-01-04T16:48:04Z"
   },
   {
     "remediation_id": "REM-0072",
-    "case_id": "CAS-00927",
-    "action": "credentials reset",
-    "completed_at": "2025-11-02T04:07:35Z"
-  },
-  {
-    "remediation_id": "REM-0073",
-    "case_id": "CAS-00369",
+    "case_id": "CAS-01181",
     "action": "credentials reset",
     "completed_at": null
   },
   {
-    "remediation_id": "REM-0074",
-    "case_id": "CAS-01144",
+    "remediation_id": "REM-0073",
+    "case_id": "CAS-00309",
     "action": "rule updated",
+    "completed_at": "2025-09-20T03:41:33Z"
+  },
+  {
+    "remediation_id": "REM-0074",
+    "case_id": "CAS-01253",
+    "action": "host isolated",
     "completed_at": null
   },
   {
     "remediation_id": "REM-0075",
-    "case_id": "CAS-00703",
-    "action": "service restored",
-    "completed_at": null
+    "case_id": "CAS-00513",
+    "action": "credentials reset",
+    "completed_at": "2025-03-26T16:23:11Z"
   },
   {
     "remediation_id": "REM-0076",
-    "case_id": "CAS-01960",
-    "action": "service restored",
-    "completed_at": "2025-03-13T17:58:28Z"
+    "case_id": "CAS-00768",
+    "action": "credentials reset",
+    "completed_at": "2026-01-07T03:52:36Z"
   },
   {
     "remediation_id": "REM-0077",
-    "case_id": "CAS-01674",
-    "action": "host isolated",
-    "completed_at": "2025-04-09T22:37:51Z"
+    "case_id": "CAS-01192",
+    "action": "patch applied",
+    "completed_at": null
   },
   {
     "remediation_id": "REM-0078",
-    "case_id": "CAS-01743",
+    "case_id": "CAS-01048",
     "action": "patch applied",
-    "completed_at": "2025-10-29T17:14:47Z"
+    "completed_at": "2025-09-28T05:14:28Z"
   },
   {
     "remediation_id": "REM-0079",
-    "case_id": "CAS-01912",
-    "action": "service restored",
-    "completed_at": "2025-11-03T13:07:05Z"
+    "case_id": "CAS-01796",
+    "action": "host isolated",
+    "completed_at": "2025-12-30T23:16:12Z"
   },
   {
     "remediation_id": "REM-0080",
-    "case_id": "CAS-00062",
-    "action": "host isolated",
-    "completed_at": "2025-01-25T18:18:51Z"
+    "case_id": "CAS-00566",
+    "action": "service restored",
+    "completed_at": "2025-12-14T19:32:15Z"
   },
   {
     "remediation_id": "REM-0081",
-    "case_id": "CAS-00734",
-    "action": "credentials reset",
-    "completed_at": "2025-05-28T21:02:40Z"
+    "case_id": "CAS-00225",
+    "action": "patch applied",
+    "completed_at": "2025-05-20T12:59:29Z"
   },
   {
     "remediation_id": "REM-0082",
-    "case_id": "CAS-01929",
-    "action": "service restored",
-    "completed_at": "2025-04-29T19:41:17Z"
+    "case_id": "CAS-01916",
+    "action": "credentials reset",
+    "completed_at": "2025-07-22T21:09:13Z"
   },
   {
     "remediation_id": "REM-0083",
-    "case_id": "CAS-01030",
-    "action": "service restored",
-    "completed_at": "2025-07-08T08:15:48Z"
+    "case_id": "CAS-01543",
+    "action": "rule updated",
+    "completed_at": null
   },
   {
     "remediation_id": "REM-0084",
-    "case_id": "CAS-00298",
-    "action": "rule updated",
-    "completed_at": "2025-05-01T19:18:27Z"
+    "case_id": "CAS-00397",
+    "action": "service restored",
+    "completed_at": "2025-08-16T21:39:24Z"
   },
   {
     "remediation_id": "REM-0085",
-    "case_id": "CAS-00386",
+    "case_id": "CAS-01130",
     "action": "service restored",
-    "completed_at": "2025-08-22T08:37:44Z"
+    "completed_at": "2025-11-26T00:12:06Z"
   },
   {
     "remediation_id": "REM-0086",
-    "case_id": "CAS-01644",
-    "action": "service restored",
-    "completed_at": "2025-12-14T19:57:26Z"
+    "case_id": "CAS-01685",
+    "action": "rule updated",
+    "completed_at": null
   },
   {
     "remediation_id": "REM-0087",
-    "case_id": "CAS-01530",
+    "case_id": "CAS-00413",
     "action": "patch applied",
-    "completed_at": "2025-02-14T15:39:04Z"
+    "completed_at": "2025-10-29T07:16:08Z"
   },
   {
     "remediation_id": "REM-0088",
-    "case_id": "CAS-00112",
-    "action": "service restored",
-    "completed_at": "2025-03-19T14:18:43Z"
+    "case_id": "CAS-00930",
+    "action": "host isolated",
+    "completed_at": "2025-05-14T11:36:18Z"
   },
   {
     "remediation_id": "REM-0089",
-    "case_id": "CAS-01720",
+    "case_id": "CAS-00298",
     "action": "host isolated",
-    "completed_at": "2026-01-07T22:23:28Z"
+    "completed_at": "2025-04-16T19:18:27Z"
   },
   {
     "remediation_id": "REM-0090",
-    "case_id": "CAS-00081",
+    "case_id": "CAS-00522",
     "action": "credentials reset",
-    "completed_at": "2025-08-16T03:04:29Z"
+    "completed_at": "2025-07-27T07:55:14Z"
   },
   {
     "remediation_id": "REM-0091",
-    "case_id": "CAS-00691",
-    "action": "host isolated",
+    "case_id": "CAS-01554",
+    "action": "credentials reset",
     "completed_at": null
   },
   {
     "remediation_id": "REM-0092",
-    "case_id": "CAS-01311",
-    "action": "credentials reset",
-    "completed_at": "2025-02-21T10:11:40Z"
-  },
-  {
-    "remediation_id": "REM-0093",
-    "case_id": "CAS-01648",
+    "case_id": "CAS-00125",
     "action": "rule updated",
-    "completed_at": "2025-04-13T17:45:16Z"
-  },
-  {
-    "remediation_id": "REM-0094",
-    "case_id": "CAS-01354",
-    "action": "rule updated",
-    "completed_at": "2025-07-28T09:09:20Z"
-  },
-  {
-    "remediation_id": "REM-0095",
-    "case_id": "CAS-00796",
-    "action": "credentials reset",
-    "completed_at": "2025-09-13T00:09:01Z"
-  },
-  {
-    "remediation_id": "REM-0096",
-    "case_id": "CAS-01114",
-    "action": "service restored",
-    "completed_at": "2025-10-20T08:01:48Z"
-  },
-  {
-    "remediation_id": "REM-0097",
-    "case_id": "CAS-00082",
-    "action": "credentials reset",
-    "completed_at": "2025-06-29T14:10:40Z"
-  },
-  {
-    "remediation_id": "REM-0098",
-    "case_id": "CAS-01441",
-    "action": "host isolated",
     "completed_at": null
   },
   {
-    "remediation_id": "REM-0099",
-    "case_id": "CAS-00656",
+    "remediation_id": "REM-0093",
+    "case_id": "CAS-01955",
+    "action": "service restored",
+    "completed_at": null
+  },
+  {
+    "remediation_id": "REM-0094",
+    "case_id": "CAS-01897",
+    "action": "service restored",
+    "completed_at": "2025-07-14T03:44:45Z"
+  },
+  {
+    "remediation_id": "REM-0095",
+    "case_id": "CAS-00848",
+    "action": "host isolated",
+    "completed_at": "2025-08-25T15:09:47Z"
+  },
+  {
+    "remediation_id": "REM-0096",
+    "case_id": "CAS-01308",
     "action": "patch applied",
-    "completed_at": "2025-03-15T14:02:20Z"
+    "completed_at": "2025-01-31T05:59:27Z"
+  },
+  {
+    "remediation_id": "REM-0097",
+    "case_id": "CAS-00361",
+    "action": "service restored",
+    "completed_at": "2025-08-24T21:17:52Z"
+  },
+  {
+    "remediation_id": "REM-0098",
+    "case_id": "CAS-00858",
+    "action": "host isolated",
+    "completed_at": "2025-04-06T11:27:17Z"
+  },
+  {
+    "remediation_id": "REM-0099",
+    "case_id": "CAS-00096",
+    "action": "credentials reset",
+    "completed_at": "2025-09-10T09:01:13Z"
   },
   {
     "remediation_id": "REM-0100",
-    "case_id": "CAS-01818",
-    "action": "patch applied",
-    "completed_at": "2025-05-07T09:51:55Z"
+    "case_id": "CAS-00024",
+    "action": "service restored",
+    "completed_at": "2025-05-10T15:45:07Z"
   }
 ]

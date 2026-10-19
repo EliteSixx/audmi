@@ -2,274 +2,378 @@
 
 **Supervisory Analytics for SOC Assessment** · SIH26157 (SAT-SA) · NTRO · Team Elite Six
 
-AudMi is an offline-first supervisory analytics tool. It analyzes periodic SOC alert and case-management submissions and helps a human examiner identify evidence-backed operational gaps and prioritize records for manual review. It is not a SIEM, a real-time SOC, a SOC replacement or a monitoring platform, and it makes no compliance judgments. Findings are worded as potential supervisory signals that require human review.
+AudMi is an offline-first supervisory analytics tool designed to help human examiners assess the operational capabilities of Security Operations Centres (SOCs) through periodic alert and case-management submissions.
 
-## Current status
+It aims to surface evidence-backed operational gaps, identify potentially missing evidence, and help examiners prioritize records for manual review.
 
-This is a research prototype for SIH 2026. All data is **synthetic**; no real NCIIPC or CSE data is used. Air-gapped operation is the deployment goal and has **not** been verified yet.
+AudMi is not a SIEM, a real-time SOC, a SOC replacement, or a monitoring platform. It does not independently determine compliance or declare an entity at fault. Its outputs are potential supervisory signals that require human examination.
 
-| Area | Status |
+> **Guiding principle:** AudMi does not replace the examiner. It helps the examiner see where to look.
+
+## Current Status
+
+AudMi is a research prototype developed for Smart India Hackathon 2026. All demonstration and testing data is synthetic. No real NCIIPC or Critical Sector Entity (CSE) data is used.
+
+The current repository contains the evidence model, synthetic dataset generator, execution-gap analytics, and a web demonstration. The complete end-to-end offline product is still under development.
+
+| Component | Status |
 |---|---|
-| Canonical evidence model (7 entities) and JSON schema | Implemented, tested |
-| Deterministic synthetic dataset generator with seeded conditions and separate ground truth | Implemented, tested |
-| Execution-gap analytics: missing escalation, unusually short investigation, repeated alerts without remediation | Implemented, tested |
+| Canonical evidence model and JSON schema | Implemented and tested |
+| Deterministic synthetic dataset generator | Implemented and tested |
+| Execution-gap analytics | Implemented and tested |
 | Negative-space analytics | Planned |
-| Peer / context analysis | Planned |
+| Peer and contextual analysis | Planned |
 | Workflow pattern analysis | Planned |
-| Ingestion of external CSV/JSON/DB exports | Planned |
-| Prioritization, review queue, explainability layer | Planned |
-| Validation against ground truth (precision / recall) | Planned; no results yet |
-| Optional local SLM, SATPACK offline exchange | Planned |
-| Web demo (Next.js, mock synthetic data) | Implemented; does not run the Python analytics and does not demonstrate offline operation |
+| External SOC data ingestion and validation | Planned |
+| Evidence-linked prioritization and review workflow | Planned |
+| Ground-truth-based precision and recall evaluation | Planned |
+| Offline packaging and air-gapped verification | Planned |
+| Next.js web demonstration | Implemented with mock synthetic data |
 
-## Repository layout
+**Deployment goal:** Local, controlled, offline operation without dependence on cloud services or external AI APIs. Air-gapped operation has not yet been verified.
 
+## Repository Structure
+
+```text
+audmi/
+├── data/
+│   ├── schemas/
+│   │   └── core-evidence.schema.json
+│   └── synthetic/
+│       ├── generator.py
+│       └── golden_dataset/
+│           ├── cse.json
+│           ├── assets.json
+│           ├── alerts.json
+│           ├── cases.json
+│           ├── investigations.json
+│           ├── escalations.json
+│           ├── remediations.json
+│           ├── ground_truth.json
+│           └── dataset_manifest.json
+├── src/
+│   ├── normalization/
+│   │   └── evidence_model.py
+│   ├── analytics/
+│   │   └── execution_gaps.py
+│   ├── ingestion/
+│   ├── evidence/
+│   ├── explainability/
+│   ├── prioritization/
+│   ├── review/
+│   └── validation/
+├── tests/
+│   ├── test_evidence_model.py
+│   ├── test_execution_gaps.py
+│   └── test_synthetic_generator.py
+├── web/
+│   └── Next.js demonstration application
+├── docs/
+│   ├── ARCHITECTURE.html
+│   └── AudMi_Architecture.pdf
+├── README.md
+└── requirements.txt
 ```
-src/
-  normalization/evidence_model.py   canonical entities
-  analytics/execution_gaps.py       execution-gap detection
-  ingestion/ evidence/ explainability/ prioritization/ review/ validation/   scaffolded modules
-data/
-  schemas/core-evidence.schema.json
-  synthetic/generator.py            deterministic generator
-  synthetic/golden_dataset/         generated records + ground_truth.json
-tests/                              24 unit tests
-web/                                Next.js demo site
-docs/ARCHITECTURE.md                intended architecture
-```
 
-## Canonical evidence model
+Some directories are scaffolding for planned functionality. Their presence does not mean the corresponding features are implemented.
 
-Seven identifier-linked entities: CSE, Asset, Alert, Case, Investigation, Escalation, Remediation. A case may have no investigation, escalation or remediation records; absence is meaningful for the analytics.
+## Canonical Evidence Model
 
-Replace the existing setup/run sections with this. It separates running the implemented prototype from the planned installation of the final offline product, without pretending the unfinished components magically exist.
+AudMi uses seven identifier-linked entities to represent SOC operational records:
 
-````
+| Entity | Purpose |
+|---|---|
+| CSE | Represents the assessed Critical Sector Entity |
+| Asset | Represents an asset associated with an entity |
+| Alert | Represents a security alert |
+| Case | Represents a case associated with SOC activity |
+| Investigation | Represents investigation activity for a case |
+| Escalation | Represents an escalation record |
+| Remediation | Represents a remediation action or record |
+
+The relationships between these entities provide the basis for examining operational workflows and identifying potential execution gaps.
+
+For example, a case without an associated escalation record may warrant review. However, the absence of a record is not automatically proof that the escalation did not occur. The interpretation depends on the available data, expected workflow, and applicable rules.
+
+## Synthetic Validation Dataset
+
+The repository includes a deterministic synthetic dataset for development and testing.
+
+The dataset generated with seed `42` contains:
+
+| Record type | Expected count |
+|---|---:|
+| CSEs | 6 |
+| Assets | 300 |
+| Alerts | 10,000 |
+| Cases | 2,000 |
+| Investigations | 1,500 |
+| Escalations | 300 |
+| Remediations | 100 |
+
+The dataset includes seeded conditions and a separate `ground_truth.json` file containing expected labels.
+
+This separation is intended to support future evaluation of detection performance without placing ground-truth labels directly into the operational records being analyzed.
+
+The counts describe the configured synthetic dataset, not real-world SOC activity or supervisory findings.
+
+AudMi includes a reproducible synthetic dataset generated with seed 42, comprising 14,206 operational records across six Critical Sector Entities (CSEs).
+
+The accompanying ground-truth file defines seeded test conditions for:
+
+- [ ] Missing escalation records
+- [ ] Repeated alerts without remediation
+- [ ] Unusually short investigations
+- [ ] Critical assets exhibiting low activity
+
+These conditions provide known scenarios for testing supervisory analytics. The ground-truth references are not a complete record-level labelling of the operational dataset, and detection accuracy has not yet been established.
+
 ## Setup and Installation
 
-AudMi is being developed as an offline-first supervisory analytics tool. The repository currently contains the canonical evidence model, synthetic dataset generator, deterministic execution-gap analytics, and a Next.js demonstration interface.
+The instructions below explain how to run the **currently implemented Python prototype** and, optionally, the web interface locally. They do not install the complete planned offline product.
 
-The final product is intended to run locally in a controlled environment without requiring internet access, cloud services, or external AI APIs. The complete end-to-end installation workflow is still under development.
+### Prerequisites
 
-### 1. Prerequisites
-
-For the current Python prototype:
+For the Python prototype:
 
 - Git
 - Python 3.11 or later
 - A terminal or command prompt
 
-For the optional local web demo:
+For local web development:
 
-- Node.js and npm
+- Node.js
+- npm
 - A modern web browser
 
-The current Python implementation uses the standard library. No additional Python packages are required to run its existing modules.
+The existing Python modules use the standard library. No additional Python packages are required to run the implemented generator and analytics module.
 
-### 2. Clone the Repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/rudythetechy/audmi.git
 cd audmi
-````
+```
 
 Verify that Python is installed:
 
-```
+```bash
 python --version
 ```
 
-If `python` is not recognized on Windows, try:
+On Windows, if `python` is not recognized, try:
 
-```
+```powershell
 py --version
 ```
 
-Use the appropriate Python command for the remaining steps.
+Use the Python command available on your system in the remaining steps.
 
-### 3. Generate the Synthetic Dataset
+### 2. Generate the Synthetic Dataset
 
-AudMi uses deterministic synthetic SOC records for development and testing. No real NCIIPC or Critical Sector Entity data is included.
+A generated dataset is already included in the repository. Regeneration is optional.
 
-To regenerate the dataset using seed `42`, run:
+To regenerate it using seed `42`, run the following command from the repository root:
 
-```
+```bash
 python -m data.synthetic.generator --seed 42
 ```
 
-The generated records are stored under:
+The generated records are stored in:
 
-```
+```text
 data/synthetic/golden_dataset/
 ```
 
-The dataset includes linked entities such as CSEs, assets, alerts, cases, investigations, escalations, and remediations. Seeded conditions and their expected labels are maintained separately in `ground_truth.json`.
+The generator creates linked synthetic records and seeded conditions for testing the evidence model and analytics.
 
-Note: A copy of the synthetic dataset is already included in the repository, so regeneration is optional.
+**Note:** Regenerating the dataset may overwrite the existing generated records. Preserve any local changes you need before running the generator.
 
-### 4. Run the Implemented Analytics
+### 3. Run the Execution-Gap Analytics
 
 The current implementation supports deterministic execution-gap analysis.
 
-Run:
+Run the module from the repository root:
 
-```
+```bash
 python -m src.analytics.execution_gaps
 ```
 
-The module reports counts of potential signals for supported conditions, including:
+The module reports potential signals for supported conditions, including:
 
 - Cases with missing escalation records
 - Investigations with unusually short durations
 - Repeated alerts without corresponding remediation records
 
-These are rule-based signals for human review, not confirmed incidents, compliance violations, or measures of detection accuracy. Thresholds and detection performance have not yet been fully validated against the synthetic ground truth.
+The output represents rule-based signals on synthetic data. It is not a set of confirmed incidents, proof of non-compliance, or a measurement of detection accuracy.
 
-### 5. Run the Tests
+Rule thresholds and detection performance still require systematic evaluation against the synthetic ground truth.
 
-Install `pytest` if it is not already available:
+### 4. Run the Tests
 
-```
+Install `pytest` if necessary:
+
+```bash
 python -m pip install pytest
 ```
 
 Run the test suite from the repository root:
 
-```
+```bash
 python -m pytest -v
 ```
 
-The tests cover the canonical evidence model, execution-gap analytics, and synthetic dataset generator.
+The tests cover the evidence model, execution-gap analytics, and synthetic dataset generator.
 
-### 6. Access the Web Demonstration
+### 5. Access the Web Demonstration
 
-The hosted Vercel deployment is the demonstration interface. Use the deployment URL provided for the SIH submission.
+The hosted Vercel deployment is the primary demonstration interface for evaluation. Use the deployment URL supplied with the SIH submission.
 
-The web interface uses mock synthetic data. It is separate from the Python analytics implementation and does not currently execute the Python detection modules.
+The web demonstration uses mock synthetic data. It is a separate frontend and does not currently execute the Python analytics modules.
 
-To run the web demonstration locally for development:
+To run the web interface locally for development:
 
-```
+```bash
 cd web
 npm install
 npm run dev
 ```
 
-Open the local development address printed by Next.js, normally:
+Open the address printed by Next.js, normally:
 
-```
+```text
 http://localhost:3000
 ```
 
-To create a production build of the web interface:
+To check whether the frontend can produce a production build:
 
-```
+```bash
 npm run build
 ```
 
-Important: Running the web interface locally does not install or launch the complete supervisory analytics backend. The hosted and local web demonstrations do not establish that AudMi operates in an offline or air-gapped environment.
+These commands build or run the web interface only. They do not install the complete supervisory analytics backend or establish offline operation.
 
-## Planned Final Product Installation and Deployment
+## Planned Final Product Deployment
 
-The following describes the intended deployment workflow. It is an implementation plan, not a claim that the complete workflow is currently available.
+This section describes the intended deployment architecture and workflow. The complete workflow is not yet implemented, so these are design goals rather than production installation instructions.
 
 ### 1. Deployment Environment
 
-The target deployment is a locally hosted Linux workstation or server within a controlled environment. The system is intended to operate without internet access, cloud dependencies, SaaS services, or external AI APIs.
+The target is a locally hosted Linux workstation or server operating in a controlled environment.
 
-The final infrastructure and supported operating systems will be confirmed during implementation and deployment testing.
+The final product is intended to operate without internet access, cloud services, SaaS dependencies, or external AI APIs. The core analytics must remain usable without a language model.
 
-### 2. Install the Application Components
+The final operating-system support, runtime versions, infrastructure requirements, and packaging method will be determined during implementation and testing.
 
-The planned installation package will include:
+### 2. Application Components
 
-- The supervisory analytics backend
-- The canonical evidence model and schema validation
-- The data ingestion and normalization pipeline
-- Deterministic analytics and rule configuration
+The planned installation package is expected to include:
+
+- Supervisory analytics backend
+- Canonical evidence model and schema validation
+- Data ingestion and normalization pipeline
+- Deterministic analytics and versioned rule configuration
 - Local storage and evidence traceability
-- The review interface and findings export workflow
+- Review interface and findings export workflow
 - Versioned application configuration and audit records
 
-Containerized deployment using Docker Compose is a planned option. The final packaging method and dependency versions have not yet been finalized.
+Containerized deployment using Docker Compose is a candidate approach. The final container configuration, dependencies, and installation commands have not yet been finalized.
 
-### 3. Configure Data Inputs
+### 3. Data Ingestion and Validation
 
-The planned ingestion layer will support periodic SOC submissions through supported structured formats, initially targeting CSV and JSON exports.
+The planned ingestion layer will initially target periodic SOC submissions in CSV and JSON formats.
 
-Incoming records will be mapped to AudMi's canonical evidence model. Validation will check required fields, identifiers, timestamps, relationships, and schema compatibility.
+Incoming records will be mapped to the canonical evidence model. Validation is intended to check:
 
-Invalid or incomplete records should produce a validation report rather than silently entering the analytics pipeline. Missing evidence will be interpreted according to explicit rules and the availability of the relevant source data.
+- Required fields and data types
+- Identifiers and entity relationships
+- Timestamp formats and consistency
+- Schema compatibility
+- Missing or incomplete records
 
-External database or API integrations will be added only where required and supported by the deployment environment.
+Invalid or incomplete submissions should generate a validation report rather than silently entering the analytics pipeline.
 
-### 4. Execute Supervisory Analytics
+Missing records must be interpreted in context. AudMi should distinguish between evidence that is genuinely absent and evidence that was not supplied in the input dataset.
 
-The final workflow is intended to process validated submissions using deterministic, explainable rules.
+Additional database or API integrations will be introduced where required and supported by the deployment environment.
 
-Planned analytics include:
+### 4. Supervisory Analytics
 
-- Execution-gap analysis: Identify potentially missing or incomplete workflow steps.
-- Negative-space analysis: Identify expected evidence or telemetry that is absent, where the required source data is available.
-- Workflow pattern analysis: Surface repeated or potentially templated investigation patterns for review.
-- Peer and contextual analysis: Compare entities only where the available data supports a meaningful comparison.
-- Evidence-linked prioritization: Organize potential signals for manual examination and retain traceability to the supporting records.
+The planned analytics workflow will process validated submissions using deterministic, explainable methods.
 
-The existing execution-gap module is implemented. The other capabilities remain planned and must not be treated as available until implemented and tested.
+**Execution-gap analysis**
 
-### 5. Review and Export Findings
+Identifies potentially missing or incomplete workflow steps. The initial implementation already includes rules for missing escalation records, unusually short investigations, and repeated alerts without corresponding remediation records.
 
-The intended final product will allow an examiner to inspect each potential signal, review its supporting evidence, and decide whether further investigation is warranted.
+**Negative-space analysis**
 
-A planned review workflow will include evidence references, rule identifiers, relevant timestamps, and traceable outputs. Offline export and exchange packaging are also planned.
+Intended to identify expected evidence or telemetry that is absent, where the available data supports that conclusion.
 
-AudMi is designed to assist human examination. It will not independently declare an entity compliant or non-compliant.
+**Workflow pattern analysis**
 
-### 6. Verify Offline Operation
+Intended to surface repeated or potentially templated investigation patterns for human review.
 
-Before claiming air-gapped readiness, the packaged application must be installed and tested in an isolated environment with network access disabled.
+**Peer and contextual analysis**
+
+Intended to compare entities where sufficient, comparable data is available. Comparisons must account for differences in data coverage and operational context.
+
+**Evidence-linked prioritization**
+
+Intended to organize potential signals for manual review and preserve references to supporting records and the rules that generated them.
+
+Only execution-gap analytics are implemented in the current prototype. The other capabilities remain planned.
+
+### 5. Findings Review and Export
+
+The planned review workflow will allow an examiner to inspect a potential signal, review its supporting evidence, and decide whether further investigation is warranted.
+
+The intended findings format will retain relevant evidence references, rule identifiers, timestamps, and traceable analysis outputs.
+
+Offline export and exchange packaging are also planned.
+
+AudMi is designed to support human judgment. It will not independently declare an entity compliant or non-compliant.
+
+### 6. Offline Deployment Verification
+
+Air-gapped readiness will be claimed only after the packaged application has been installed and tested in an isolated environment with network access disabled.
 
 Verification should establish that:
 
 - Required dependencies are available locally.
 - The application starts without contacting external services.
-- Synthetic or approved local submissions can be processed.
+- Supported local submissions can be processed.
 - Analytics and evidence references remain available offline.
 - Findings can be reviewed and exported without cloud services.
 - Any optional local language model operates without external API calls.
 
-Air-gapped operation, performance, and detection accuracy will be claimed only after the corresponding tests have been completed and documented.
+Performance, detection accuracy, and offline readiness will be reported only after the corresponding tests have been completed and documented.
 
-## Current Implementation Status
+## Architecture Documentation
 
-| Component                                             | Status                               |
-| ----------------------------------------------------- | ------------------------------------ |
-| Canonical evidence model and JSON schema              | Implemented and tested               |
-| Deterministic synthetic dataset generator             | Implemented and tested               |
-| Execution-gap analytics                               | Implemented and tested               |
-| Negative-space analytics                              | Planned                              |
-| Peer and contextual analysis                          | Planned                              |
-| Workflow pattern analysis                             | Planned                              |
-| External data ingestion and validation pipeline       | Planned                              |
-| Complete backend API and review workflow              | Planned                              |
-| Prioritization and evidence-linked findings interface | Planned                              |
-| Ground-truth-based precision and recall evaluation    | Planned                              |
-| Offline packaging and air-gapped verification         | Planned                              |
-| Next.js demonstration interface                       | Implemented with mock synthetic data |
+The architecture document describes the intended system design, including data ingestion, evidence normalization, supervisory analytics, findings traceability, and the planned controlled deployment environment.
 
-The current repository is a research prototype. The hosted demonstration illustrates the intended user experience, while the Python modules provide the currently implemented evidence-model and analytics functionality. The complete offline product will require further implementation, integration, and validation.
+- [Architecture diagram and document (HTML)](docs/ARCHITECTURE.html)
+- [Architecture document (PDF)](docs/AudMi_Architecture.pdf)
 
-```
-
-**One correction before committing:** your existing repository layout still references `docs/ARCHITECTURE.md`. Since you decided to keep the HTML and PDF versions, update that entry to `docs/ARCHITECTURE.html` and `docs/AudMi_Architecture.pdf`. No need to resurrect a redundant Markdown architecture document just to satisfy an outdated path.
-```
+The architecture describes the target design. Components marked as planned should not be interpreted as implemented functionality.
 
 ## Limitations
 
-- Signals require human review; they are not findings of fault.
-- Only the execution-gap module exists today; thresholds are not yet validated.
-- No performance or accuracy results are published until they have been measured.
+- The repository is a research prototype, not a complete production deployment.
+- The web demonstration uses mock synthetic data and does not execute the Python analytics.
+- Only the execution-gap analytics module is currently implemented.
+- Negative-space, peer/contextual, workflow-pattern, and prioritization capabilities remain planned.
+- External SOC data ingestion and the complete review workflow remain planned.
+- Detection thresholds have not been fully validated against ground truth.
+- No verified precision, recall, or production performance figures are available.
+- Offline and air-gapped operation has not yet been verified.
+- Potential signals require human review and must not be treated as definitive findings of fault.
 
 ## Team
 
-Elite Six · Smart India Hackathon 2026 · SIH26157 · Theme: Blockchain & Cybersecurity · Organization: NTRO
+**Team Elite Six**
+
+Smart India Hackathon 2026  
+Problem Statement: SIH26157  
+Theme: Blockchain & Cybersecurity  
+Organization: NTRO
