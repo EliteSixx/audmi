@@ -1,1 +1,10 @@
-﻿# Dependencies will be introduced with implementation, when required.
+﻿# Runtime dependencies. Each one must be carried into the air-gapped deployment
+# as a wheel, so add one only with a reason (AGENTS.md rule 4).
+
+# PyYAML: parses the Sigma-like rule files in rules/*.yaml. YAML (not JSON) is
+# used because rule files are read and reviewed by people and need comments
+# that explain each threshold. Pure-Python fallback, no network access.
+PyYAML>=6.0,<7
+
+# Test-only: python -m pytest -q
+pytest>=8

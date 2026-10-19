@@ -1,0 +1,30 @@
+id: repeated_alerts_without_remediation
+title: Asset alerts repeatedly with little remediation evidence
+version: 1.0.0
+status: experimental
+level: high
+capability: incident_response
+category: execution_gap
+subject_type: asset
+description: >
+  An asset whose alert count is above its CSE's robust upper fence
+  (max(median + sigma_multiplier * mad_scale * MAD, min_multiple_of_median * median)),
+  with at least min_case_count cases, of which no more than
+  max_remediation_coverage have any remediation record.
+parameters:
+  # Robust standard deviations above the CSE's median asset alert count.
+  sigma_multiplier: 3.0
+  # 1.4826 converts MAD to a standard-deviation estimate for normal data.
+  mad_scale: 1.4826
+  # The asset must also have at least this multiple of the CSE's median alert count.
+  min_multiple_of_median: 2.0
+  # Minimum number of cases on the asset before remediation coverage is judged.
+  min_case_count: 3
+  # Flag only when the share of cases with any remediation record is at most this.
+  max_remediation_coverage: 0.10
+  # A CSE needs at least this many assets for a per-CSE baseline.
+  min_assets_per_cse: 5
+false_positives:
+  - A noisy detection rule on the asset that the CSE has accepted as a known risk.
+  - Remediation tracked in a change-management system not included in the submission.
+  - A single long-running remediation covering many alerts.

@@ -1,0 +1,24 @@
+id: unusually_short_investigation
+title: Investigation much shorter than the observed baseline
+version: 1.0.0
+status: experimental
+level: medium
+capability: investigation
+category: execution_gap
+subject_type: investigation
+description: >
+  Robust lower fence on log duration. Takes the natural log of every completed
+  investigation's duration, then flags investigations below
+  median - sigma_multiplier * mad_scale * MAD. Log makes "10x shorter"
+  comparable across minutes and days; median/MAD resist outliers.
+parameters:
+  # Number of robust standard deviations below the median that counts as unusual.
+  sigma_multiplier: 3.5
+  # 1.4826 converts MAD to a standard-deviation estimate for normal data.
+  mad_scale: 1.4826
+  # Below this many completed investigations no baseline is computed.
+  min_baseline_size: 8
+false_positives:
+  - Automated or playbook-driven investigations that are legitimately fast.
+  - Duplicate alerts closed quickly because a parent case was already investigated.
+  - Timestamps captured at the wrong workflow step.

@@ -1,0 +1,21 @@
+id: missing_escalation
+title: High-severity case investigated but not escalated
+version: 1.0.0
+status: experimental
+level: high
+capability: escalation
+category: execution_gap
+subject_type: case
+description: >
+  Expected-vs-observed check. A case whose alert has one of the listed
+  severities, and which has at least one investigation record, is expected to
+  have an escalation record. A case with none is a potential execution gap.
+parameters:
+  # Alert severities for which an escalation record is expected.
+  escalation_required_severities: [high, critical]
+  # Only flag cases that show investigation activity (the case was worked).
+  require_investigation: true
+false_positives:
+  - The CSE's escalation policy does not require escalation for this alert category.
+  - The escalation happened but was recorded outside the submitted evidence.
+  - The alert was triaged as a false positive before escalation was due.
