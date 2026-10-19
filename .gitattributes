@@ -1,0 +1,5 @@
+# Keep line endings consistent across Windows and Linux teammates
+* text=auto eol=lf
+*.pdf binary
+*.png binary
+*.jpg binary
