@@ -1,6 +1,10 @@
 import json
 import unittest
+from collections import Counter
 from datetime import datetime, timedelta, timezone
+
+from src.core.findings import Category
+from src.core.registry import RuleRegistry, load_registry, rule_from_dict
 
 from src.analytics.execution_gaps import (
     DEFAULT_DATASET_DIR,
@@ -35,9 +39,9 @@ class ExecutionGapTests(unittest.TestCase):
         investigated_cases = {item.case_id for item in load_evidence().investigations}
         seeded_with_investigation = seeded & investigated_cases
         found = {
-            item.case_id
+            item.subject_id
             for item in self.findings
-            if item.signal_type == "missing_escalation"
+            if item.rule_id == "missing_escalation"
         }
         self.assertTrue(seeded_with_investigation)
         self.assertTrue(seeded_with_investigation.issubset(found))
@@ -51,19 +55,19 @@ class ExecutionGapTests(unittest.TestCase):
             for record_id in condition["record_ids"]
         }
         found = {
-            item.investigation_id
+            item.subject_id
             for item in self.findings
-            if item.signal_type == "unusually_short_investigation"
+            if item.rule_id == "unusually_short_investigation"
         }
         self.assertTrue(seeded)
         self.assertTrue(seeded.issubset(found))
         short_findings = [
             item for item in self.findings
-            if item.signal_type == "unusually_short_investigation"
+            if item.rule_id == "unusually_short_investigation"
         ]
         self.assertTrue(all(item.baseline and item.baseline["lower_threshold_seconds"] for item in short_findings))
         self.assertLess(
-            short_findings[0].duration_seconds,
+            short_findings[0].baseline["observed_duration_seconds"],
             short_findings[0].baseline["lower_threshold_seconds"],
         )
 
@@ -75,18 +79,18 @@ class ExecutionGapTests(unittest.TestCase):
             for asset_id in condition["asset_ids"]
         }
         found = {
-            item.asset_id
+            item.subject_id
             for item in self.findings
-            if item.signal_type == "repeated_alerts_without_remediation"
+            if item.rule_id == "repeated_alerts_without_remediation"
         }
         self.assertTrue(seeded)
         self.assertTrue(seeded.issubset(found))
 
     def test_normal_profile_assets_are_not_flagged_for_repetition(self) -> None:
         repeated_assets = {
-            item.asset_id
+            item.subject_id
             for item in self.findings
-            if item.signal_type == "repeated_alerts_without_remediation"
+            if item.rule_id == "repeated_alerts_without_remediation"
         }
         self.assertFalse(any(asset_id.startswith("AST-01-") for asset_id in repeated_assets))
 
@@ -123,8 +127,8 @@ class ExecutionGapTests(unittest.TestCase):
             remediations=(None,),
         )
         findings = analyze_evidence(partial)
-        self.assertEqual([item.signal_type for item in findings], ["missing_escalation"])
-        self.assertEqual(findings[0].case_id, case.case_id)
+        self.assertEqual([item.rule_id for item in findings], ["missing_escalation"])
+        self.assertEqual(findings[0].subject_id, case.case_id)
 
     def test_escalated_or_uninvestigated_cases_do_not_raise_missing_escalation(self) -> None:
         cse = CSE("CSE-Y", "Fixture CSE", "fixture")
@@ -137,6 +141,63 @@ class ExecutionGapTests(unittest.TestCase):
             investigations=(), escalations=(escalation,), remediations=(),
         )
         self.assertEqual(analyze_evidence(evidence), [])
+
+    def test_golden_dataset_finding_counts_are_unchanged(self) -> None:
+        # Pinned to the pre-registry implementation (commit 72d0b80) so that
+        # moving thresholds into YAML cannot silently change behaviour.
+        counts = Counter(item.rule_id for item in self.findings)
+        self.assertEqual(
+            dict(counts),
+            {
+                "missing_escalation": 581,
+                "unusually_short_investigation": 105,
+                "repeated_alerts_without_remediation": 8,
+            },
+        )
+
+    def test_findings_carry_registry_metadata(self) -> None:
+        registry = load_registry()
+        for finding in self.findings:
+            rule = registry[finding.rule_id]
+            self.assertEqual(finding.rule_version, rule.version)
+            self.assertIs(finding.capability, rule.capability)
+            self.assertIs(finding.category, Category.EXECUTION_GAP)
+            self.assertIs(finding.subject_type, rule.subject_type)
+            self.assertTrue(finding.baseline)
+            self.assertIn(finding.subject_id, finding.supporting_record_ids)
+
+    def test_parameters_come_from_the_registry(self) -> None:
+        cse = CSE("CSE-Z", "Fixture CSE", "fixture")
+        asset = Asset("AST-Z", cse.cse_id, "critical", "server")
+        alert = Alert("ALT-Z", cse.cse_id, asset.asset_id, "medium", "intrusion", NOW)
+        case = Case("CAS-Z", cse.cse_id, alert.alert_id, "open", NOW + timedelta(minutes=1))
+        evidence = EvidenceRecords(cse=(cse,), assets=(asset,), alerts=(alert,), cases=(case,))
+        self.assertEqual(analyze_evidence(evidence), [])
+
+        rule = load_registry()["missing_escalation"]
+        loosened = rule_from_dict(
+            {
+                **{key: getattr(rule, key) for key in (
+                    "id", "title", "version", "status", "level", "description")},
+                "capability": rule.capability.value,
+                "category": rule.category.value,
+                "subject_type": rule.subject_type.value,
+                "false_positives": list(rule.false_positives),
+                "parameters": {
+                    "escalation_required_severities": ["medium", "high", "critical"],
+                    "require_investigation": False,
+                },
+            }
+        )
+        findings = analyze_evidence(evidence, RuleRegistry({loosened.id: loosened}))
+        self.assertEqual([item.subject_id for item in findings], ["CAS-Z"])
+        self.assertEqual(findings[0].baseline["observed_investigation_count"], 0)
+
+    def test_rules_missing_from_registry_do_not_run(self) -> None:
+        self.assertEqual(
+            detect_execution_gaps(registry=RuleRegistry({})),
+            [],
+        )
 
 
 if __name__ == "__main__":

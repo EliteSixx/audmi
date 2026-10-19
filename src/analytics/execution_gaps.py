@@ -2,6 +2,10 @@
 
 Signals are potential supervisory indicators only. They are not compliance
 judgments and require review by a human examiner.
+
+Thresholds are not defined here: each rule reads its parameters from
+``rules/<rule_id>.yaml`` through the rule registry, and every finding records
+the rule id and version that produced it.
 """
 
 from __future__ import annotations
@@ -10,11 +14,13 @@ import json
 import math
 import statistics
 from collections import defaultdict
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Iterable, TypeVar
+from typing import Any, Callable, Iterable, TypeVar
 
+from src.core.findings import Finding
+from src.core.registry import Rule, RuleRegistry, load_registry
 from src.normalization.evidence_model import (
     Alert,
     Asset,
@@ -29,11 +35,6 @@ from src.normalization.evidence_model import (
 DEFAULT_DATASET_DIR = (
     Path(__file__).resolve().parents[2] / "data" / "synthetic" / "golden_dataset"
 )
-SHORT_DURATION_SIGMA_MULTIPLIER = 3.5
-REPEATED_ALERT_SIGMA_MULTIPLIER = 3.0
-MIN_REPEAT_CASES = 3
-MAX_REMEDIATION_COVERAGE_FOR_SIGNAL = 0.10
-MIN_DURATION_BASELINE_SIZE = 8
 
 T = TypeVar("T")
 
@@ -49,43 +50,25 @@ class EvidenceRecords:
     remediations: tuple[Remediation, ...] = ()
 
 
-@dataclass(frozen=True, slots=True)
-class Finding:
-    signal_id: str
-    signal_type: str
-    cse_id: str
-    reason: str
-    supporting_record_ids: tuple[str, ...]
-    case_id: str | None = None
-    alert_id: str | None = None
-    severity: str | None = None
-    investigation_id: str | None = None
-    duration_seconds: float | None = None
-    baseline: dict[str, Any] | None = None
-    asset_id: str | None = None
-    alert_ids: tuple[str, ...] = ()
-    case_ids: tuple[str, ...] = ()
-    remediation_ids: tuple[str, ...] = ()
-
-    def to_dict(self) -> dict[str, Any]:
-        """Return a JSON-friendly representation of the finding."""
-        return {
-            "signal_id": self.signal_id,
-            "signal_type": self.signal_type,
-            "cse_id": self.cse_id,
-            "case_id": self.case_id,
-            "alert_id": self.alert_id,
-            "severity": self.severity,
-            "investigation_id": self.investigation_id,
-            "duration_seconds": self.duration_seconds,
-            "baseline": self.baseline,
-            "asset_id": self.asset_id,
-            "alert_ids": list(self.alert_ids),
-            "case_ids": list(self.case_ids),
-            "remediation_ids": list(self.remediation_ids),
-            "reason": self.reason,
-            "supporting_record_ids": list(self.supporting_record_ids),
-        }
+def _new_finding(rule: Rule, *, finding_id: str, cse_id: str, subject_id: str,
+                 reason: str, supporting_record_ids: tuple[str, ...],
+                 baseline: dict[str, Any],
+                 data_quality_notes: tuple[str, ...] = ()) -> Finding:
+    """Build a Finding whose rule metadata comes from the registry entry."""
+    return Finding(
+        finding_id=finding_id,
+        rule_id=rule.id,
+        rule_version=rule.version,
+        capability=rule.capability,
+        category=rule.category,
+        cse_id=cse_id,
+        subject_type=rule.subject_type,
+        subject_id=subject_id,
+        reason=reason,
+        supporting_record_ids=supporting_record_ids,
+        baseline=baseline,
+        data_quality_notes=data_quality_notes,
+    )
 
 
 def _parse_timestamp_fields(row: dict[str, Any], names: Iterable[str]) -> dict[str, Any]:
@@ -166,37 +149,44 @@ def _median_absolute_deviation(values: list[float]) -> tuple[float, float]:
 
 
 def _duration_baseline(
-    investigations: tuple[Investigation, ...],
+    investigations: tuple[Investigation, ...], rule: Rule
 ) -> tuple[float, dict[str, Any]] | None:
+    sigma_multiplier = rule.param("sigma_multiplier")
+    mad_scale = rule.param("mad_scale")
     durations = [
         (item.ended_at - item.started_at).total_seconds()
         for item in investigations
         if item.ended_at is not None
         and item.ended_at > item.started_at
     ]
-    if len(durations) < MIN_DURATION_BASELINE_SIZE:
+    if len(durations) < rule.param("min_baseline_size"):
         return None
 
     # Log duration makes multiplicative differences comparable. The lower
     # robust fence is derived from the cohort's median and MAD, not a fixed time.
     log_durations = [math.log(value) for value in durations]
     log_median, log_mad = _median_absolute_deviation(log_durations)
-    robust_sigma = 1.4826 * log_mad
-    lower_log_fence = log_median - SHORT_DURATION_SIGMA_MULTIPLIER * robust_sigma
+    robust_sigma = mad_scale * log_mad
+    lower_log_fence = log_median - sigma_multiplier * robust_sigma
     threshold_seconds = math.exp(lower_log_fence)
     baseline = {
-        "method": "lower robust fence on log duration: median - 3.5 * 1.4826 * MAD",
+        "method": (
+            f"lower robust fence on log duration: median - {sigma_multiplier} "
+            f"* {mad_scale} * MAD"
+        ),
         "population": "all completed investigations in the supplied evidence",
         "sample_count": len(durations),
         "geometric_median_seconds": round(math.exp(log_median), 3),
         "log_duration_mad": round(log_mad, 6),
-        "sigma_multiplier": SHORT_DURATION_SIGMA_MULTIPLIER,
+        "sigma_multiplier": sigma_multiplier,
         "lower_threshold_seconds": round(threshold_seconds, 3),
     }
     return threshold_seconds, baseline
 
 
-def _find_missing_escalations(records: EvidenceRecords) -> list[Finding]:
+def find_missing_escalations(records: EvidenceRecords, rule: Rule) -> list[Finding]:
+    required_severities = set(rule.param("escalation_required_severities"))
+    require_investigation = bool(rule.param("require_investigation"))
     alerts = {item.alert_id: item for item in records.alerts}
     investigations_by_case: dict[str, list[Investigation]] = defaultdict(list)
     for item in records.investigations:
@@ -210,8 +200,8 @@ def _find_missing_escalations(records: EvidenceRecords) -> list[Finding]:
         if (
             alert is None
             or case.cse_id != alert.cse_id
-            or alert.severity not in {"high", "critical"}
-            or not investigations
+            or alert.severity not in required_severities
+            or (require_investigation and not investigations)
             or case.case_id in escalated_cases
         ):
             continue
@@ -220,28 +210,37 @@ def _find_missing_escalations(records: EvidenceRecords) -> list[Finding]:
             for item in sorted(investigations, key=lambda value: value.investigation_id)
         )
         findings.append(
-            Finding(
-                signal_id=f"EXG-MISSING-ESCALATION-{case.case_id}",
-                signal_type="missing_escalation",
+            _new_finding(
+                rule,
+                finding_id=f"EXG-MISSING-ESCALATION-{case.case_id}",
                 cse_id=case.cse_id,
-                case_id=case.case_id,
-                alert_id=alert.alert_id,
-                severity=alert.severity,
+                subject_id=case.case_id,
                 reason=(
                     "Potential execution gap: high-severity case has investigation "
                     "evidence but no corresponding escalation record."
                 ),
                 supporting_record_ids=supporting,
+                baseline={
+                    "expectation": "an escalation record exists for this case",
+                    "escalation_required_severities": sorted(required_severities),
+                    "observed_alert_severity": alert.severity,
+                    "observed_investigation_count": len(investigations),
+                    "observed_escalation_count": 0,
+                },
+                data_quality_notes=(
+                    "No escalation record was found in the submission; the "
+                    "escalation may exist outside the submitted evidence.",
+                ),
             )
         )
     return findings
 
 
-def _find_short_investigations(records: EvidenceRecords) -> list[Finding]:
-    computed = _duration_baseline(records.investigations)
+def find_short_investigations(records: EvidenceRecords, rule: Rule) -> list[Finding]:
+    computed = _duration_baseline(records.investigations, rule)
     if computed is None:
         return []
-    threshold_seconds, baseline = computed
+    threshold_seconds, shared_baseline = computed
     cases = {item.case_id: item for item in records.cases}
     alerts = {item.alert_id: item for item in records.alerts}
 
@@ -257,29 +256,36 @@ def _find_short_investigations(records: EvidenceRecords) -> list[Finding]:
         if duration >= threshold_seconds:
             continue
         supporting = (investigation.investigation_id, case.case_id, alert.alert_id)
+        baseline = dict(shared_baseline)
+        baseline["observed_duration_seconds"] = round(duration, 3)
+        baseline["observed_alert_severity"] = alert.severity
         findings.append(
-            Finding(
-                signal_id=f"EXG-SHORT-INVESTIGATION-{investigation.investigation_id}",
-                signal_type="unusually_short_investigation",
+            _new_finding(
+                rule,
+                finding_id=f"EXG-SHORT-INVESTIGATION-{investigation.investigation_id}",
                 cse_id=case.cse_id,
-                investigation_id=investigation.investigation_id,
-                case_id=case.case_id,
-                alert_id=alert.alert_id,
-                severity=alert.severity,
-                duration_seconds=round(duration, 3),
-                baseline=baseline,
+                subject_id=investigation.investigation_id,
                 reason=(
                     "Potential execution gap: investigation duration is substantially "
                     "below the observed contextual baseline."
                 ),
                 supporting_record_ids=supporting,
+                baseline=baseline,
             )
         )
     return findings
 
 
-def _find_repeated_alerts_without_remediation(records: EvidenceRecords) -> list[Finding]:
-    cse_by_id = {item.cse_id: item for item in records.cse}
+def find_repeated_alerts_without_remediation(
+    records: EvidenceRecords, rule: Rule
+) -> list[Finding]:
+    sigma_multiplier = rule.param("sigma_multiplier")
+    mad_scale = rule.param("mad_scale")
+    min_multiple = rule.param("min_multiple_of_median")
+    min_cases = rule.param("min_case_count")
+    max_coverage = rule.param("max_remediation_coverage")
+    min_assets = rule.param("min_assets_per_cse")
+
     assets_by_id = {item.asset_id: item for item in records.assets}
     alerts_by_id = {item.alert_id: item for item in records.alerts}
     alerts_by_asset: dict[str, list[Alert]] = defaultdict(list)
@@ -302,21 +308,16 @@ def _find_repeated_alerts_without_remediation(records: EvidenceRecords) -> list[
     for item in records.remediations:
         remediations_by_case[item.case_id].append(item)
 
-    asset_alert_counts_by_cse: dict[str, list[float]] = defaultdict(list)
-    for cse_id, assets in assets_by_cse.items():
-        for asset in assets:
-            asset_alert_counts_by_cse[cse_id].append(float(len(alerts_by_asset[asset.asset_id])))
-
     upper_fences: dict[str, tuple[float, float, float]] = {}
-    for cse_id, counts in asset_alert_counts_by_cse.items():
-        if len(counts) < 5:
+    for cse_id, assets in assets_by_cse.items():
+        counts = [float(len(alerts_by_asset[asset.asset_id])) for asset in assets]
+        if len(counts) < min_assets:
             continue
         median, mad = _median_absolute_deviation(counts)
-        robust_sigma = 1.4826 * mad
-        statistical_fence = median + REPEATED_ALERT_SIGMA_MULTIPLIER * robust_sigma
-        # Require both a robust upper-tail outlier and at least twice the CSE's
-        # typical asset volume, reducing flags from ordinary count variation.
-        upper_fences[cse_id] = (max(statistical_fence, median * 2), median, mad)
+        statistical_fence = median + sigma_multiplier * mad_scale * mad
+        # Require both a robust upper-tail outlier and a minimum multiple of the
+        # CSE's typical asset volume, reducing flags from ordinary count variation.
+        upper_fences[cse_id] = (max(statistical_fence, median * min_multiple), median, mad)
 
     findings: list[Finding] = []
     for asset in sorted(records.assets, key=lambda value: value.asset_id):
@@ -326,12 +327,12 @@ def _find_repeated_alerts_without_remediation(records: EvidenceRecords) -> list[
         upper_fence, median_count, mad_count = fence_data
         asset_alerts = sorted(alerts_by_asset[asset.asset_id], key=lambda value: value.alert_id)
         asset_cases = sorted(cases_by_asset[asset.asset_id], key=lambda value: value.case_id)
-        if len(asset_alerts) <= upper_fence or len(asset_cases) < MIN_REPEAT_CASES:
+        if len(asset_alerts) <= upper_fence or len(asset_cases) < min_cases:
             continue
 
         covered_cases = [case for case in asset_cases if remediations_by_case.get(case.case_id)]
         coverage = len(covered_cases) / len(asset_cases)
-        if coverage > MAX_REMEDIATION_COVERAGE_FOR_SIGNAL:
+        if coverage > max_coverage:
             continue
 
         remediation_records = sorted(
@@ -343,45 +344,56 @@ def _find_repeated_alerts_without_remediation(records: EvidenceRecords) -> list[
         remediation_ids = tuple(item.remediation_id for item in remediation_records)
         supporting = (asset.asset_id,) + alert_ids + case_ids + remediation_ids
         baseline = {
-            "alert_count_method": "per-CSE median + 3 * 1.4826 * MAD across assets",
+            "alert_count_method": (
+                f"per-CSE median + {sigma_multiplier} * {mad_scale} * MAD across assets"
+            ),
             "asset_alert_count_median": median_count,
             "asset_alert_count_mad": mad_count,
             "repeated_alert_upper_fence": round(upper_fence, 3),
-            "minimum_multiple_of_cse_median": 2.0,
+            "minimum_multiple_of_cse_median": min_multiple,
             "observed_alert_count": len(asset_alerts),
-            "minimum_case_count": MIN_REPEAT_CASES,
+            "minimum_case_count": min_cases,
             "observed_case_count": len(asset_cases),
+            "observed_remediation_count": len(remediation_ids),
             "remediation_coverage": round(coverage, 4),
-            "maximum_coverage_for_signal": MAX_REMEDIATION_COVERAGE_FOR_SIGNAL,
+            "maximum_coverage_for_signal": max_coverage,
         }
-        cse_name = cse_by_id.get(asset.cse_id)
-        cse_id = cse_name.cse_id if cse_name is not None else asset.cse_id
         findings.append(
-            Finding(
-                signal_id=f"EXG-REPEATED-LOW-REMEDIATION-{asset.asset_id}",
-                signal_type="repeated_alerts_without_remediation",
-                cse_id=cse_id,
-                asset_id=asset.asset_id,
-                alert_ids=alert_ids,
-                case_ids=case_ids,
-                remediation_ids=remediation_ids,
-                baseline=baseline,
+            _new_finding(
+                rule,
+                finding_id=f"EXG-REPEATED-LOW-REMEDIATION-{asset.asset_id}",
+                cse_id=asset.cse_id,
+                subject_id=asset.asset_id,
                 reason=(
                     "Potential execution gap: this asset has alert volume above the "
                     "CSE's robust asset-level baseline, while remediation evidence "
-                    "covers no more than 10% of its associated cases."
+                    f"covers no more than {max_coverage:.0%} of its associated cases."
                 ),
                 supporting_record_ids=supporting,
+                baseline=baseline,
+                data_quality_notes=(
+                    "Remediation coverage counts only remediation records in the "
+                    "submission; remediation tracked elsewhere is not visible.",
+                ),
             )
         )
     return findings
 
 
-def analyze_evidence(records: EvidenceRecords) -> list[Finding]:
-    """Return stable, evidence-backed execution-gap findings for supplied records."""
+RuleFunction = Callable[[EvidenceRecords, Rule], list[Finding]]
+
+# Maps a registry rule id to the Python function that evaluates it.
+RULE_FUNCTIONS: dict[str, RuleFunction] = {
+    "missing_escalation": find_missing_escalations,
+    "unusually_short_investigation": find_short_investigations,
+    "repeated_alerts_without_remediation": find_repeated_alerts_without_remediation,
+}
+
+
+def _clean_records(records: EvidenceRecords) -> EvidenceRecords:
     # Keep valid canonical records and tolerate missing or malformed optional
     # workflow entries in partial hand-built inputs.
-    records = EvidenceRecords(
+    return EvidenceRecords(
         cse=tuple(item for item in (records.cse or ()) if isinstance(item, CSE)),
         assets=tuple(item for item in (records.assets or ()) if isinstance(item, Asset)),
         alerts=tuple(item for item in (records.alerts or ()) if isinstance(item, Alert)),
@@ -396,24 +408,38 @@ def analyze_evidence(records: EvidenceRecords) -> list[Finding]:
             item for item in (records.remediations or ()) if isinstance(item, Remediation)
         ),
     )
-    findings = (
-        _find_missing_escalations(records)
-        + _find_short_investigations(records)
-        + _find_repeated_alerts_without_remediation(records)
-    )
-    return sorted(findings, key=lambda item: (item.signal_type, item.cse_id, item.signal_id))
+
+
+def analyze_evidence(
+    records: EvidenceRecords, registry: RuleRegistry | None = None
+) -> list[Finding]:
+    """Return stable, evidence-backed execution-gap findings for supplied records.
+
+    Only rules that are both in the registry and implemented in RULE_FUNCTIONS
+    run, so removing a rule's YAML file switches that rule off.
+    """
+    registry = registry if registry is not None else load_registry()
+    records = _clean_records(records)
+    findings: list[Finding] = []
+    for rule_id, function in RULE_FUNCTIONS.items():
+        if rule_id in registry:
+            findings.extend(function(records, registry[rule_id]))
+    return sorted(findings, key=lambda item: (item.rule_id, item.cse_id, item.finding_id))
 
 
 def detect_execution_gaps(
     dataset_dir: str | Path = DEFAULT_DATASET_DIR,
+    registry: RuleRegistry | None = None,
 ) -> list[Finding]:
     """Load canonical JSON records and detect potential execution gaps."""
-    return analyze_evidence(load_evidence(dataset_dir))
+    return analyze_evidence(load_evidence(dataset_dir), registry)
 
 
 if __name__ == "__main__":
     findings = detect_execution_gaps()
     counts: dict[str, int] = defaultdict(int)
     for finding in findings:
-        counts[finding.signal_type] += 1
+        counts[finding.rule_id] += 1
     print(json.dumps({"finding_counts": dict(sorted(counts.items()))}, indent=2))
+
+
