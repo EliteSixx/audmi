@@ -1,7 +1,7 @@
 # AudMi — Project Context
 
 > Read this first. It explains what AudMi is, what is actually built, how it works, what we measured, and where we are going.
-> Verified against `main` at commit `72d0b80` on 19 Oct 2026. If you change anything listed under "Implemented", update this file in the same PR.
+> Verified against `main` at commit `72d0b80` on 19 Oct 2026; sections 3–6 and 8 updated for branch `phase0/base` (see `docs/design/phase0.md`). If you change anything listed under "Implemented", update this file in the same PR.
 
 **AudMi (Auditor's Microscope)** — SIH 2026, Problem Statement SIHPS26157, *Supervisory Analytics Tool for SOC Assessment (SAT-SA)*, NTRO / NCIIPC. Team Elite Sixx.
 
@@ -32,29 +32,36 @@ Every feature is in exactly one of these. **Never present a feature from row 1 o
 | | Category | What's in it |
 |---|---|---|
 | 1 | **Demonstrated in the UI** (mock data) | Full examiner journey in `web/`: entity overview, 8 capability views, ranked findings, evidence drill-down, review actions. Everything reads from `web/app/data/mock-data.ts`. |
-| 2 | **Implemented and testable** | Evidence model, JSON schema, synthetic generator + ground truth, 3 execution-gap rules, 24 passing tests. |
-| 3 | **Proposed / not yet integrated** | Ingestion and validation reports, storage, API, negative space, peer benchmarking, text similarity, workflow sequences, report-vs-record reconciliation, review-activity analytics, prioritisation score, SATPACK exchange, offline packaging, frontend↔backend link. |
+| 2 | **Implemented and testable** | Evidence model, evidence JSON schema, synthetic generator + ground truth, **Finding schema v1** (+ JSON Schema), **Sigma-like rule registry** (`rules/*.yaml`), 3 execution-gap rules driven by the registry, **evaluation harness** (`python -m src.validation.evaluate`), 49 passing tests. |
+| 3 | **Proposed / not yet integrated** | Ingestion and data-quality reports, storage, API, negative space, peer benchmarking, text similarity, workflow sequences, report-vs-record reconciliation, review-activity analytics, prioritisation score, SATPACK exchange, offline packaging, offline CI, `audmi` CLI entry point, frontend↔backend link. |
 
 ## 4. Repository map
 
 ```
 audmi/
 ├── src/
+│   ├── core/findings.py                  IMPLEMENTED  Finding schema v1 (shared output contract)
+│   ├── core/registry.py                  IMPLEMENTED  loads + validates rules/*.yaml
 │   ├── normalization/evidence_model.py   IMPLEMENTED  canonical record types + validation
-│   ├── analytics/execution_gaps.py       IMPLEMENTED  loader + 3 rules + Finding type
-│   └── ingestion/ evidence/ explainability/ prioritization/ review/ validation/
+│   ├── analytics/execution_gaps.py       IMPLEMENTED  loader + 3 registry-driven rules
+│   ├── validation/evaluate.py            IMPLEMENTED  eval harness vs ground truth
+│   └── ingestion/ evidence/ explainability/ prioritization/ review/
 │                                         EMPTY        placeholder packages for planned work
+├── rules/*.yaml                          IMPLEMENTED  Sigma-like rule definitions (thresholds live here)
 ├── data/
 │   ├── schemas/core-evidence.schema.json IMPLEMENTED  JSON Schema mirror of the evidence model
+│   ├── schemas/finding.schema.json       IMPLEMENTED  JSON Schema mirror of Finding v1
+│   ├── outputs/                          GITIGNORED   eval_report.json and other run output
 │   └── synthetic/
 │       ├── generator.py                  IMPLEMENTED  deterministic dataset generator (seed 42)
 │       └── golden_dataset/*.json         GENERATED    14,206 records + ground_truth.json
-├── tests/                                IMPLEMENTED  24 tests (model, generator, rules)
+├── tests/                                IMPLEMENTED  49 tests (model, generator, findings, registry, rules, eval)
 ├── web/                                  DEMO         Next.js 16 / React 19 UI on mock data
 ├── docs/audmi_architecture_document.pdf  architecture doc for SIH
+├── docs/design/phase0.md                 Phase 0 design note (why the contracts look like this)
 ├── check_counts.py                       helper: prints record counts per dataset file
 ├── docker-compose.yml, models/           PLACEHOLDERS (nothing configured)
-└── requirements.txt                      empty — stdlib only so far (+ pytest for tests)
+└── requirements.txt                      PyYAML (rule files) + pytest
 ```
 
 ## 5. How the implemented parts work
@@ -95,7 +102,7 @@ It **plants known problems** and writes them only to `ground_truth.json`. The op
 | Negative space: critical assets with no alerts | CSE-05 | 8 assets |
 
 ### 5.3 The three rules (`src/analytics/execution_gaps.py`)
-Each produces `Finding` objects carrying: `signal_id`, `signal_type`, `cse_id`, a plain-language `reason`, `supporting_record_ids` (the evidence chain), and a `baseline` dict with the numbers behind the decision.
+Each rule's thresholds live in `rules/<rule_id>.yaml` (Sigma-like: id, version, status, level, capability, category, parameters, false_positives) and are loaded by `src/core/registry.py`. Each rule returns **Finding v1** objects (`src/core/findings.py`): `finding_id`, `rule_id` + `rule_version`, `capability` (one of the 8), `category`, `cse_id`, `subject_type` + `subject_id`, a plain-language `reason`, `supporting_record_ids` (the evidence chain), a `baseline` dict with the numbers behind the decision, and `data_quality_notes`.
 
 1. **`missing_escalation`.** The case's alert is high or critical, an investigation exists, and there's no escalation record. This is a pure expected-vs-observed check.
 2. **`unusually_short_investigation`.** The rule takes the log of every investigation's duration, then finds the median and the **MAD** (median absolute deviation). It flags anything below `median − 3.5 × 1.4826 × MAD`.
@@ -118,13 +125,16 @@ A finding is a **potential** indicator. Missing evidence isn't proof of missing 
 - **Missing escalation.** Recall is complete. The 471 extra flags are *unclassified*, not proven false positives. The background data escalates only ~12% of high/critical cases in **every** CSE, so the data can't tell the planted cases apart from normal behaviour. That's a generator realism problem.
 - **Short investigation.** Planted durations are 30–179 s and every normal one is ≥1,800 s. The two groups never overlap, so any threshold would pass. This proves the plumbing works, **not** that the method is good.
 - **Repeated alerts.** Correct at asset level. Ground truth also lists case IDs, so score this at **asset** level.
-- **Don't quote** precision, recall or accuracy figures in slides until the evaluation harness (`audmi eval`) exists and generator v2 makes the test meaningful.
+- The evaluation harness now exists: `python -m src.validation.evaluate` reproduces this table per cohort and writes `data/outputs/eval_report.json`. Flags outside ground truth are reported as *unclassified*, and precision is a lower bound.
+- **Don't quote** precision, recall or accuracy figures in slides until generator v2 makes the test meaningful.
 
 ## 6. How to run (Windows PowerShell, from `D:\audmi`)
 
 ```powershell
-python -m pytest -q                              # 24 tests should pass
+pip install -r requirements.txt                  # PyYAML + pytest
+python -m pytest -q                              # 49 tests should pass
 python -m src.analytics.execution_gaps           # prints finding counts
+python -m src.validation.evaluate                # precision/recall table vs ground truth
 python -m data.synthetic.generator --seed 42     # regenerate dataset
 python check_counts.py                           # record counts per file
 cd web; npm install; npm run dev                 # demo UI at http://localhost:3000
@@ -163,7 +173,10 @@ New supervisory terms you'll meet:
 | Synthetic data with separate ground truth | No access to real SOC data; lets us measure detection without leaking labels |
 | Robust statistics (median/MAD) | Operational data is skewed and full of outliers |
 | Findings carry record IDs + baseline numbers | The examiner must be able to see *why*, not just trust a score |
-| Python stdlib only so far | Air-gapped deployment: every dependency has to be carried in offline |
+| Python stdlib + PyYAML only | Air-gapped deployment: every dependency has to be carried in offline. PyYAML is the one exception, because rule files need comments for reviewers |
+| Thresholds in versioned YAML rules, not code | Examiners can read them; every finding cites the rule version that produced it |
+| One shared Finding schema | Six workstreams can build rules, API and UI in parallel against one output shape |
+| Outside-ground-truth flags are "unclassified" | Ground truth only labels planted problems; an unlabelled flag isn't proven wrong |
 | Demo UI built ahead of the backend | SIH idea stage: show the full workflow while the engine is being built |
 
 ## 9. Known issues
