@@ -24,6 +24,8 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run tests
         run: python -m pytest -q
+      - name: Validate submission and write integrity manifest
+        run: python -m src.ingestion
       - name: Evaluate rules against ground truth
         run: python -m src.validation.evaluate
       - name: Enforce offline-only product code
