@@ -108,8 +108,8 @@ class EvaluateGoldenDatasetTests(unittest.TestCase):
         self.assertEqual(len(report["ground_truth_sha256"]), 64)
 
         expected = {
-            "missing_escalation": (581, 110, 110, 0, 471),
-            "unusually_short_investigation": (105, 105, 105, 0, 0),
+            "missing_escalation": (279, 70, 70, 0, 209),
+            "unusually_short_investigation": (127, 105, 105, 0, 22),
             "repeated_alerts_without_remediation": (8, 8, 8, 0, 0),
         }
         for condition_type, numbers in expected.items():

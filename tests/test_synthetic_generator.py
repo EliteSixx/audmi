@@ -44,7 +44,7 @@ class SyntheticGeneratorTests(unittest.TestCase):
         self.assertEqual(
             [len(dataset.cse), len(dataset.assets), len(dataset.alerts), len(dataset.cases),
              len(dataset.investigations), len(dataset.escalations), len(dataset.remediations)],
-            [6, 300, 10_000, 2_000, 1_500, 300, 100],
+            [6, 300, 10_000, 2_000, 1_500, 664, 260],
         )
 
     def test_references_and_timestamps_are_valid(self) -> None:
@@ -117,6 +117,44 @@ class SyntheticGeneratorTests(unittest.TestCase):
                 self.assertTrue(all(x not in remediation_case_ids for x in condition["record_ids"]))
             elif condition["condition_type"] == "negative_space_low_activity":
                 self.assertTrue(all(alert_count_by_asset.get(x, 0) <= 1 for x in condition["asset_ids"]))
+
+    def test_v2_realism_baselines_are_plausible(self) -> None:
+        dataset = generate_dataset(42)
+        manifest = dataset.dataset_manifest
+        self.assertEqual(manifest["generator_version"], "2.0.0")
+        self.assertEqual(len(manifest["periods"]), 4)
+        self.assertGreaterEqual(len(set(manifest["peer_groups"].values())), 3)
+
+        rates = manifest["high_critical_escalation_rates"]
+        self.assertGreaterEqual(rates["CSE-01"], 0.70)
+        self.assertGreaterEqual(rates["CSE-03"], 0.70)
+        self.assertGreaterEqual(rates["CSE-04"], 0.70)
+        self.assertGreaterEqual(rates["CSE-05"], 0.70)
+        self.assertGreaterEqual(rates["CSE-02"], 0.40)
+        self.assertLessEqual(rates["CSE-02"], 0.60)
+        # The deliberately weak entity must still trail its peers.
+        for cse_id in ("CSE-01", "CSE-03", "CSE-04", "CSE-05", "CSE-06"):
+            self.assertLess(rates["CSE-02"], rates[cse_id])
+
+        # Activity spans all four quarters rather than one narrow window.
+        quarters = {(alert.created_at.month - 1) // 3 for alert in dataset.alerts}
+        self.assertEqual(quarters, {0, 1, 2, 3})
+
+        # Fast investigations overlap the normal distribution: legitimate
+        # decoys exist below the rule's threshold and are not seeded.
+        seeded_short = {
+            record_id
+            for condition in dataset.ground_truth["conditions"]
+            if condition["condition_type"] == "unusually_short_investigation"
+            for record_id in condition["record_ids"]
+        }
+        fast_unseeded = [
+            item for item in dataset.investigations
+            if item.ended_at is not None
+            and item.investigation_id not in seeded_short
+            and (item.ended_at - item.started_at).total_seconds() < 900
+        ]
+        self.assertGreaterEqual(len(fast_unseeded), 20)
 
     def test_json_records_validate_against_canonical_models(self) -> None:
         dataset = generate_dataset(42)

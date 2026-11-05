@@ -1,1802 +1,3986 @@
 [
   {
     "escalation_id": "ESC-0001",
-    "case_id": "CAS-01669",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-10-17T10:48:33Z"
+    "case_id": "CAS-00004",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-26T07:29:25Z"
   },
   {
     "escalation_id": "ESC-0002",
-    "case_id": "CAS-01859",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-02-07T20:16:15Z"
+    "case_id": "CAS-00012",
+    "escalation_type": "management",
+    "escalated_at": "2025-07-10T23:57:34Z"
   },
   {
     "escalation_id": "ESC-0003",
-    "case_id": "CAS-00192",
-    "escalation_type": "management",
-    "escalated_at": "2025-06-02T03:53:15Z"
+    "case_id": "CAS-00013",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-07-12T07:39:32Z"
   },
   {
     "escalation_id": "ESC-0004",
-    "case_id": "CAS-00709",
-    "escalation_type": "management",
-    "escalated_at": "2025-01-31T05:07:08Z"
+    "case_id": "CAS-00016",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-02-07T09:02:40Z"
   },
   {
     "escalation_id": "ESC-0005",
-    "case_id": "CAS-01834",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-11-24T02:08:46Z"
+    "case_id": "CAS-00018",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-09-12T04:11:44Z"
   },
   {
     "escalation_id": "ESC-0006",
-    "case_id": "CAS-01485",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-06-07T12:39:44Z"
+    "case_id": "CAS-00019",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-07-27T20:50:52Z"
   },
   {
     "escalation_id": "ESC-0007",
-    "case_id": "CAS-01681",
+    "case_id": "CAS-00020",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-08-18T23:19:16Z"
+    "escalated_at": "2025-02-09T03:33:16Z"
   },
   {
     "escalation_id": "ESC-0008",
-    "case_id": "CAS-01596",
-    "escalation_type": "management",
-    "escalated_at": "2025-11-14T06:23:28Z"
+    "case_id": "CAS-00028",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-12-27T01:13:08Z"
   },
   {
     "escalation_id": "ESC-0009",
-    "case_id": "CAS-01832",
-    "escalation_type": "management",
-    "escalated_at": "2025-09-03T08:28:19Z"
+    "case_id": "CAS-00032",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-07-07T03:23:21Z"
   },
   {
     "escalation_id": "ESC-0010",
-    "case_id": "CAS-00802",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-10-18T20:31:13Z"
+    "case_id": "CAS-00036",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-02T03:27:37Z"
   },
   {
     "escalation_id": "ESC-0011",
-    "case_id": "CAS-01953",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-06-25T04:37:06Z"
+    "case_id": "CAS-00037",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-03T14:24:45Z"
   },
   {
     "escalation_id": "ESC-0012",
-    "case_id": "CAS-00795",
-    "escalation_type": "management",
-    "escalated_at": "2025-06-04T17:52:33Z"
+    "case_id": "CAS-00043",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-05-09T20:02:25Z"
   },
   {
     "escalation_id": "ESC-0013",
-    "case_id": "CAS-01029",
+    "case_id": "CAS-00048",
     "escalation_type": "specialist",
-    "escalated_at": "2025-10-14T23:09:11Z"
+    "escalated_at": "2025-07-13T00:03:28Z"
   },
   {
     "escalation_id": "ESC-0014",
-    "case_id": "CAS-01863",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-02-11T20:29:37Z"
+    "case_id": "CAS-00052",
+    "escalation_type": "management",
+    "escalated_at": "2025-07-13T15:47:03Z"
   },
   {
     "escalation_id": "ESC-0015",
-    "case_id": "CAS-01049",
-    "escalation_type": "management",
-    "escalated_at": "2025-04-16T18:16:25Z"
+    "case_id": "CAS-00056",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-07-26T13:41:42Z"
   },
   {
     "escalation_id": "ESC-0016",
-    "case_id": "CAS-00972",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-07-04T18:14:07Z"
+    "case_id": "CAS-00060",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-10T05:38:53Z"
   },
   {
     "escalation_id": "ESC-0017",
-    "case_id": "CAS-01839",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-10-09T12:09:11Z"
+    "case_id": "CAS-00065",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-23T14:29:55Z"
   },
   {
     "escalation_id": "ESC-0018",
-    "case_id": "CAS-00985",
+    "case_id": "CAS-00069",
     "escalation_type": "management",
-    "escalated_at": "2025-05-27T07:03:13Z"
+    "escalated_at": "2025-12-16T14:51:17Z"
   },
   {
     "escalation_id": "ESC-0019",
-    "case_id": "CAS-00260",
+    "case_id": "CAS-00071",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-03-11T04:43:27Z"
+    "escalated_at": "2025-06-04T10:27:49Z"
   },
   {
     "escalation_id": "ESC-0020",
-    "case_id": "CAS-00429",
-    "escalation_type": "management",
-    "escalated_at": "2025-12-06T08:50:59Z"
+    "case_id": "CAS-00072",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-12-04T06:00:08Z"
   },
   {
     "escalation_id": "ESC-0021",
-    "case_id": "CAS-00450",
+    "case_id": "CAS-00073",
     "escalation_type": "specialist",
-    "escalated_at": "2025-03-30T21:52:59Z"
+    "escalated_at": "2025-04-06T03:49:12Z"
   },
   {
     "escalation_id": "ESC-0022",
-    "case_id": "CAS-00269",
+    "case_id": "CAS-00075",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-05-28T04:18:27Z"
+    "escalated_at": "2025-04-23T19:41:27Z"
   },
   {
     "escalation_id": "ESC-0023",
-    "case_id": "CAS-00534",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-01-02T07:59:31Z"
+    "case_id": "CAS-00076",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-12-14T11:57:35Z"
   },
   {
     "escalation_id": "ESC-0024",
-    "case_id": "CAS-00682",
-    "escalation_type": "management",
-    "escalated_at": "2025-11-14T21:16:33Z"
+    "case_id": "CAS-00078",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-06-05T12:34:55Z"
   },
   {
     "escalation_id": "ESC-0025",
-    "case_id": "CAS-01256",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-06-05T20:25:39Z"
+    "case_id": "CAS-00080",
+    "escalation_type": "management",
+    "escalated_at": "2025-01-21T17:35:11Z"
   },
   {
     "escalation_id": "ESC-0026",
-    "case_id": "CAS-01454",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-11-13T02:21:15Z"
+    "case_id": "CAS-00081",
+    "escalation_type": "management",
+    "escalated_at": "2025-07-06T12:17:14Z"
   },
   {
     "escalation_id": "ESC-0027",
-    "case_id": "CAS-01888",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-03-29T23:40:23Z"
+    "case_id": "CAS-00083",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-02-03T06:59:09Z"
   },
   {
     "escalation_id": "ESC-0028",
-    "case_id": "CAS-00374",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-03-27T07:02:36Z"
+    "case_id": "CAS-00085",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-01-14T13:59:00Z"
   },
   {
     "escalation_id": "ESC-0029",
-    "case_id": "CAS-01052",
-    "escalation_type": "management",
-    "escalated_at": "2025-03-10T09:03:41Z"
+    "case_id": "CAS-00087",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-03-04T18:16:28Z"
   },
   {
     "escalation_id": "ESC-0030",
-    "case_id": "CAS-00313",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-09-16T06:49:44Z"
+    "case_id": "CAS-00094",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-11-02T12:56:29Z"
   },
   {
     "escalation_id": "ESC-0031",
-    "case_id": "CAS-01500",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-12-22T17:11:13Z"
+    "case_id": "CAS-00104",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-11T19:23:49Z"
   },
   {
     "escalation_id": "ESC-0032",
-    "case_id": "CAS-00712",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-04-13T18:11:57Z"
+    "case_id": "CAS-00114",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-11-18T23:57:29Z"
   },
   {
     "escalation_id": "ESC-0033",
-    "case_id": "CAS-01678",
-    "escalation_type": "management",
-    "escalated_at": "2025-08-08T21:11:51Z"
+    "case_id": "CAS-00117",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-10-18T21:38:01Z"
   },
   {
     "escalation_id": "ESC-0034",
-    "case_id": "CAS-00125",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-01-22T00:49:41Z"
+    "case_id": "CAS-00126",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-08-23T12:25:59Z"
   },
   {
     "escalation_id": "ESC-0035",
-    "case_id": "CAS-00467",
+    "case_id": "CAS-00128",
     "escalation_type": "specialist",
-    "escalated_at": "2025-07-08T17:44:49Z"
+    "escalated_at": "2025-07-15T02:19:28Z"
   },
   {
     "escalation_id": "ESC-0036",
-    "case_id": "CAS-00300",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-06-26T14:40:50Z"
+    "case_id": "CAS-00129",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-02-17T17:22:15Z"
   },
   {
     "escalation_id": "ESC-0037",
-    "case_id": "CAS-01569",
+    "case_id": "CAS-00131",
     "escalation_type": "specialist",
-    "escalated_at": "2025-03-30T13:09:33Z"
+    "escalated_at": "2025-07-28T17:14:56Z"
   },
   {
     "escalation_id": "ESC-0038",
-    "case_id": "CAS-00103",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-07-11T08:58:34Z"
+    "case_id": "CAS-00135",
+    "escalation_type": "management",
+    "escalated_at": "2025-10-20T23:17:22Z"
   },
   {
     "escalation_id": "ESC-0039",
-    "case_id": "CAS-00196",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-09-01T13:33:57Z"
+    "case_id": "CAS-00138",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-08-26T08:52:10Z"
   },
   {
     "escalation_id": "ESC-0040",
-    "case_id": "CAS-00267",
+    "case_id": "CAS-00141",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-02-11T22:02:56Z"
+    "escalated_at": "2025-01-29T15:24:04Z"
   },
   {
     "escalation_id": "ESC-0041",
-    "case_id": "CAS-00149",
-    "escalation_type": "management",
-    "escalated_at": "2025-04-06T22:30:33Z"
+    "case_id": "CAS-00145",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-21T18:56:23Z"
   },
   {
     "escalation_id": "ESC-0042",
-    "case_id": "CAS-01787",
-    "escalation_type": "management",
-    "escalated_at": "2025-08-02T21:05:25Z"
+    "case_id": "CAS-00147",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-02-25T16:57:10Z"
   },
   {
     "escalation_id": "ESC-0043",
-    "case_id": "CAS-00606",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-12-21T10:44:43Z"
+    "case_id": "CAS-00149",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-11-28T12:22:44Z"
   },
   {
     "escalation_id": "ESC-0044",
-    "case_id": "CAS-00817",
+    "case_id": "CAS-00150",
     "escalation_type": "management",
-    "escalated_at": "2025-12-21T06:31:24Z"
+    "escalated_at": "2025-07-29T07:55:25Z"
   },
   {
     "escalation_id": "ESC-0045",
-    "case_id": "CAS-01647",
+    "case_id": "CAS-00152",
     "escalation_type": "specialist",
-    "escalated_at": "2025-07-30T19:00:30Z"
+    "escalated_at": "2025-10-12T13:45:53Z"
   },
   {
     "escalation_id": "ESC-0046",
-    "case_id": "CAS-01866",
+    "case_id": "CAS-00157",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-04-23T02:07:26Z"
+    "escalated_at": "2025-06-16T01:34:15Z"
   },
   {
     "escalation_id": "ESC-0047",
-    "case_id": "CAS-01166",
-    "escalation_type": "management",
-    "escalated_at": "2025-12-31T00:08:48Z"
+    "case_id": "CAS-00162",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-04-11T08:01:57Z"
   },
   {
     "escalation_id": "ESC-0048",
-    "case_id": "CAS-01944",
-    "escalation_type": "management",
-    "escalated_at": "2025-02-27T18:56:40Z"
+    "case_id": "CAS-00163",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-11-12T01:58:42Z"
   },
   {
     "escalation_id": "ESC-0049",
-    "case_id": "CAS-00908",
-    "escalation_type": "management",
-    "escalated_at": "2025-12-07T02:39:38Z"
+    "case_id": "CAS-00165",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-08-10T15:38:02Z"
   },
   {
     "escalation_id": "ESC-0050",
-    "case_id": "CAS-01928",
-    "escalation_type": "management",
-    "escalated_at": "2025-10-04T12:30:55Z"
+    "case_id": "CAS-00171",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-10-12T11:05:54Z"
   },
   {
     "escalation_id": "ESC-0051",
-    "case_id": "CAS-00603",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-12-04T22:03:28Z"
+    "case_id": "CAS-00172",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-17T00:31:57Z"
   },
   {
     "escalation_id": "ESC-0052",
-    "case_id": "CAS-00253",
-    "escalation_type": "management",
-    "escalated_at": "2025-12-10T21:52:59Z"
+    "case_id": "CAS-00175",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-10-14T04:24:29Z"
   },
   {
     "escalation_id": "ESC-0053",
-    "case_id": "CAS-01825",
+    "case_id": "CAS-00178",
     "escalation_type": "management",
-    "escalated_at": "2025-01-19T08:20:55Z"
+    "escalated_at": "2025-10-08T15:45:25Z"
   },
   {
     "escalation_id": "ESC-0054",
-    "case_id": "CAS-01488",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-01-20T21:40:55Z"
+    "case_id": "CAS-00179",
+    "escalation_type": "management",
+    "escalated_at": "2025-09-26T08:16:21Z"
   },
   {
     "escalation_id": "ESC-0055",
-    "case_id": "CAS-00494",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-11-01T01:06:00Z"
+    "case_id": "CAS-00183",
+    "escalation_type": "management",
+    "escalated_at": "2025-01-19T02:54:28Z"
   },
   {
     "escalation_id": "ESC-0056",
-    "case_id": "CAS-00270",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-07-23T09:39:57Z"
+    "case_id": "CAS-00186",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-15T02:48:38Z"
   },
   {
     "escalation_id": "ESC-0057",
-    "case_id": "CAS-01443",
+    "case_id": "CAS-00187",
     "escalation_type": "management",
-    "escalated_at": "2025-05-23T17:17:28Z"
+    "escalated_at": "2025-05-18T10:44:13Z"
   },
   {
     "escalation_id": "ESC-0058",
-    "case_id": "CAS-01650",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-01-21T13:39:14Z"
+    "case_id": "CAS-00189",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-08T04:43:38Z"
   },
   {
     "escalation_id": "ESC-0059",
-    "case_id": "CAS-00400",
+    "case_id": "CAS-00190",
     "escalation_type": "specialist",
-    "escalated_at": "2025-07-17T21:09:45Z"
+    "escalated_at": "2025-07-31T04:34:54Z"
   },
   {
     "escalation_id": "ESC-0060",
-    "case_id": "CAS-01347",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-09-30T13:02:30Z"
+    "case_id": "CAS-00192",
+    "escalation_type": "management",
+    "escalated_at": "2025-02-26T02:38:43Z"
   },
   {
     "escalation_id": "ESC-0061",
-    "case_id": "CAS-00786",
+    "case_id": "CAS-00194",
     "escalation_type": "specialist",
-    "escalated_at": "2025-08-14T22:02:52Z"
+    "escalated_at": "2025-09-25T21:08:49Z"
   },
   {
     "escalation_id": "ESC-0062",
-    "case_id": "CAS-00471",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-07-22T13:31:33Z"
+    "case_id": "CAS-00195",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-04-13T21:24:49Z"
   },
   {
     "escalation_id": "ESC-0063",
-    "case_id": "CAS-01423",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-08-01T22:52:21Z"
+    "case_id": "CAS-00196",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-03-19T20:32:37Z"
   },
   {
     "escalation_id": "ESC-0064",
-    "case_id": "CAS-00237",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-07-17T03:01:59Z"
+    "case_id": "CAS-00203",
+    "escalation_type": "management",
+    "escalated_at": "2025-02-16T23:43:57Z"
   },
   {
     "escalation_id": "ESC-0065",
-    "case_id": "CAS-00233",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-07-18T10:29:40Z"
+    "case_id": "CAS-00204",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-04-22T16:43:39Z"
   },
   {
     "escalation_id": "ESC-0066",
-    "case_id": "CAS-01566",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-06-26T13:53:03Z"
+    "case_id": "CAS-00207",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-08-07T13:43:36Z"
   },
   {
     "escalation_id": "ESC-0067",
-    "case_id": "CAS-01775",
-    "escalation_type": "management",
-    "escalated_at": "2025-03-01T13:08:50Z"
+    "case_id": "CAS-00208",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-08-22T10:04:32Z"
   },
   {
     "escalation_id": "ESC-0068",
-    "case_id": "CAS-01624",
+    "case_id": "CAS-00209",
     "escalation_type": "management",
-    "escalated_at": "2025-03-27T10:55:24Z"
+    "escalated_at": "2025-11-20T05:49:38Z"
   },
   {
     "escalation_id": "ESC-0069",
-    "case_id": "CAS-00643",
+    "case_id": "CAS-00211",
     "escalation_type": "management",
-    "escalated_at": "2025-07-16T08:48:43Z"
+    "escalated_at": "2025-05-08T03:46:24Z"
   },
   {
     "escalation_id": "ESC-0070",
-    "case_id": "CAS-01716",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-10-06T02:27:19Z"
+    "case_id": "CAS-00214",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-09-01T04:08:41Z"
   },
   {
     "escalation_id": "ESC-0071",
-    "case_id": "CAS-01680",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-02-22T10:43:44Z"
+    "case_id": "CAS-00215",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-03T04:46:44Z"
   },
   {
     "escalation_id": "ESC-0072",
-    "case_id": "CAS-00936",
-    "escalation_type": "management",
-    "escalated_at": "2025-12-06T04:46:03Z"
+    "case_id": "CAS-00216",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-07-31T20:14:22Z"
   },
   {
     "escalation_id": "ESC-0073",
-    "case_id": "CAS-00581",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-08-13T20:52:34Z"
+    "case_id": "CAS-00217",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-12-19T15:39:36Z"
   },
   {
     "escalation_id": "ESC-0074",
-    "case_id": "CAS-01292",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-01-16T11:51:42Z"
+    "case_id": "CAS-00218",
+    "escalation_type": "management",
+    "escalated_at": "2025-09-15T03:41:45Z"
   },
   {
     "escalation_id": "ESC-0075",
-    "case_id": "CAS-00653",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-03-27T14:41:52Z"
+    "case_id": "CAS-00221",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-05-10T04:18:47Z"
   },
   {
     "escalation_id": "ESC-0076",
-    "case_id": "CAS-00121",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-06-15T04:52:19Z"
+    "case_id": "CAS-00222",
+    "escalation_type": "management",
+    "escalated_at": "2025-08-14T15:46:00Z"
   },
   {
     "escalation_id": "ESC-0077",
-    "case_id": "CAS-00629",
+    "case_id": "CAS-00223",
     "escalation_type": "specialist",
-    "escalated_at": "2025-11-29T11:53:58Z"
+    "escalated_at": "2025-04-20T22:47:14Z"
   },
   {
     "escalation_id": "ESC-0078",
-    "case_id": "CAS-01841",
+    "case_id": "CAS-00224",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-01-28T07:55:27Z"
+    "escalated_at": "2025-11-15T03:47:00Z"
   },
   {
     "escalation_id": "ESC-0079",
-    "case_id": "CAS-01284",
-    "escalation_type": "management",
-    "escalated_at": "2025-09-12T23:45:32Z"
+    "case_id": "CAS-00226",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-10-07T11:47:33Z"
   },
   {
     "escalation_id": "ESC-0080",
-    "case_id": "CAS-00520",
+    "case_id": "CAS-00228",
     "escalation_type": "management",
-    "escalated_at": "2025-03-22T03:05:53Z"
+    "escalated_at": "2025-11-27T09:03:20Z"
   },
   {
     "escalation_id": "ESC-0081",
-    "case_id": "CAS-01150",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-08-20T17:50:50Z"
+    "case_id": "CAS-00229",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-24T04:43:30Z"
   },
   {
     "escalation_id": "ESC-0082",
-    "case_id": "CAS-00486",
+    "case_id": "CAS-00230",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-10-30T05:02:15Z"
+    "escalated_at": "2025-04-15T13:27:46Z"
   },
   {
     "escalation_id": "ESC-0083",
-    "case_id": "CAS-00448",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-07-13T08:49:08Z"
+    "case_id": "CAS-00232",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-07-16T13:21:00Z"
   },
   {
     "escalation_id": "ESC-0084",
-    "case_id": "CAS-00871",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-08-31T17:52:42Z"
+    "case_id": "CAS-00235",
+    "escalation_type": "management",
+    "escalated_at": "2025-09-27T23:38:38Z"
   },
   {
     "escalation_id": "ESC-0085",
-    "case_id": "CAS-01657",
+    "case_id": "CAS-00244",
     "escalation_type": "management",
-    "escalated_at": "2025-08-25T07:40:54Z"
+    "escalated_at": "2025-09-17T17:28:31Z"
   },
   {
     "escalation_id": "ESC-0086",
-    "case_id": "CAS-00231",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-02-13T09:33:01Z"
+    "case_id": "CAS-00245",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-01-24T00:36:13Z"
   },
   {
     "escalation_id": "ESC-0087",
-    "case_id": "CAS-00547",
+    "case_id": "CAS-00246",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-10-17T00:34:58Z"
+    "escalated_at": "2025-03-10T21:39:38Z"
   },
   {
     "escalation_id": "ESC-0088",
-    "case_id": "CAS-01790",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-06-10T23:33:05Z"
+    "case_id": "CAS-00247",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-04T18:53:16Z"
   },
   {
     "escalation_id": "ESC-0089",
-    "case_id": "CAS-01175",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-02-24T13:01:00Z"
+    "case_id": "CAS-00249",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-23T10:29:51Z"
   },
   {
     "escalation_id": "ESC-0090",
-    "case_id": "CAS-00214",
+    "case_id": "CAS-00250",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-03-22T06:16:39Z"
+    "escalated_at": "2025-12-26T07:14:16Z"
   },
   {
     "escalation_id": "ESC-0091",
-    "case_id": "CAS-00356",
+    "case_id": "CAS-00252",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-09-11T12:06:22Z"
+    "escalated_at": "2025-03-18T19:39:05Z"
   },
   {
     "escalation_id": "ESC-0092",
-    "case_id": "CAS-01321",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-03-04T18:09:45Z"
+    "case_id": "CAS-00254",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-01-16T00:17:59Z"
   },
   {
     "escalation_id": "ESC-0093",
-    "case_id": "CAS-00739",
-    "escalation_type": "management",
-    "escalated_at": "2025-08-08T08:34:52Z"
+    "case_id": "CAS-00256",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-08-13T13:58:02Z"
   },
   {
     "escalation_id": "ESC-0094",
-    "case_id": "CAS-01222",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-04-02T13:11:39Z"
+    "case_id": "CAS-00258",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-10-18T18:46:38Z"
   },
   {
     "escalation_id": "ESC-0095",
-    "case_id": "CAS-00836",
-    "escalation_type": "management",
-    "escalated_at": "2025-04-26T20:29:08Z"
+    "case_id": "CAS-00260",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-20T00:52:28Z"
   },
   {
     "escalation_id": "ESC-0096",
-    "case_id": "CAS-01784",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-12-12T00:34:11Z"
+    "case_id": "CAS-00263",
+    "escalation_type": "management",
+    "escalated_at": "2025-06-12T15:15:59Z"
   },
   {
     "escalation_id": "ESC-0097",
-    "case_id": "CAS-00620",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-06-17T22:39:52Z"
+    "case_id": "CAS-00265",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-06-01T00:10:48Z"
   },
   {
     "escalation_id": "ESC-0098",
-    "case_id": "CAS-00690",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-09-07T16:08:53Z"
+    "case_id": "CAS-00268",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-06-30T07:44:13Z"
   },
   {
     "escalation_id": "ESC-0099",
-    "case_id": "CAS-00787",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-03-11T02:14:15Z"
+    "case_id": "CAS-00271",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-11-30T11:24:48Z"
   },
   {
     "escalation_id": "ESC-0100",
-    "case_id": "CAS-00136",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-03-17T12:46:02Z"
+    "case_id": "CAS-00272",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-13T18:42:45Z"
   },
   {
     "escalation_id": "ESC-0101",
-    "case_id": "CAS-00959",
+    "case_id": "CAS-00276",
     "escalation_type": "regulatory",
-    "escalated_at": "2025-07-03T00:42:44Z"
+    "escalated_at": "2025-03-30T18:26:29Z"
   },
   {
     "escalation_id": "ESC-0102",
-    "case_id": "CAS-00638",
+    "case_id": "CAS-00277",
     "escalation_type": "management",
-    "escalated_at": "2025-08-05T17:05:20Z"
+    "escalated_at": "2025-09-29T22:30:50Z"
   },
   {
     "escalation_id": "ESC-0103",
-    "case_id": "CAS-00222",
-    "escalation_type": "management",
-    "escalated_at": "2025-08-08T01:16:37Z"
+    "case_id": "CAS-00279",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-02-27T09:41:49Z"
   },
   {
     "escalation_id": "ESC-0104",
-    "case_id": "CAS-01630",
+    "case_id": "CAS-00280",
     "escalation_type": "specialist",
-    "escalated_at": "2025-05-06T03:42:06Z"
+    "escalated_at": "2025-02-23T21:36:17Z"
   },
   {
     "escalation_id": "ESC-0105",
-    "case_id": "CAS-01402",
-    "escalation_type": "management",
-    "escalated_at": "2025-03-26T02:49:21Z"
+    "case_id": "CAS-00282",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-05-23T05:48:21Z"
   },
   {
     "escalation_id": "ESC-0106",
-    "case_id": "CAS-01440",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-05-31T21:36:54Z"
+    "case_id": "CAS-00284",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-02-12T22:42:36Z"
   },
   {
     "escalation_id": "ESC-0107",
-    "case_id": "CAS-01886",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-03-28T15:34:51Z"
+    "case_id": "CAS-00286",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-20T01:33:59Z"
   },
   {
     "escalation_id": "ESC-0108",
-    "case_id": "CAS-01391",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-01-07T11:05:03Z"
+    "case_id": "CAS-00290",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-13T07:56:34Z"
   },
   {
     "escalation_id": "ESC-0109",
-    "case_id": "CAS-01028",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-08-23T12:44:35Z"
+    "case_id": "CAS-00291",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-05-07T13:24:34Z"
   },
   {
     "escalation_id": "ESC-0110",
-    "case_id": "CAS-00223",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-04-22T04:16:49Z"
+    "case_id": "CAS-00292",
+    "escalation_type": "management",
+    "escalated_at": "2025-10-13T02:51:49Z"
   },
   {
     "escalation_id": "ESC-0111",
-    "case_id": "CAS-00993",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-11-08T23:31:19Z"
+    "case_id": "CAS-00294",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-03-30T03:18:50Z"
   },
   {
     "escalation_id": "ESC-0112",
-    "case_id": "CAS-01701",
-    "escalation_type": "management",
-    "escalated_at": "2025-07-14T05:05:23Z"
+    "case_id": "CAS-00297",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-03-21T13:25:37Z"
   },
   {
     "escalation_id": "ESC-0113",
-    "case_id": "CAS-01810",
+    "case_id": "CAS-00299",
     "escalation_type": "regulatory",
-    "escalated_at": "2025-07-26T09:26:35Z"
+    "escalated_at": "2025-08-09T14:03:22Z"
   },
   {
     "escalation_id": "ESC-0114",
-    "case_id": "CAS-01410",
+    "case_id": "CAS-00300",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-07-12T05:09:23Z"
+    "escalated_at": "2025-05-13T17:44:56Z"
   },
   {
     "escalation_id": "ESC-0115",
-    "case_id": "CAS-00415",
-    "escalation_type": "management",
-    "escalated_at": "2025-06-29T20:41:45Z"
+    "case_id": "CAS-00301",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-05-28T22:56:14Z"
   },
   {
     "escalation_id": "ESC-0116",
-    "case_id": "CAS-00679",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-12-30T00:39:54Z"
+    "case_id": "CAS-00303",
+    "escalation_type": "management",
+    "escalated_at": "2025-07-02T12:48:30Z"
   },
   {
     "escalation_id": "ESC-0117",
-    "case_id": "CAS-01353",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-12-14T17:54:37Z"
+    "case_id": "CAS-00305",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-10-31T04:37:57Z"
   },
   {
     "escalation_id": "ESC-0118",
-    "case_id": "CAS-00805",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-02-13T23:33:39Z"
+    "case_id": "CAS-00307",
+    "escalation_type": "management",
+    "escalated_at": "2025-08-10T05:19:53Z"
   },
   {
     "escalation_id": "ESC-0119",
-    "case_id": "CAS-00631",
-    "escalation_type": "management",
-    "escalated_at": "2025-01-17T17:04:36Z"
+    "case_id": "CAS-00309",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-01-27T22:38:54Z"
   },
   {
     "escalation_id": "ESC-0120",
-    "case_id": "CAS-00785",
+    "case_id": "CAS-00311",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-09-25T13:00:37Z"
+    "escalated_at": "2025-02-10T05:52:59Z"
   },
   {
     "escalation_id": "ESC-0121",
-    "case_id": "CAS-01782",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-04-01T07:36:38Z"
+    "case_id": "CAS-00314",
+    "escalation_type": "management",
+    "escalated_at": "2025-07-27T04:37:32Z"
   },
   {
     "escalation_id": "ESC-0122",
-    "case_id": "CAS-01794",
+    "case_id": "CAS-00317",
     "escalation_type": "management",
-    "escalated_at": "2025-01-03T03:36:50Z"
+    "escalated_at": "2025-08-06T07:49:23Z"
   },
   {
     "escalation_id": "ESC-0123",
-    "case_id": "CAS-01997",
-    "escalation_type": "management",
-    "escalated_at": "2025-10-07T20:10:00Z"
+    "case_id": "CAS-00320",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-09-19T16:20:31Z"
   },
   {
     "escalation_id": "ESC-0124",
-    "case_id": "CAS-01601",
-    "escalation_type": "management",
-    "escalated_at": "2025-01-29T03:42:49Z"
+    "case_id": "CAS-00323",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-04-19T15:13:12Z"
   },
   {
     "escalation_id": "ESC-0125",
-    "case_id": "CAS-00119",
-    "escalation_type": "management",
-    "escalated_at": "2025-12-26T04:35:25Z"
+    "case_id": "CAS-00324",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-07-06T05:19:31Z"
   },
   {
     "escalation_id": "ESC-0126",
-    "case_id": "CAS-01289",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-01-15T05:46:16Z"
+    "case_id": "CAS-00325",
+    "escalation_type": "management",
+    "escalated_at": "2025-01-13T09:23:06Z"
   },
   {
     "escalation_id": "ESC-0127",
-    "case_id": "CAS-01545",
-    "escalation_type": "management",
-    "escalated_at": "2025-08-13T22:43:15Z"
+    "case_id": "CAS-00326",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-06T22:57:32Z"
   },
   {
     "escalation_id": "ESC-0128",
-    "case_id": "CAS-01642",
+    "case_id": "CAS-00328",
     "escalation_type": "specialist",
-    "escalated_at": "2025-01-11T20:08:31Z"
+    "escalated_at": "2025-05-03T10:24:58Z"
   },
   {
     "escalation_id": "ESC-0129",
-    "case_id": "CAS-00951",
-    "escalation_type": "management",
-    "escalated_at": "2025-05-07T06:34:20Z"
+    "case_id": "CAS-00331",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-08-19T01:42:02Z"
   },
   {
     "escalation_id": "ESC-0130",
-    "case_id": "CAS-01916",
-    "escalation_type": "management",
-    "escalated_at": "2025-07-16T08:11:13Z"
+    "case_id": "CAS-00335",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-12-31T20:17:24Z"
   },
   {
     "escalation_id": "ESC-0131",
-    "case_id": "CAS-01929",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-04-18T03:42:17Z"
+    "case_id": "CAS-00336",
+    "escalation_type": "management",
+    "escalated_at": "2025-06-15T12:17:31Z"
   },
   {
     "escalation_id": "ESC-0132",
-    "case_id": "CAS-01293",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-07-21T05:29:29Z"
+    "case_id": "CAS-00337",
+    "escalation_type": "management",
+    "escalated_at": "2025-07-28T06:52:38Z"
   },
   {
     "escalation_id": "ESC-0133",
-    "case_id": "CAS-00370",
+    "case_id": "CAS-00339",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-06-03T05:51:37Z"
+    "escalated_at": "2025-03-17T23:15:21Z"
   },
   {
     "escalation_id": "ESC-0134",
-    "case_id": "CAS-01539",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-09-18T13:02:18Z"
+    "case_id": "CAS-00340",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-08T22:37:56Z"
   },
   {
     "escalation_id": "ESC-0135",
-    "case_id": "CAS-00827",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-07-23T07:37:26Z"
+    "case_id": "CAS-00342",
+    "escalation_type": "management",
+    "escalated_at": "2025-08-09T06:09:05Z"
   },
   {
     "escalation_id": "ESC-0136",
-    "case_id": "CAS-01196",
-    "escalation_type": "management",
-    "escalated_at": "2025-01-10T01:06:00Z"
+    "case_id": "CAS-00345",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-09-17T22:17:03Z"
   },
   {
     "escalation_id": "ESC-0137",
-    "case_id": "CAS-01600",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-04-06T20:45:34Z"
+    "case_id": "CAS-00349",
+    "escalation_type": "management",
+    "escalated_at": "2025-07-13T22:47:38Z"
   },
   {
     "escalation_id": "ESC-0138",
-    "case_id": "CAS-01115",
-    "escalation_type": "management",
-    "escalated_at": "2025-08-12T04:06:49Z"
+    "case_id": "CAS-00351",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-28T14:16:32Z"
   },
   {
     "escalation_id": "ESC-0139",
-    "case_id": "CAS-00482",
+    "case_id": "CAS-00353",
     "escalation_type": "specialist",
-    "escalated_at": "2025-03-16T05:43:34Z"
+    "escalated_at": "2025-08-02T23:49:39Z"
   },
   {
     "escalation_id": "ESC-0140",
-    "case_id": "CAS-00552",
+    "case_id": "CAS-00355",
     "escalation_type": "specialist",
-    "escalated_at": "2025-03-08T06:05:29Z"
+    "escalated_at": "2025-06-07T00:07:02Z"
   },
   {
     "escalation_id": "ESC-0141",
-    "case_id": "CAS-01675",
-    "escalation_type": "management",
-    "escalated_at": "2025-08-24T14:04:17Z"
+    "case_id": "CAS-00356",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-06-09T11:42:05Z"
   },
   {
     "escalation_id": "ESC-0142",
-    "case_id": "CAS-00588",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-01-23T16:29:42Z"
+    "case_id": "CAS-00357",
+    "escalation_type": "management",
+    "escalated_at": "2025-10-14T19:53:12Z"
   },
   {
     "escalation_id": "ESC-0143",
-    "case_id": "CAS-01315",
-    "escalation_type": "management",
-    "escalated_at": "2025-04-06T13:48:58Z"
+    "case_id": "CAS-00359",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-04-15T19:57:07Z"
   },
   {
     "escalation_id": "ESC-0144",
-    "case_id": "CAS-01444",
+    "case_id": "CAS-00360",
     "escalation_type": "management",
-    "escalated_at": "2026-01-01T11:44:49Z"
+    "escalated_at": "2025-06-02T03:11:39Z"
   },
   {
     "escalation_id": "ESC-0145",
-    "case_id": "CAS-01104",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-06-28T22:29:45Z"
+    "case_id": "CAS-00361",
+    "escalation_type": "management",
+    "escalated_at": "2025-11-16T05:24:25Z"
   },
   {
     "escalation_id": "ESC-0146",
-    "case_id": "CAS-01965",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-12-01T13:56:19Z"
+    "case_id": "CAS-00362",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-04T05:47:17Z"
   },
   {
     "escalation_id": "ESC-0147",
-    "case_id": "CAS-00684",
+    "case_id": "CAS-00363",
     "escalation_type": "specialist",
-    "escalated_at": "2025-12-07T08:13:41Z"
+    "escalated_at": "2025-11-27T05:38:01Z"
   },
   {
     "escalation_id": "ESC-0148",
-    "case_id": "CAS-01050",
+    "case_id": "CAS-00364",
     "escalation_type": "specialist",
-    "escalated_at": "2025-04-04T13:42:49Z"
+    "escalated_at": "2025-02-06T20:29:37Z"
   },
   {
     "escalation_id": "ESC-0149",
-    "case_id": "CAS-01262",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-03-11T23:05:15Z"
+    "case_id": "CAS-00366",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-14T07:13:44Z"
   },
   {
     "escalation_id": "ESC-0150",
-    "case_id": "CAS-00956",
-    "escalation_type": "management",
-    "escalated_at": "2025-03-09T04:27:45Z"
+    "case_id": "CAS-00367",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-12-07T00:24:30Z"
   },
   {
     "escalation_id": "ESC-0151",
-    "case_id": "CAS-01464",
+    "case_id": "CAS-00368",
     "escalation_type": "management",
-    "escalated_at": "2025-12-01T09:50:03Z"
+    "escalated_at": "2025-01-13T02:21:36Z"
   },
   {
     "escalation_id": "ESC-0152",
-    "case_id": "CAS-00671",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-10-21T04:02:48Z"
+    "case_id": "CAS-00371",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-11-10T01:14:21Z"
   },
   {
     "escalation_id": "ESC-0153",
-    "case_id": "CAS-01541",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-03-13T13:54:01Z"
+    "case_id": "CAS-00375",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-21T00:35:25Z"
   },
   {
     "escalation_id": "ESC-0154",
-    "case_id": "CAS-00139",
+    "case_id": "CAS-00376",
     "escalation_type": "specialist",
-    "escalated_at": "2025-03-10T05:52:41Z"
+    "escalated_at": "2025-11-23T14:20:45Z"
   },
   {
     "escalation_id": "ESC-0155",
-    "case_id": "CAS-01639",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-04-17T08:06:15Z"
+    "case_id": "CAS-00378",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-05-13T18:49:57Z"
   },
   {
     "escalation_id": "ESC-0156",
-    "case_id": "CAS-00949",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-12-18T19:09:25Z"
+    "case_id": "CAS-00385",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-10-11T21:33:28Z"
   },
   {
     "escalation_id": "ESC-0157",
-    "case_id": "CAS-01913",
+    "case_id": "CAS-00386",
     "escalation_type": "specialist",
-    "escalated_at": "2025-11-10T11:48:54Z"
+    "escalated_at": "2025-05-31T23:47:35Z"
   },
   {
     "escalation_id": "ESC-0158",
-    "case_id": "CAS-01580",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-10-26T14:57:43Z"
+    "case_id": "CAS-00387",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-03-05T12:04:20Z"
   },
   {
     "escalation_id": "ESC-0159",
-    "case_id": "CAS-01830",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-02-02T02:46:16Z"
+    "case_id": "CAS-00390",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-08-16T01:20:32Z"
   },
   {
     "escalation_id": "ESC-0160",
-    "case_id": "CAS-00133",
-    "escalation_type": "management",
-    "escalated_at": "2025-06-30T16:47:19Z"
+    "case_id": "CAS-00394",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-01-18T01:49:48Z"
   },
   {
     "escalation_id": "ESC-0161",
-    "case_id": "CAS-01401",
-    "escalation_type": "management",
-    "escalated_at": "2025-08-04T13:24:36Z"
+    "case_id": "CAS-00396",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-06-15T08:49:26Z"
   },
   {
     "escalation_id": "ESC-0162",
-    "case_id": "CAS-01392",
-    "escalation_type": "management",
-    "escalated_at": "2025-04-22T21:58:41Z"
+    "case_id": "CAS-00398",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-09-18T22:05:10Z"
   },
   {
     "escalation_id": "ESC-0163",
-    "case_id": "CAS-01772",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-11-28T21:35:44Z"
+    "case_id": "CAS-00404",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-11-02T11:36:22Z"
   },
   {
     "escalation_id": "ESC-0164",
-    "case_id": "CAS-01584",
+    "case_id": "CAS-00406",
     "escalation_type": "management",
-    "escalated_at": "2025-06-04T02:35:32Z"
+    "escalated_at": "2025-11-11T19:03:09Z"
   },
   {
     "escalation_id": "ESC-0165",
-    "case_id": "CAS-01156",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-02-20T08:07:57Z"
+    "case_id": "CAS-00407",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-05-27T08:39:00Z"
   },
   {
     "escalation_id": "ESC-0166",
-    "case_id": "CAS-00101",
-    "escalation_type": "management",
-    "escalated_at": "2025-11-07T16:38:23Z"
+    "case_id": "CAS-00408",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-18T17:13:40Z"
   },
   {
     "escalation_id": "ESC-0167",
-    "case_id": "CAS-01860",
-    "escalation_type": "management",
-    "escalated_at": "2025-01-17T17:00:26Z"
+    "case_id": "CAS-00409",
+    "escalation_type": "specialist",
+    "escalated_at": "2026-01-01T05:44:41Z"
   },
   {
     "escalation_id": "ESC-0168",
-    "case_id": "CAS-00431",
-    "escalation_type": "management",
-    "escalated_at": "2025-11-01T16:01:39Z"
+    "case_id": "CAS-00410",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-06-29T12:36:40Z"
   },
   {
     "escalation_id": "ESC-0169",
-    "case_id": "CAS-01769",
+    "case_id": "CAS-00415",
     "escalation_type": "management",
-    "escalated_at": "2025-12-19T22:38:19Z"
+    "escalated_at": "2025-11-10T18:13:18Z"
   },
   {
     "escalation_id": "ESC-0170",
-    "case_id": "CAS-00861",
+    "case_id": "CAS-00418",
     "escalation_type": "management",
-    "escalated_at": "2025-05-27T04:05:55Z"
+    "escalated_at": "2025-05-31T20:55:07Z"
   },
   {
     "escalation_id": "ESC-0171",
-    "case_id": "CAS-00401",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-07-29T05:51:04Z"
+    "case_id": "CAS-00419",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-12-20T23:56:34Z"
   },
   {
     "escalation_id": "ESC-0172",
-    "case_id": "CAS-01358",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-05-05T16:53:21Z"
+    "case_id": "CAS-00420",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-01-09T03:23:24Z"
   },
   {
     "escalation_id": "ESC-0173",
-    "case_id": "CAS-01793",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-08-26T16:00:33Z"
+    "case_id": "CAS-00421",
+    "escalation_type": "management",
+    "escalated_at": "2025-07-29T09:14:38Z"
   },
   {
     "escalation_id": "ESC-0174",
-    "case_id": "CAS-01272",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-05-10T17:14:16Z"
+    "case_id": "CAS-00422",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-12-22T12:02:30Z"
   },
   {
     "escalation_id": "ESC-0175",
-    "case_id": "CAS-00172",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-09-18T21:39:16Z"
+    "case_id": "CAS-00424",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-03-06T04:20:44Z"
   },
   {
     "escalation_id": "ESC-0176",
-    "case_id": "CAS-00124",
+    "case_id": "CAS-00425",
     "escalation_type": "specialist",
-    "escalated_at": "2025-09-06T04:02:26Z"
+    "escalated_at": "2025-11-19T14:48:13Z"
   },
   {
     "escalation_id": "ESC-0177",
-    "case_id": "CAS-01587",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-03-26T03:52:55Z"
+    "case_id": "CAS-00426",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-10-23T21:39:25Z"
   },
   {
     "escalation_id": "ESC-0178",
-    "case_id": "CAS-01025",
+    "case_id": "CAS-00428",
     "escalation_type": "specialist",
-    "escalated_at": "2025-06-27T17:34:02Z"
+    "escalated_at": "2025-04-20T12:16:00Z"
   },
   {
     "escalation_id": "ESC-0179",
-    "case_id": "CAS-00767",
+    "case_id": "CAS-00430",
     "escalation_type": "management",
-    "escalated_at": "2025-07-24T08:57:57Z"
+    "escalated_at": "2025-03-21T20:22:54Z"
   },
   {
     "escalation_id": "ESC-0180",
-    "case_id": "CAS-00774",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-10-26T12:49:33Z"
+    "case_id": "CAS-00432",
+    "escalation_type": "management",
+    "escalated_at": "2025-10-23T11:06:32Z"
   },
   {
     "escalation_id": "ESC-0181",
-    "case_id": "CAS-01597",
+    "case_id": "CAS-00438",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-12-19T19:05:20Z"
+    "escalated_at": "2025-12-10T00:14:47Z"
   },
   {
     "escalation_id": "ESC-0182",
-    "case_id": "CAS-01131",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-02-19T12:41:58Z"
+    "case_id": "CAS-00440",
+    "escalation_type": "management",
+    "escalated_at": "2025-08-26T17:39:15Z"
   },
   {
     "escalation_id": "ESC-0183",
-    "case_id": "CAS-00726",
+    "case_id": "CAS-00444",
     "escalation_type": "specialist",
-    "escalated_at": "2025-05-21T18:47:50Z"
+    "escalated_at": "2025-04-02T22:52:16Z"
   },
   {
     "escalation_id": "ESC-0184",
-    "case_id": "CAS-01946",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-06-28T21:32:07Z"
+    "case_id": "CAS-00445",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-18T06:19:41Z"
   },
   {
     "escalation_id": "ESC-0185",
-    "case_id": "CAS-01695",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-11-21T09:11:58Z"
+    "case_id": "CAS-00446",
+    "escalation_type": "management",
+    "escalated_at": "2025-07-01T08:46:07Z"
   },
   {
     "escalation_id": "ESC-0186",
-    "case_id": "CAS-00646",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-01-05T07:31:00Z"
+    "case_id": "CAS-00447",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-06-01T09:10:47Z"
   },
   {
     "escalation_id": "ESC-0187",
-    "case_id": "CAS-00143",
-    "escalation_type": "management",
-    "escalated_at": "2025-02-13T11:45:16Z"
+    "case_id": "CAS-00448",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-02-19T06:14:23Z"
   },
   {
     "escalation_id": "ESC-0188",
-    "case_id": "CAS-00373",
-    "escalation_type": "management",
-    "escalated_at": "2025-09-28T06:52:41Z"
+    "case_id": "CAS-00449",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-11-25T06:24:06Z"
   },
   {
     "escalation_id": "ESC-0189",
-    "case_id": "CAS-01280",
-    "escalation_type": "management",
-    "escalated_at": "2025-10-22T17:49:26Z"
+    "case_id": "CAS-00457",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-05-01T18:28:40Z"
   },
   {
     "escalation_id": "ESC-0190",
-    "case_id": "CAS-01665",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-11-20T10:18:31Z"
+    "case_id": "CAS-00458",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-12-11T15:36:33Z"
   },
   {
     "escalation_id": "ESC-0191",
-    "case_id": "CAS-00116",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-06-30T21:43:41Z"
+    "case_id": "CAS-00460",
+    "escalation_type": "management",
+    "escalated_at": "2025-01-05T11:44:34Z"
   },
   {
     "escalation_id": "ESC-0192",
-    "case_id": "CAS-01066",
+    "case_id": "CAS-00461",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-03-26T13:30:58Z"
+    "escalated_at": "2025-01-13T05:15:39Z"
   },
   {
     "escalation_id": "ESC-0193",
-    "case_id": "CAS-01476",
+    "case_id": "CAS-00468",
     "escalation_type": "management",
-    "escalated_at": "2025-09-12T08:46:22Z"
+    "escalated_at": "2025-12-28T06:15:30Z"
   },
   {
     "escalation_id": "ESC-0194",
-    "case_id": "CAS-00218",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-12-23T03:49:11Z"
+    "case_id": "CAS-00469",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-01-04T02:35:04Z"
   },
   {
     "escalation_id": "ESC-0195",
-    "case_id": "CAS-01478",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-02-24T03:30:57Z"
+    "case_id": "CAS-00472",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-08T23:57:56Z"
   },
   {
     "escalation_id": "ESC-0196",
-    "case_id": "CAS-00857",
-    "escalation_type": "management",
-    "escalated_at": "2025-11-16T09:18:56Z"
+    "case_id": "CAS-00473",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-08T04:57:23Z"
   },
   {
     "escalation_id": "ESC-0197",
-    "case_id": "CAS-00674",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-01-19T03:06:34Z"
+    "case_id": "CAS-00475",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-20T23:59:03Z"
   },
   {
     "escalation_id": "ESC-0198",
-    "case_id": "CAS-01109",
+    "case_id": "CAS-00477",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-01-14T23:25:57Z"
+    "escalated_at": "2025-03-03T16:05:43Z"
   },
   {
     "escalation_id": "ESC-0199",
-    "case_id": "CAS-00886",
+    "case_id": "CAS-00479",
     "escalation_type": "management",
-    "escalated_at": "2025-04-18T00:16:01Z"
+    "escalated_at": "2025-08-01T17:27:47Z"
   },
   {
     "escalation_id": "ESC-0200",
-    "case_id": "CAS-01708",
+    "case_id": "CAS-00480",
     "escalation_type": "management",
-    "escalated_at": "2025-03-08T13:22:27Z"
+    "escalated_at": "2025-11-07T05:50:58Z"
   },
   {
     "escalation_id": "ESC-0201",
-    "case_id": "CAS-00833",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-11-25T23:01:23Z"
+    "case_id": "CAS-00481",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-11-28T16:48:34Z"
   },
   {
     "escalation_id": "ESC-0202",
-    "case_id": "CAS-01918",
+    "case_id": "CAS-00482",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-10-23T01:05:02Z"
+    "escalated_at": "2025-04-23T08:56:18Z"
   },
   {
     "escalation_id": "ESC-0203",
-    "case_id": "CAS-00748",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-02-10T06:20:27Z"
+    "case_id": "CAS-00483",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-11-21T21:04:47Z"
   },
   {
     "escalation_id": "ESC-0204",
-    "case_id": "CAS-01090",
-    "escalation_type": "management",
-    "escalated_at": "2025-08-24T16:56:48Z"
+    "case_id": "CAS-00485",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-19T02:58:56Z"
   },
   {
     "escalation_id": "ESC-0205",
-    "case_id": "CAS-01247",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-11-10T06:03:45Z"
+    "case_id": "CAS-00487",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-05-19T14:12:28Z"
   },
   {
     "escalation_id": "ESC-0206",
-    "case_id": "CAS-01610",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-11-03T04:08:24Z"
+    "case_id": "CAS-00490",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-02-23T21:03:47Z"
   },
   {
     "escalation_id": "ESC-0207",
-    "case_id": "CAS-00220",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-12-07T18:41:11Z"
+    "case_id": "CAS-00491",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-02T20:55:43Z"
   },
   {
     "escalation_id": "ESC-0208",
-    "case_id": "CAS-00167",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-02-24T09:40:54Z"
+    "case_id": "CAS-00493",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-08-22T17:43:22Z"
   },
   {
     "escalation_id": "ESC-0209",
-    "case_id": "CAS-00301",
-    "escalation_type": "management",
-    "escalated_at": "2025-02-11T21:34:26Z"
+    "case_id": "CAS-00494",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-11-17T00:37:36Z"
   },
   {
     "escalation_id": "ESC-0210",
-    "case_id": "CAS-00933",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-08-12T15:36:57Z"
+    "case_id": "CAS-00496",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-03-10T03:04:23Z"
   },
   {
     "escalation_id": "ESC-0211",
-    "case_id": "CAS-01273",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-03-22T11:47:43Z"
+    "case_id": "CAS-00497",
+    "escalation_type": "management",
+    "escalated_at": "2025-09-14T12:06:38Z"
   },
   {
     "escalation_id": "ESC-0212",
-    "case_id": "CAS-00515",
+    "case_id": "CAS-00499",
     "escalation_type": "management",
-    "escalated_at": "2025-04-08T20:10:41Z"
+    "escalated_at": "2025-11-07T14:15:31Z"
   },
   {
     "escalation_id": "ESC-0213",
-    "case_id": "CAS-00208",
+    "case_id": "CAS-00500",
     "escalation_type": "specialist",
-    "escalated_at": "2025-01-05T12:22:22Z"
+    "escalated_at": "2025-11-06T06:16:28Z"
   },
   {
     "escalation_id": "ESC-0214",
-    "case_id": "CAS-01824",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-10-31T04:28:17Z"
+    "case_id": "CAS-00501",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-06T12:29:08Z"
   },
   {
     "escalation_id": "ESC-0215",
-    "case_id": "CAS-01000",
-    "escalation_type": "management",
-    "escalated_at": "2025-09-14T16:16:36Z"
+    "case_id": "CAS-00502",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-12-03T17:44:16Z"
   },
   {
     "escalation_id": "ESC-0216",
-    "case_id": "CAS-00658",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-01-06T10:05:33Z"
+    "case_id": "CAS-00503",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-15T21:05:34Z"
   },
   {
     "escalation_id": "ESC-0217",
-    "case_id": "CAS-01552",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-11-16T11:16:30Z"
+    "case_id": "CAS-00509",
+    "escalation_type": "management",
+    "escalated_at": "2025-10-20T07:40:47Z"
   },
   {
     "escalation_id": "ESC-0218",
-    "case_id": "CAS-00605",
+    "case_id": "CAS-00510",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-07-19T03:54:35Z"
+    "escalated_at": "2025-01-23T03:00:38Z"
   },
   {
     "escalation_id": "ESC-0219",
-    "case_id": "CAS-01880",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-10-05T18:26:51Z"
+    "case_id": "CAS-00513",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-25T12:10:49Z"
   },
   {
     "escalation_id": "ESC-0220",
-    "case_id": "CAS-01736",
-    "escalation_type": "management",
-    "escalated_at": "2025-11-02T11:53:45Z"
+    "case_id": "CAS-00515",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-22T23:45:14Z"
   },
   {
     "escalation_id": "ESC-0221",
-    "case_id": "CAS-00944",
+    "case_id": "CAS-00516",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-07-23T06:09:32Z"
+    "escalated_at": "2025-09-25T06:04:50Z"
   },
   {
     "escalation_id": "ESC-0222",
-    "case_id": "CAS-00675",
+    "case_id": "CAS-00524",
     "escalation_type": "specialist",
-    "escalated_at": "2025-02-09T18:32:23Z"
+    "escalated_at": "2025-10-20T21:28:55Z"
   },
   {
     "escalation_id": "ESC-0223",
-    "case_id": "CAS-00575",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-02-01T23:04:09Z"
+    "case_id": "CAS-00530",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-04-20T21:07:59Z"
   },
   {
     "escalation_id": "ESC-0224",
-    "case_id": "CAS-00354",
+    "case_id": "CAS-00533",
     "escalation_type": "management",
-    "escalated_at": "2025-05-12T15:03:20Z"
+    "escalated_at": "2025-09-29T04:18:32Z"
   },
   {
     "escalation_id": "ESC-0225",
-    "case_id": "CAS-00810",
-    "escalation_type": "management",
-    "escalated_at": "2025-08-20T12:24:22Z"
+    "case_id": "CAS-00535",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-05-20T00:09:01Z"
   },
   {
     "escalation_id": "ESC-0226",
-    "case_id": "CAS-01105",
-    "escalation_type": "management",
-    "escalated_at": "2025-07-06T19:56:44Z"
+    "case_id": "CAS-00537",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-22T08:16:35Z"
   },
   {
     "escalation_id": "ESC-0227",
-    "case_id": "CAS-00705",
-    "escalation_type": "management",
-    "escalated_at": "2025-07-18T02:20:57Z"
+    "case_id": "CAS-00539",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-07T07:17:23Z"
   },
   {
     "escalation_id": "ESC-0228",
-    "case_id": "CAS-00692",
-    "escalation_type": "management",
-    "escalated_at": "2025-12-25T09:40:14Z"
+    "case_id": "CAS-00540",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-10-05T21:49:28Z"
   },
   {
     "escalation_id": "ESC-0229",
-    "case_id": "CAS-00252",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-04-15T19:57:17Z"
+    "case_id": "CAS-00541",
+    "escalation_type": "management",
+    "escalated_at": "2025-08-18T13:31:31Z"
   },
   {
     "escalation_id": "ESC-0230",
-    "case_id": "CAS-00365",
-    "escalation_type": "management",
-    "escalated_at": "2025-11-25T18:14:41Z"
+    "case_id": "CAS-00543",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-12-23T17:28:45Z"
   },
   {
     "escalation_id": "ESC-0231",
-    "case_id": "CAS-01573",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-06-25T06:42:53Z"
+    "case_id": "CAS-00552",
+    "escalation_type": "management",
+    "escalated_at": "2025-06-30T22:34:35Z"
   },
   {
     "escalation_id": "ESC-0232",
-    "case_id": "CAS-00137",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-08-08T18:30:58Z"
+    "case_id": "CAS-00554",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-04-08T03:38:41Z"
   },
   {
     "escalation_id": "ESC-0233",
-    "case_id": "CAS-00854",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-09-25T03:55:24Z"
+    "case_id": "CAS-00557",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-04-30T09:10:53Z"
   },
   {
     "escalation_id": "ESC-0234",
-    "case_id": "CAS-01802",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-12-31T20:09:24Z"
+    "case_id": "CAS-00564",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-14T21:30:43Z"
   },
   {
     "escalation_id": "ESC-0235",
-    "case_id": "CAS-00869",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-06-17T10:55:26Z"
+    "case_id": "CAS-00576",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-04-16T15:43:04Z"
   },
   {
     "escalation_id": "ESC-0236",
-    "case_id": "CAS-00839",
+    "case_id": "CAS-00582",
     "escalation_type": "specialist",
-    "escalated_at": "2025-04-26T11:44:01Z"
+    "escalated_at": "2025-10-13T14:20:40Z"
   },
   {
     "escalation_id": "ESC-0237",
-    "case_id": "CAS-00318",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-07-08T17:52:17Z"
+    "case_id": "CAS-00585",
+    "escalation_type": "management",
+    "escalated_at": "2025-06-09T14:18:33Z"
   },
   {
     "escalation_id": "ESC-0238",
-    "case_id": "CAS-01169",
-    "escalation_type": "management",
-    "escalated_at": "2025-04-04T21:02:17Z"
+    "case_id": "CAS-00587",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-05-16T07:52:29Z"
   },
   {
     "escalation_id": "ESC-0239",
-    "case_id": "CAS-00648",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-07-05T16:36:42Z"
+    "case_id": "CAS-00590",
+    "escalation_type": "management",
+    "escalated_at": "2025-09-13T14:58:16Z"
   },
   {
     "escalation_id": "ESC-0240",
-    "case_id": "CAS-00740",
+    "case_id": "CAS-00594",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-10-15T11:33:54Z"
+    "escalated_at": "2025-02-10T08:30:44Z"
   },
   {
     "escalation_id": "ESC-0241",
-    "case_id": "CAS-01233",
-    "escalation_type": "management",
-    "escalated_at": "2025-10-14T13:19:50Z"
+    "case_id": "CAS-00595",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-28T14:00:22Z"
   },
   {
     "escalation_id": "ESC-0242",
-    "case_id": "CAS-00435",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-09-29T00:51:40Z"
+    "case_id": "CAS-00596",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-09-20T18:01:47Z"
   },
   {
     "escalation_id": "ESC-0243",
-    "case_id": "CAS-01140",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-02-14T08:38:43Z"
+    "case_id": "CAS-00598",
+    "escalation_type": "management",
+    "escalated_at": "2025-10-02T19:42:11Z"
   },
   {
     "escalation_id": "ESC-0244",
-    "case_id": "CAS-01700",
+    "case_id": "CAS-00602",
     "escalation_type": "management",
-    "escalated_at": "2025-04-30T20:17:49Z"
+    "escalated_at": "2025-12-18T15:35:12Z"
   },
   {
     "escalation_id": "ESC-0245",
-    "case_id": "CAS-00375",
+    "case_id": "CAS-00603",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-06-04T03:14:23Z"
+    "escalated_at": "2025-12-17T02:41:58Z"
   },
   {
     "escalation_id": "ESC-0246",
-    "case_id": "CAS-01903",
+    "case_id": "CAS-00604",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-02-14T21:27:37Z"
+    "escalated_at": "2025-09-10T09:48:24Z"
   },
   {
     "escalation_id": "ESC-0247",
-    "case_id": "CAS-00616",
+    "case_id": "CAS-00607",
     "escalation_type": "management",
-    "escalated_at": "2025-01-11T05:45:32Z"
+    "escalated_at": "2025-08-24T02:54:15Z"
   },
   {
     "escalation_id": "ESC-0248",
-    "case_id": "CAS-01498",
-    "escalation_type": "management",
-    "escalated_at": "2025-09-18T16:00:44Z"
+    "case_id": "CAS-00608",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-09T06:06:25Z"
   },
   {
     "escalation_id": "ESC-0249",
-    "case_id": "CAS-00170",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-02-18T15:27:32Z"
+    "case_id": "CAS-00614",
+    "escalation_type": "management",
+    "escalated_at": "2025-08-09T00:44:27Z"
   },
   {
     "escalation_id": "ESC-0250",
-    "case_id": "CAS-00621",
+    "case_id": "CAS-00615",
     "escalation_type": "specialist",
-    "escalated_at": "2025-03-29T04:59:04Z"
+    "escalated_at": "2025-02-09T07:29:32Z"
   },
   {
     "escalation_id": "ESC-0251",
-    "case_id": "CAS-01255",
+    "case_id": "CAS-00619",
     "escalation_type": "management",
-    "escalated_at": "2025-12-31T16:40:24Z"
+    "escalated_at": "2025-08-24T02:20:54Z"
   },
   {
     "escalation_id": "ESC-0252",
-    "case_id": "CAS-00695",
+    "case_id": "CAS-00622",
     "escalation_type": "specialist",
-    "escalated_at": "2025-08-01T17:26:20Z"
+    "escalated_at": "2025-08-31T03:33:26Z"
   },
   {
     "escalation_id": "ESC-0253",
-    "case_id": "CAS-01277",
-    "escalation_type": "management",
-    "escalated_at": "2025-11-27T19:50:05Z"
+    "case_id": "CAS-00627",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-30T04:51:25Z"
   },
   {
     "escalation_id": "ESC-0254",
-    "case_id": "CAS-00895",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-02-27T17:52:48Z"
+    "case_id": "CAS-00643",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-03-19T06:26:45Z"
   },
   {
     "escalation_id": "ESC-0255",
-    "case_id": "CAS-01316",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-06-16T07:38:22Z"
+    "case_id": "CAS-00645",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-11-23T22:02:34Z"
   },
   {
     "escalation_id": "ESC-0256",
-    "case_id": "CAS-00558",
-    "escalation_type": "management",
-    "escalated_at": "2025-01-08T19:03:03Z"
+    "case_id": "CAS-00649",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-10T09:59:01Z"
   },
   {
     "escalation_id": "ESC-0257",
-    "case_id": "CAS-01005",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-07-22T11:40:41Z"
+    "case_id": "CAS-00651",
+    "escalation_type": "management",
+    "escalated_at": "2025-09-26T19:26:58Z"
   },
   {
     "escalation_id": "ESC-0258",
-    "case_id": "CAS-01117",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-08-29T18:52:32Z"
+    "case_id": "CAS-00659",
+    "escalation_type": "management",
+    "escalated_at": "2025-10-28T09:57:18Z"
   },
   {
     "escalation_id": "ESC-0259",
-    "case_id": "CAS-00359",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-05-19T18:30:06Z"
+    "case_id": "CAS-00660",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-25T19:18:44Z"
   },
   {
     "escalation_id": "ESC-0260",
-    "case_id": "CAS-00107",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-06-20T05:28:04Z"
+    "case_id": "CAS-00666",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-23T07:46:22Z"
   },
   {
     "escalation_id": "ESC-0261",
-    "case_id": "CAS-01136",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-10-08T14:27:19Z"
+    "case_id": "CAS-00668",
+    "escalation_type": "management",
+    "escalated_at": "2025-01-17T02:54:49Z"
   },
   {
     "escalation_id": "ESC-0262",
-    "case_id": "CAS-01622",
-    "escalation_type": "management",
-    "escalated_at": "2025-05-07T06:19:43Z"
+    "case_id": "CAS-00670",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-01-18T09:12:19Z"
   },
   {
     "escalation_id": "ESC-0263",
-    "case_id": "CAS-00459",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-08-08T18:37:47Z"
+    "case_id": "CAS-00671",
+    "escalation_type": "management",
+    "escalated_at": "2025-09-27T22:45:29Z"
   },
   {
     "escalation_id": "ESC-0264",
-    "case_id": "CAS-01648",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-03-31T22:25:16Z"
+    "case_id": "CAS-00673",
+    "escalation_type": "management",
+    "escalated_at": "2025-09-03T19:23:31Z"
   },
   {
     "escalation_id": "ESC-0265",
-    "case_id": "CAS-00578",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-06-05T02:47:00Z"
+    "case_id": "CAS-00680",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-03-28T03:21:03Z"
   },
   {
     "escalation_id": "ESC-0266",
-    "case_id": "CAS-01974",
-    "escalation_type": "management",
-    "escalated_at": "2025-08-25T14:50:53Z"
+    "case_id": "CAS-00681",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-05-19T17:57:20Z"
   },
   {
     "escalation_id": "ESC-0267",
-    "case_id": "CAS-00822",
-    "escalation_type": "management",
-    "escalated_at": "2025-10-21T17:04:43Z"
+    "case_id": "CAS-00684",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-08-27T11:36:48Z"
   },
   {
     "escalation_id": "ESC-0268",
-    "case_id": "CAS-00856",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-03-03T03:39:53Z"
+    "case_id": "CAS-00687",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-30T07:00:15Z"
   },
   {
     "escalation_id": "ESC-0269",
-    "case_id": "CAS-01209",
+    "case_id": "CAS-00688",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-06-08T09:28:59Z"
+    "escalated_at": "2025-01-20T13:53:44Z"
   },
   {
     "escalation_id": "ESC-0270",
-    "case_id": "CAS-01496",
-    "escalation_type": "management",
-    "escalated_at": "2025-02-24T01:54:24Z"
+    "case_id": "CAS-00695",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-08-24T15:57:24Z"
   },
   {
     "escalation_id": "ESC-0271",
-    "case_id": "CAS-01533",
-    "escalation_type": "management",
-    "escalated_at": "2025-12-08T18:42:29Z"
+    "case_id": "CAS-00696",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-04-18T15:50:58Z"
   },
   {
     "escalation_id": "ESC-0272",
-    "case_id": "CAS-00942",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-09-23T00:22:49Z"
+    "case_id": "CAS-00702",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-08-12T05:43:39Z"
   },
   {
     "escalation_id": "ESC-0273",
-    "case_id": "CAS-01266",
+    "case_id": "CAS-00705",
     "escalation_type": "specialist",
-    "escalated_at": "2025-09-26T11:29:26Z"
+    "escalated_at": "2025-04-23T15:29:34Z"
   },
   {
     "escalation_id": "ESC-0274",
-    "case_id": "CAS-01147",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-11-29T17:49:20Z"
+    "case_id": "CAS-00708",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-12-18T06:53:23Z"
   },
   {
     "escalation_id": "ESC-0275",
-    "case_id": "CAS-00617",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-09-21T06:27:42Z"
+    "case_id": "CAS-00709",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-12T16:41:14Z"
   },
   {
     "escalation_id": "ESC-0276",
-    "case_id": "CAS-00776",
-    "escalation_type": "management",
-    "escalated_at": "2025-12-06T21:59:39Z"
+    "case_id": "CAS-00710",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-02-02T03:23:36Z"
   },
   {
     "escalation_id": "ESC-0277",
-    "case_id": "CAS-01279",
+    "case_id": "CAS-00711",
     "escalation_type": "management",
-    "escalated_at": "2025-05-24T14:00:04Z"
+    "escalated_at": "2025-01-17T21:23:07Z"
   },
   {
     "escalation_id": "ESC-0278",
-    "case_id": "CAS-00307",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-04-14T23:12:14Z"
+    "case_id": "CAS-00717",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-22T15:14:13Z"
   },
   {
     "escalation_id": "ESC-0279",
-    "case_id": "CAS-01583",
+    "case_id": "CAS-00718",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-03-24T06:19:24Z"
+    "escalated_at": "2025-05-12T19:48:24Z"
   },
   {
     "escalation_id": "ESC-0280",
-    "case_id": "CAS-00901",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-12-25T16:55:06Z"
+    "case_id": "CAS-00719",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-08T10:06:43Z"
   },
   {
     "escalation_id": "ESC-0281",
-    "case_id": "CAS-00296",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-02-11T11:01:00Z"
+    "case_id": "CAS-00725",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-10T02:30:49Z"
   },
   {
     "escalation_id": "ESC-0282",
-    "case_id": "CAS-00977",
+    "case_id": "CAS-00729",
     "escalation_type": "management",
-    "escalated_at": "2025-03-21T15:27:13Z"
+    "escalated_at": "2025-07-18T15:48:05Z"
   },
   {
     "escalation_id": "ESC-0283",
-    "case_id": "CAS-01286",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-12-01T04:24:22Z"
+    "case_id": "CAS-00735",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-03-26T11:29:08Z"
   },
   {
     "escalation_id": "ESC-0284",
-    "case_id": "CAS-00727",
-    "escalation_type": "management",
-    "escalated_at": "2025-11-26T18:42:37Z"
+    "case_id": "CAS-00737",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-11-22T22:29:55Z"
   },
   {
     "escalation_id": "ESC-0285",
-    "case_id": "CAS-01595",
-    "escalation_type": "management",
-    "escalated_at": "2025-11-18T18:17:38Z"
+    "case_id": "CAS-00740",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-03-28T07:26:49Z"
   },
   {
     "escalation_id": "ESC-0286",
-    "case_id": "CAS-01199",
-    "escalation_type": "incident_response",
-    "escalated_at": "2025-08-27T20:02:06Z"
+    "case_id": "CAS-00741",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-11T20:18:40Z"
   },
   {
     "escalation_id": "ESC-0287",
-    "case_id": "CAS-01072",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-01-11T06:06:26Z"
+    "case_id": "CAS-00748",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-12-22T14:52:03Z"
   },
   {
     "escalation_id": "ESC-0288",
-    "case_id": "CAS-00906",
+    "case_id": "CAS-00754",
     "escalation_type": "management",
-    "escalated_at": "2025-05-24T08:24:14Z"
+    "escalated_at": "2025-04-03T02:24:37Z"
   },
   {
     "escalation_id": "ESC-0289",
-    "case_id": "CAS-00433",
+    "case_id": "CAS-00758",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-06-19T09:29:00Z"
+    "escalated_at": "2025-02-05T04:37:50Z"
   },
   {
     "escalation_id": "ESC-0290",
-    "case_id": "CAS-01322",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-05-16T03:44:37Z"
+    "case_id": "CAS-00759",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-11-02T12:11:24Z"
   },
   {
     "escalation_id": "ESC-0291",
-    "case_id": "CAS-00703",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-11-16T23:19:27Z"
+    "case_id": "CAS-00762",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-05T13:52:58Z"
   },
   {
     "escalation_id": "ESC-0292",
-    "case_id": "CAS-00672",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-11-11T17:10:40Z"
+    "case_id": "CAS-00763",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-03-03T15:59:12Z"
   },
   {
     "escalation_id": "ESC-0293",
-    "case_id": "CAS-01590",
-    "escalation_type": "management",
-    "escalated_at": "2025-07-09T17:31:44Z"
+    "case_id": "CAS-00764",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-12-05T04:48:56Z"
   },
   {
     "escalation_id": "ESC-0294",
-    "case_id": "CAS-01083",
-    "escalation_type": "management",
-    "escalated_at": "2025-02-08T12:40:00Z"
+    "case_id": "CAS-00766",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-02-06T15:27:21Z"
   },
   {
     "escalation_id": "ESC-0295",
-    "case_id": "CAS-01529",
+    "case_id": "CAS-00770",
     "escalation_type": "management",
-    "escalated_at": "2025-04-19T20:16:42Z"
+    "escalated_at": "2025-06-05T06:47:00Z"
   },
   {
     "escalation_id": "ESC-0296",
-    "case_id": "CAS-00983",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-01-18T10:51:51Z"
+    "case_id": "CAS-00776",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-31T11:41:57Z"
   },
   {
     "escalation_id": "ESC-0297",
-    "case_id": "CAS-01585",
-    "escalation_type": "regulatory",
-    "escalated_at": "2025-01-26T07:39:18Z"
+    "case_id": "CAS-00777",
+    "escalation_type": "management",
+    "escalated_at": "2025-07-03T17:25:44Z"
   },
   {
     "escalation_id": "ESC-0298",
-    "case_id": "CAS-00639",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-11-13T21:32:00Z"
+    "case_id": "CAS-00780",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-09-28T15:55:41Z"
   },
   {
     "escalation_id": "ESC-0299",
-    "case_id": "CAS-00964",
-    "escalation_type": "specialist",
-    "escalated_at": "2025-06-25T00:54:10Z"
+    "case_id": "CAS-00781",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-10T00:57:41Z"
   },
   {
     "escalation_id": "ESC-0300",
-    "case_id": "CAS-01651",
+    "case_id": "CAS-00783",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-04-02T12:13:36Z"
+  },
+  {
+    "escalation_id": "ESC-0301",
+    "case_id": "CAS-00787",
     "escalation_type": "incident_response",
-    "escalated_at": "2025-05-02T19:13:32Z"
+    "escalated_at": "2025-05-03T11:28:57Z"
+  },
+  {
+    "escalation_id": "ESC-0302",
+    "case_id": "CAS-00789",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-04-05T08:23:24Z"
+  },
+  {
+    "escalation_id": "ESC-0303",
+    "case_id": "CAS-00791",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-02-27T23:36:41Z"
+  },
+  {
+    "escalation_id": "ESC-0304",
+    "case_id": "CAS-00793",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-12T17:12:54Z"
+  },
+  {
+    "escalation_id": "ESC-0305",
+    "case_id": "CAS-00794",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-01-10T21:47:16Z"
+  },
+  {
+    "escalation_id": "ESC-0306",
+    "case_id": "CAS-00798",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-11-21T16:30:48Z"
+  },
+  {
+    "escalation_id": "ESC-0307",
+    "case_id": "CAS-00800",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-03-03T11:47:31Z"
+  },
+  {
+    "escalation_id": "ESC-0308",
+    "case_id": "CAS-00802",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-23T13:02:02Z"
+  },
+  {
+    "escalation_id": "ESC-0309",
+    "case_id": "CAS-00803",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-18T05:58:24Z"
+  },
+  {
+    "escalation_id": "ESC-0310",
+    "case_id": "CAS-00812",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-29T13:14:22Z"
+  },
+  {
+    "escalation_id": "ESC-0311",
+    "case_id": "CAS-00821",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-04-06T02:36:48Z"
+  },
+  {
+    "escalation_id": "ESC-0312",
+    "case_id": "CAS-00823",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-01-27T05:10:39Z"
+  },
+  {
+    "escalation_id": "ESC-0313",
+    "case_id": "CAS-00824",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-03-02T14:30:06Z"
+  },
+  {
+    "escalation_id": "ESC-0314",
+    "case_id": "CAS-00827",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-06-26T21:03:57Z"
+  },
+  {
+    "escalation_id": "ESC-0315",
+    "case_id": "CAS-00830",
+    "escalation_type": "management",
+    "escalated_at": "2025-10-01T05:11:38Z"
+  },
+  {
+    "escalation_id": "ESC-0316",
+    "case_id": "CAS-00834",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-03-15T17:23:43Z"
+  },
+  {
+    "escalation_id": "ESC-0317",
+    "case_id": "CAS-00839",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-12-06T05:12:59Z"
+  },
+  {
+    "escalation_id": "ESC-0318",
+    "case_id": "CAS-00843",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-10-20T06:34:04Z"
+  },
+  {
+    "escalation_id": "ESC-0319",
+    "case_id": "CAS-00856",
+    "escalation_type": "management",
+    "escalated_at": "2025-09-02T11:19:02Z"
+  },
+  {
+    "escalation_id": "ESC-0320",
+    "case_id": "CAS-00858",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-02-12T23:01:18Z"
+  },
+  {
+    "escalation_id": "ESC-0321",
+    "case_id": "CAS-00860",
+    "escalation_type": "management",
+    "escalated_at": "2025-08-16T18:40:40Z"
+  },
+  {
+    "escalation_id": "ESC-0322",
+    "case_id": "CAS-00869",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-12-03T14:17:09Z"
+  },
+  {
+    "escalation_id": "ESC-0323",
+    "case_id": "CAS-00870",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-11-25T01:16:31Z"
+  },
+  {
+    "escalation_id": "ESC-0324",
+    "case_id": "CAS-00873",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-09-12T13:20:56Z"
+  },
+  {
+    "escalation_id": "ESC-0325",
+    "case_id": "CAS-00874",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-10-15T15:48:11Z"
+  },
+  {
+    "escalation_id": "ESC-0326",
+    "case_id": "CAS-00886",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-02-22T04:27:31Z"
+  },
+  {
+    "escalation_id": "ESC-0327",
+    "case_id": "CAS-00890",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-12-14T03:47:02Z"
+  },
+  {
+    "escalation_id": "ESC-0328",
+    "case_id": "CAS-00893",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-06-23T11:59:59Z"
+  },
+  {
+    "escalation_id": "ESC-0329",
+    "case_id": "CAS-00894",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-11-07T03:06:09Z"
+  },
+  {
+    "escalation_id": "ESC-0330",
+    "case_id": "CAS-00895",
+    "escalation_type": "management",
+    "escalated_at": "2025-06-19T18:13:29Z"
+  },
+  {
+    "escalation_id": "ESC-0331",
+    "case_id": "CAS-00897",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-10-25T11:44:22Z"
+  },
+  {
+    "escalation_id": "ESC-0332",
+    "case_id": "CAS-00898",
+    "escalation_type": "management",
+    "escalated_at": "2025-10-21T10:37:14Z"
+  },
+  {
+    "escalation_id": "ESC-0333",
+    "case_id": "CAS-00899",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-03-20T18:37:18Z"
+  },
+  {
+    "escalation_id": "ESC-0334",
+    "case_id": "CAS-00902",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-01-14T09:26:56Z"
+  },
+  {
+    "escalation_id": "ESC-0335",
+    "case_id": "CAS-00903",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-04-15T21:33:24Z"
+  },
+  {
+    "escalation_id": "ESC-0336",
+    "case_id": "CAS-00904",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-01-06T13:45:43Z"
+  },
+  {
+    "escalation_id": "ESC-0337",
+    "case_id": "CAS-00911",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-03-17T06:46:37Z"
+  },
+  {
+    "escalation_id": "ESC-0338",
+    "case_id": "CAS-00922",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-15T16:42:12Z"
+  },
+  {
+    "escalation_id": "ESC-0339",
+    "case_id": "CAS-00926",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-08-01T12:01:36Z"
+  },
+  {
+    "escalation_id": "ESC-0340",
+    "case_id": "CAS-00937",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-04-14T10:55:37Z"
+  },
+  {
+    "escalation_id": "ESC-0341",
+    "case_id": "CAS-00939",
+    "escalation_type": "management",
+    "escalated_at": "2025-11-10T15:13:38Z"
+  },
+  {
+    "escalation_id": "ESC-0342",
+    "case_id": "CAS-00940",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-19T12:44:11Z"
+  },
+  {
+    "escalation_id": "ESC-0343",
+    "case_id": "CAS-00943",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-25T10:49:14Z"
+  },
+  {
+    "escalation_id": "ESC-0344",
+    "case_id": "CAS-00945",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-12-03T08:03:46Z"
+  },
+  {
+    "escalation_id": "ESC-0345",
+    "case_id": "CAS-00948",
+    "escalation_type": "management",
+    "escalated_at": "2025-08-16T02:51:49Z"
+  },
+  {
+    "escalation_id": "ESC-0346",
+    "case_id": "CAS-00951",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-05-03T05:56:07Z"
+  },
+  {
+    "escalation_id": "ESC-0347",
+    "case_id": "CAS-00957",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-03T01:42:15Z"
+  },
+  {
+    "escalation_id": "ESC-0348",
+    "case_id": "CAS-00959",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-06-19T22:25:18Z"
+  },
+  {
+    "escalation_id": "ESC-0349",
+    "case_id": "CAS-00963",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-05-31T17:04:18Z"
+  },
+  {
+    "escalation_id": "ESC-0350",
+    "case_id": "CAS-00966",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-05-27T05:42:06Z"
+  },
+  {
+    "escalation_id": "ESC-0351",
+    "case_id": "CAS-00969",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-01T10:57:44Z"
+  },
+  {
+    "escalation_id": "ESC-0352",
+    "case_id": "CAS-00972",
+    "escalation_type": "management",
+    "escalated_at": "2025-02-10T20:47:56Z"
+  },
+  {
+    "escalation_id": "ESC-0353",
+    "case_id": "CAS-00979",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-06-18T10:22:13Z"
+  },
+  {
+    "escalation_id": "ESC-0354",
+    "case_id": "CAS-00980",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-04T11:40:20Z"
+  },
+  {
+    "escalation_id": "ESC-0355",
+    "case_id": "CAS-00983",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-07T23:35:10Z"
+  },
+  {
+    "escalation_id": "ESC-0356",
+    "case_id": "CAS-00989",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-03-25T01:15:54Z"
+  },
+  {
+    "escalation_id": "ESC-0357",
+    "case_id": "CAS-00994",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-03-28T06:02:52Z"
+  },
+  {
+    "escalation_id": "ESC-0358",
+    "case_id": "CAS-00998",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-07-28T00:29:34Z"
+  },
+  {
+    "escalation_id": "ESC-0359",
+    "case_id": "CAS-00999",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-04T11:53:30Z"
+  },
+  {
+    "escalation_id": "ESC-0360",
+    "case_id": "CAS-01000",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-06-30T15:49:45Z"
+  },
+  {
+    "escalation_id": "ESC-0361",
+    "case_id": "CAS-01003",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-05-26T18:55:44Z"
+  },
+  {
+    "escalation_id": "ESC-0362",
+    "case_id": "CAS-01004",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-04T08:01:46Z"
+  },
+  {
+    "escalation_id": "ESC-0363",
+    "case_id": "CAS-01007",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-11-05T23:51:27Z"
+  },
+  {
+    "escalation_id": "ESC-0364",
+    "case_id": "CAS-01009",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-02-27T05:51:25Z"
+  },
+  {
+    "escalation_id": "ESC-0365",
+    "case_id": "CAS-01011",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-05-25T14:02:46Z"
+  },
+  {
+    "escalation_id": "ESC-0366",
+    "case_id": "CAS-01012",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-02-04T00:24:05Z"
+  },
+  {
+    "escalation_id": "ESC-0367",
+    "case_id": "CAS-01016",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-05-28T23:08:34Z"
+  },
+  {
+    "escalation_id": "ESC-0368",
+    "case_id": "CAS-01018",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-24T01:04:47Z"
+  },
+  {
+    "escalation_id": "ESC-0369",
+    "case_id": "CAS-01019",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-10-15T02:59:49Z"
+  },
+  {
+    "escalation_id": "ESC-0370",
+    "case_id": "CAS-01020",
+    "escalation_type": "management",
+    "escalated_at": "2025-06-29T10:24:58Z"
+  },
+  {
+    "escalation_id": "ESC-0371",
+    "case_id": "CAS-01021",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-06T20:31:43Z"
+  },
+  {
+    "escalation_id": "ESC-0372",
+    "case_id": "CAS-01024",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-02-10T19:53:06Z"
+  },
+  {
+    "escalation_id": "ESC-0373",
+    "case_id": "CAS-01025",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-03-27T02:30:50Z"
+  },
+  {
+    "escalation_id": "ESC-0374",
+    "case_id": "CAS-01026",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-04-19T12:13:37Z"
+  },
+  {
+    "escalation_id": "ESC-0375",
+    "case_id": "CAS-01029",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-11-13T04:36:46Z"
+  },
+  {
+    "escalation_id": "ESC-0376",
+    "case_id": "CAS-01030",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-04-28T19:01:50Z"
+  },
+  {
+    "escalation_id": "ESC-0377",
+    "case_id": "CAS-01036",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-01-17T00:13:20Z"
+  },
+  {
+    "escalation_id": "ESC-0378",
+    "case_id": "CAS-01039",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-10-16T22:48:59Z"
+  },
+  {
+    "escalation_id": "ESC-0379",
+    "case_id": "CAS-01041",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-17T21:23:35Z"
+  },
+  {
+    "escalation_id": "ESC-0380",
+    "case_id": "CAS-01044",
+    "escalation_type": "management",
+    "escalated_at": "2025-01-07T05:16:24Z"
+  },
+  {
+    "escalation_id": "ESC-0381",
+    "case_id": "CAS-01048",
+    "escalation_type": "management",
+    "escalated_at": "2025-08-04T13:00:17Z"
+  },
+  {
+    "escalation_id": "ESC-0382",
+    "case_id": "CAS-01053",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-01-16T22:14:42Z"
+  },
+  {
+    "escalation_id": "ESC-0383",
+    "case_id": "CAS-01054",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-04T11:40:45Z"
+  },
+  {
+    "escalation_id": "ESC-0384",
+    "case_id": "CAS-01056",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-04T06:45:00Z"
+  },
+  {
+    "escalation_id": "ESC-0385",
+    "case_id": "CAS-01057",
+    "escalation_type": "management",
+    "escalated_at": "2025-11-20T23:22:31Z"
+  },
+  {
+    "escalation_id": "ESC-0386",
+    "case_id": "CAS-01060",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-01-27T20:25:27Z"
+  },
+  {
+    "escalation_id": "ESC-0387",
+    "case_id": "CAS-01065",
+    "escalation_type": "management",
+    "escalated_at": "2025-06-21T05:20:12Z"
+  },
+  {
+    "escalation_id": "ESC-0388",
+    "case_id": "CAS-01071",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-01-21T19:16:01Z"
+  },
+  {
+    "escalation_id": "ESC-0389",
+    "case_id": "CAS-01072",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-06T18:41:02Z"
+  },
+  {
+    "escalation_id": "ESC-0390",
+    "case_id": "CAS-01073",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-11T17:44:15Z"
+  },
+  {
+    "escalation_id": "ESC-0391",
+    "case_id": "CAS-01078",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-05-25T15:17:51Z"
+  },
+  {
+    "escalation_id": "ESC-0392",
+    "case_id": "CAS-01081",
+    "escalation_type": "management",
+    "escalated_at": "2025-10-27T00:12:31Z"
+  },
+  {
+    "escalation_id": "ESC-0393",
+    "case_id": "CAS-01083",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-04-11T08:16:43Z"
+  },
+  {
+    "escalation_id": "ESC-0394",
+    "case_id": "CAS-01084",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-05-05T16:49:59Z"
+  },
+  {
+    "escalation_id": "ESC-0395",
+    "case_id": "CAS-01085",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-02-13T04:26:29Z"
+  },
+  {
+    "escalation_id": "ESC-0396",
+    "case_id": "CAS-01089",
+    "escalation_type": "management",
+    "escalated_at": "2025-08-06T03:39:23Z"
+  },
+  {
+    "escalation_id": "ESC-0397",
+    "case_id": "CAS-01091",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-30T06:41:41Z"
+  },
+  {
+    "escalation_id": "ESC-0398",
+    "case_id": "CAS-01100",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-02-18T23:24:28Z"
+  },
+  {
+    "escalation_id": "ESC-0399",
+    "case_id": "CAS-01103",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-12-28T15:43:46Z"
+  },
+  {
+    "escalation_id": "ESC-0400",
+    "case_id": "CAS-01107",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-16T10:27:45Z"
+  },
+  {
+    "escalation_id": "ESC-0401",
+    "case_id": "CAS-01116",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-11-17T03:39:10Z"
+  },
+  {
+    "escalation_id": "ESC-0402",
+    "case_id": "CAS-01123",
+    "escalation_type": "management",
+    "escalated_at": "2025-10-15T12:15:53Z"
+  },
+  {
+    "escalation_id": "ESC-0403",
+    "case_id": "CAS-01125",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-21T03:27:39Z"
+  },
+  {
+    "escalation_id": "ESC-0404",
+    "case_id": "CAS-01130",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-04-08T14:45:34Z"
+  },
+  {
+    "escalation_id": "ESC-0405",
+    "case_id": "CAS-01135",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-08T10:56:52Z"
+  },
+  {
+    "escalation_id": "ESC-0406",
+    "case_id": "CAS-01142",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-02T17:02:40Z"
+  },
+  {
+    "escalation_id": "ESC-0407",
+    "case_id": "CAS-01143",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-04-23T23:22:45Z"
+  },
+  {
+    "escalation_id": "ESC-0408",
+    "case_id": "CAS-01145",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-12-07T19:11:56Z"
+  },
+  {
+    "escalation_id": "ESC-0409",
+    "case_id": "CAS-01148",
+    "escalation_type": "management",
+    "escalated_at": "2025-09-03T15:32:57Z"
+  },
+  {
+    "escalation_id": "ESC-0410",
+    "case_id": "CAS-01154",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-07-16T17:32:18Z"
+  },
+  {
+    "escalation_id": "ESC-0411",
+    "case_id": "CAS-01159",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-10-07T05:16:53Z"
+  },
+  {
+    "escalation_id": "ESC-0412",
+    "case_id": "CAS-01162",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-05-20T15:24:05Z"
+  },
+  {
+    "escalation_id": "ESC-0413",
+    "case_id": "CAS-01163",
+    "escalation_type": "management",
+    "escalated_at": "2025-01-30T19:13:06Z"
+  },
+  {
+    "escalation_id": "ESC-0414",
+    "case_id": "CAS-01165",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-03-03T14:43:12Z"
+  },
+  {
+    "escalation_id": "ESC-0415",
+    "case_id": "CAS-01166",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-05-31T19:40:47Z"
+  },
+  {
+    "escalation_id": "ESC-0416",
+    "case_id": "CAS-01170",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-15T22:32:18Z"
+  },
+  {
+    "escalation_id": "ESC-0417",
+    "case_id": "CAS-01174",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-12-06T13:37:41Z"
+  },
+  {
+    "escalation_id": "ESC-0418",
+    "case_id": "CAS-01179",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-06-18T07:34:01Z"
+  },
+  {
+    "escalation_id": "ESC-0419",
+    "case_id": "CAS-01180",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-07-20T18:34:34Z"
+  },
+  {
+    "escalation_id": "ESC-0420",
+    "case_id": "CAS-01188",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-01-31T20:35:12Z"
+  },
+  {
+    "escalation_id": "ESC-0421",
+    "case_id": "CAS-01190",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-20T09:47:32Z"
+  },
+  {
+    "escalation_id": "ESC-0422",
+    "case_id": "CAS-01191",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-06-08T02:56:42Z"
+  },
+  {
+    "escalation_id": "ESC-0423",
+    "case_id": "CAS-01192",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-30T17:33:07Z"
+  },
+  {
+    "escalation_id": "ESC-0424",
+    "case_id": "CAS-01202",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-10-07T14:20:23Z"
+  },
+  {
+    "escalation_id": "ESC-0425",
+    "case_id": "CAS-01204",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-12T10:01:17Z"
+  },
+  {
+    "escalation_id": "ESC-0426",
+    "case_id": "CAS-01206",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-04-09T06:18:42Z"
+  },
+  {
+    "escalation_id": "ESC-0427",
+    "case_id": "CAS-01207",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-20T10:11:36Z"
+  },
+  {
+    "escalation_id": "ESC-0428",
+    "case_id": "CAS-01212",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-09-09T19:15:55Z"
+  },
+  {
+    "escalation_id": "ESC-0429",
+    "case_id": "CAS-01214",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-05-21T20:46:04Z"
+  },
+  {
+    "escalation_id": "ESC-0430",
+    "case_id": "CAS-01215",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-09-10T00:16:09Z"
+  },
+  {
+    "escalation_id": "ESC-0431",
+    "case_id": "CAS-01220",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-01T23:43:21Z"
+  },
+  {
+    "escalation_id": "ESC-0432",
+    "case_id": "CAS-01227",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-04-09T06:44:57Z"
+  },
+  {
+    "escalation_id": "ESC-0433",
+    "case_id": "CAS-01228",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-07T15:25:19Z"
+  },
+  {
+    "escalation_id": "ESC-0434",
+    "case_id": "CAS-01232",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-03-04T16:44:48Z"
+  },
+  {
+    "escalation_id": "ESC-0435",
+    "case_id": "CAS-01235",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-11T08:58:07Z"
+  },
+  {
+    "escalation_id": "ESC-0436",
+    "case_id": "CAS-01240",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-04-26T10:12:18Z"
+  },
+  {
+    "escalation_id": "ESC-0437",
+    "case_id": "CAS-01244",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-06-08T17:01:30Z"
+  },
+  {
+    "escalation_id": "ESC-0438",
+    "case_id": "CAS-01251",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-11-07T14:52:34Z"
+  },
+  {
+    "escalation_id": "ESC-0439",
+    "case_id": "CAS-01253",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-12-26T01:22:45Z"
+  },
+  {
+    "escalation_id": "ESC-0440",
+    "case_id": "CAS-01255",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-10T10:31:06Z"
+  },
+  {
+    "escalation_id": "ESC-0441",
+    "case_id": "CAS-01260",
+    "escalation_type": "management",
+    "escalated_at": "2025-01-18T17:36:28Z"
+  },
+  {
+    "escalation_id": "ESC-0442",
+    "case_id": "CAS-01270",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-11-26T14:15:28Z"
+  },
+  {
+    "escalation_id": "ESC-0443",
+    "case_id": "CAS-01272",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-07-27T10:17:36Z"
+  },
+  {
+    "escalation_id": "ESC-0444",
+    "case_id": "CAS-01279",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-02T16:06:52Z"
+  },
+  {
+    "escalation_id": "ESC-0445",
+    "case_id": "CAS-01281",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-16T23:39:38Z"
+  },
+  {
+    "escalation_id": "ESC-0446",
+    "case_id": "CAS-01287",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-01-15T08:24:37Z"
+  },
+  {
+    "escalation_id": "ESC-0447",
+    "case_id": "CAS-01290",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-03T08:47:56Z"
+  },
+  {
+    "escalation_id": "ESC-0448",
+    "case_id": "CAS-01292",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-11-26T01:35:05Z"
+  },
+  {
+    "escalation_id": "ESC-0449",
+    "case_id": "CAS-01293",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-02-24T03:16:41Z"
+  },
+  {
+    "escalation_id": "ESC-0450",
+    "case_id": "CAS-01298",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-14T14:02:01Z"
+  },
+  {
+    "escalation_id": "ESC-0451",
+    "case_id": "CAS-01299",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-04-19T16:17:28Z"
+  },
+  {
+    "escalation_id": "ESC-0452",
+    "case_id": "CAS-01305",
+    "escalation_type": "management",
+    "escalated_at": "2025-07-02T08:59:56Z"
+  },
+  {
+    "escalation_id": "ESC-0453",
+    "case_id": "CAS-01308",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-16T12:41:52Z"
+  },
+  {
+    "escalation_id": "ESC-0454",
+    "case_id": "CAS-01310",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-20T11:15:13Z"
+  },
+  {
+    "escalation_id": "ESC-0455",
+    "case_id": "CAS-01311",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-07-18T05:12:57Z"
+  },
+  {
+    "escalation_id": "ESC-0456",
+    "case_id": "CAS-01313",
+    "escalation_type": "management",
+    "escalated_at": "2025-01-20T02:15:30Z"
+  },
+  {
+    "escalation_id": "ESC-0457",
+    "case_id": "CAS-01317",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-22T01:51:58Z"
+  },
+  {
+    "escalation_id": "ESC-0458",
+    "case_id": "CAS-01319",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-12-09T03:48:41Z"
+  },
+  {
+    "escalation_id": "ESC-0459",
+    "case_id": "CAS-01324",
+    "escalation_type": "management",
+    "escalated_at": "2025-06-24T11:05:58Z"
+  },
+  {
+    "escalation_id": "ESC-0460",
+    "case_id": "CAS-01327",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-02-15T14:06:19Z"
+  },
+  {
+    "escalation_id": "ESC-0461",
+    "case_id": "CAS-01328",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-21T23:14:14Z"
+  },
+  {
+    "escalation_id": "ESC-0462",
+    "case_id": "CAS-01334",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-29T13:35:00Z"
+  },
+  {
+    "escalation_id": "ESC-0463",
+    "case_id": "CAS-01336",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-27T05:48:39Z"
+  },
+  {
+    "escalation_id": "ESC-0464",
+    "case_id": "CAS-01337",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-11-09T15:04:57Z"
+  },
+  {
+    "escalation_id": "ESC-0465",
+    "case_id": "CAS-01339",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-11-16T23:50:08Z"
+  },
+  {
+    "escalation_id": "ESC-0466",
+    "case_id": "CAS-01341",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-01-16T01:40:37Z"
+  },
+  {
+    "escalation_id": "ESC-0467",
+    "case_id": "CAS-01343",
+    "escalation_type": "management",
+    "escalated_at": "2025-06-26T07:29:15Z"
+  },
+  {
+    "escalation_id": "ESC-0468",
+    "case_id": "CAS-01344",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-03-24T22:52:50Z"
+  },
+  {
+    "escalation_id": "ESC-0469",
+    "case_id": "CAS-01345",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-03-08T00:34:50Z"
+  },
+  {
+    "escalation_id": "ESC-0470",
+    "case_id": "CAS-01348",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-09-23T09:59:32Z"
+  },
+  {
+    "escalation_id": "ESC-0471",
+    "case_id": "CAS-01357",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-05-13T06:42:35Z"
+  },
+  {
+    "escalation_id": "ESC-0472",
+    "case_id": "CAS-01358",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-08-25T08:10:31Z"
+  },
+  {
+    "escalation_id": "ESC-0473",
+    "case_id": "CAS-01366",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-28T16:33:30Z"
+  },
+  {
+    "escalation_id": "ESC-0474",
+    "case_id": "CAS-01367",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-11-27T19:02:50Z"
+  },
+  {
+    "escalation_id": "ESC-0475",
+    "case_id": "CAS-01369",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-06-02T06:45:34Z"
+  },
+  {
+    "escalation_id": "ESC-0476",
+    "case_id": "CAS-01371",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-12-23T05:35:15Z"
+  },
+  {
+    "escalation_id": "ESC-0477",
+    "case_id": "CAS-01379",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-09-16T04:00:32Z"
+  },
+  {
+    "escalation_id": "ESC-0478",
+    "case_id": "CAS-01382",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-12T13:51:28Z"
+  },
+  {
+    "escalation_id": "ESC-0479",
+    "case_id": "CAS-01384",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-09-24T02:37:32Z"
+  },
+  {
+    "escalation_id": "ESC-0480",
+    "case_id": "CAS-01386",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-07-18T10:01:26Z"
+  },
+  {
+    "escalation_id": "ESC-0481",
+    "case_id": "CAS-01387",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-12-24T12:47:51Z"
+  },
+  {
+    "escalation_id": "ESC-0482",
+    "case_id": "CAS-01388",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-05-20T04:20:17Z"
+  },
+  {
+    "escalation_id": "ESC-0483",
+    "case_id": "CAS-01392",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-06-02T05:21:07Z"
+  },
+  {
+    "escalation_id": "ESC-0484",
+    "case_id": "CAS-01397",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-05-19T12:18:55Z"
+  },
+  {
+    "escalation_id": "ESC-0485",
+    "case_id": "CAS-01401",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-11T00:30:11Z"
+  },
+  {
+    "escalation_id": "ESC-0486",
+    "case_id": "CAS-01404",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-13T09:23:42Z"
+  },
+  {
+    "escalation_id": "ESC-0487",
+    "case_id": "CAS-01405",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-28T13:06:17Z"
+  },
+  {
+    "escalation_id": "ESC-0488",
+    "case_id": "CAS-01407",
+    "escalation_type": "management",
+    "escalated_at": "2025-06-04T01:06:20Z"
+  },
+  {
+    "escalation_id": "ESC-0489",
+    "case_id": "CAS-01411",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-02-13T18:26:01Z"
+  },
+  {
+    "escalation_id": "ESC-0490",
+    "case_id": "CAS-01412",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-28T22:24:12Z"
+  },
+  {
+    "escalation_id": "ESC-0491",
+    "case_id": "CAS-01413",
+    "escalation_type": "management",
+    "escalated_at": "2025-07-05T07:52:07Z"
+  },
+  {
+    "escalation_id": "ESC-0492",
+    "case_id": "CAS-01415",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-06-10T06:18:49Z"
+  },
+  {
+    "escalation_id": "ESC-0493",
+    "case_id": "CAS-01416",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-05-17T10:44:08Z"
+  },
+  {
+    "escalation_id": "ESC-0494",
+    "case_id": "CAS-01421",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-05-28T18:13:51Z"
+  },
+  {
+    "escalation_id": "ESC-0495",
+    "case_id": "CAS-01423",
+    "escalation_type": "management",
+    "escalated_at": "2025-07-23T00:34:33Z"
+  },
+  {
+    "escalation_id": "ESC-0496",
+    "case_id": "CAS-01430",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-04-05T20:58:45Z"
+  },
+  {
+    "escalation_id": "ESC-0497",
+    "case_id": "CAS-01431",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-07-05T08:14:04Z"
+  },
+  {
+    "escalation_id": "ESC-0498",
+    "case_id": "CAS-01432",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-12T15:28:39Z"
+  },
+  {
+    "escalation_id": "ESC-0499",
+    "case_id": "CAS-01433",
+    "escalation_type": "management",
+    "escalated_at": "2025-11-08T06:17:56Z"
+  },
+  {
+    "escalation_id": "ESC-0500",
+    "case_id": "CAS-01435",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-05-18T04:13:03Z"
+  },
+  {
+    "escalation_id": "ESC-0501",
+    "case_id": "CAS-01440",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-06-11T02:42:45Z"
+  },
+  {
+    "escalation_id": "ESC-0502",
+    "case_id": "CAS-01447",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-02-27T18:10:48Z"
+  },
+  {
+    "escalation_id": "ESC-0503",
+    "case_id": "CAS-01450",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-05-01T18:56:15Z"
+  },
+  {
+    "escalation_id": "ESC-0504",
+    "case_id": "CAS-01451",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-07T13:03:10Z"
+  },
+  {
+    "escalation_id": "ESC-0505",
+    "case_id": "CAS-01452",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-22T20:56:20Z"
+  },
+  {
+    "escalation_id": "ESC-0506",
+    "case_id": "CAS-01456",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-09-13T00:40:12Z"
+  },
+  {
+    "escalation_id": "ESC-0507",
+    "case_id": "CAS-01457",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-12-30T03:01:38Z"
+  },
+  {
+    "escalation_id": "ESC-0508",
+    "case_id": "CAS-01465",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-23T05:21:15Z"
+  },
+  {
+    "escalation_id": "ESC-0509",
+    "case_id": "CAS-01467",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-02-14T10:20:23Z"
+  },
+  {
+    "escalation_id": "ESC-0510",
+    "case_id": "CAS-01468",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-01-31T16:33:08Z"
+  },
+  {
+    "escalation_id": "ESC-0511",
+    "case_id": "CAS-01470",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-06-28T12:17:36Z"
+  },
+  {
+    "escalation_id": "ESC-0512",
+    "case_id": "CAS-01472",
+    "escalation_type": "management",
+    "escalated_at": "2025-01-30T08:47:24Z"
+  },
+  {
+    "escalation_id": "ESC-0513",
+    "case_id": "CAS-01477",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-09-07T08:47:35Z"
+  },
+  {
+    "escalation_id": "ESC-0514",
+    "case_id": "CAS-01479",
+    "escalation_type": "management",
+    "escalated_at": "2025-07-29T03:16:53Z"
+  },
+  {
+    "escalation_id": "ESC-0515",
+    "case_id": "CAS-01485",
+    "escalation_type": "management",
+    "escalated_at": "2025-01-12T00:15:31Z"
+  },
+  {
+    "escalation_id": "ESC-0516",
+    "case_id": "CAS-01491",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-11-24T22:01:54Z"
+  },
+  {
+    "escalation_id": "ESC-0517",
+    "case_id": "CAS-01494",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-03-17T10:10:34Z"
+  },
+  {
+    "escalation_id": "ESC-0518",
+    "case_id": "CAS-01498",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-09-14T19:41:00Z"
+  },
+  {
+    "escalation_id": "ESC-0519",
+    "case_id": "CAS-01501",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-04-05T13:09:09Z"
+  },
+  {
+    "escalation_id": "ESC-0520",
+    "case_id": "CAS-01502",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-09T00:12:25Z"
+  },
+  {
+    "escalation_id": "ESC-0521",
+    "case_id": "CAS-01504",
+    "escalation_type": "management",
+    "escalated_at": "2025-06-18T15:19:18Z"
+  },
+  {
+    "escalation_id": "ESC-0522",
+    "case_id": "CAS-01505",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-10T10:59:58Z"
+  },
+  {
+    "escalation_id": "ESC-0523",
+    "case_id": "CAS-01506",
+    "escalation_type": "management",
+    "escalated_at": "2025-07-22T13:45:36Z"
+  },
+  {
+    "escalation_id": "ESC-0524",
+    "case_id": "CAS-01513",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-06-28T12:09:38Z"
+  },
+  {
+    "escalation_id": "ESC-0525",
+    "case_id": "CAS-01518",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-03-31T07:03:33Z"
+  },
+  {
+    "escalation_id": "ESC-0526",
+    "case_id": "CAS-01519",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-04-02T02:58:26Z"
+  },
+  {
+    "escalation_id": "ESC-0527",
+    "case_id": "CAS-01523",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-01-27T02:29:33Z"
+  },
+  {
+    "escalation_id": "ESC-0528",
+    "case_id": "CAS-01535",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-08-20T00:52:21Z"
+  },
+  {
+    "escalation_id": "ESC-0529",
+    "case_id": "CAS-01539",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-04-07T03:34:52Z"
+  },
+  {
+    "escalation_id": "ESC-0530",
+    "case_id": "CAS-01541",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-30T03:39:14Z"
+  },
+  {
+    "escalation_id": "ESC-0531",
+    "case_id": "CAS-01546",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-03T00:29:15Z"
+  },
+  {
+    "escalation_id": "ESC-0532",
+    "case_id": "CAS-01548",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-12-29T09:11:43Z"
+  },
+  {
+    "escalation_id": "ESC-0533",
+    "case_id": "CAS-01550",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-13T19:48:36Z"
+  },
+  {
+    "escalation_id": "ESC-0534",
+    "case_id": "CAS-01552",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-11-07T20:07:14Z"
+  },
+  {
+    "escalation_id": "ESC-0535",
+    "case_id": "CAS-01553",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-08-20T09:20:31Z"
+  },
+  {
+    "escalation_id": "ESC-0536",
+    "case_id": "CAS-01559",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-05-31T00:25:22Z"
+  },
+  {
+    "escalation_id": "ESC-0537",
+    "case_id": "CAS-01561",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-02T04:05:31Z"
+  },
+  {
+    "escalation_id": "ESC-0538",
+    "case_id": "CAS-01566",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-04-02T19:03:42Z"
+  },
+  {
+    "escalation_id": "ESC-0539",
+    "case_id": "CAS-01567",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-03T17:21:53Z"
+  },
+  {
+    "escalation_id": "ESC-0540",
+    "case_id": "CAS-01569",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-06-29T17:37:41Z"
+  },
+  {
+    "escalation_id": "ESC-0541",
+    "case_id": "CAS-01571",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-10-03T22:00:52Z"
+  },
+  {
+    "escalation_id": "ESC-0542",
+    "case_id": "CAS-01572",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-06-05T04:39:33Z"
+  },
+  {
+    "escalation_id": "ESC-0543",
+    "case_id": "CAS-01575",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-02-23T06:24:57Z"
+  },
+  {
+    "escalation_id": "ESC-0544",
+    "case_id": "CAS-01577",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-05-02T11:07:46Z"
+  },
+  {
+    "escalation_id": "ESC-0545",
+    "case_id": "CAS-01580",
+    "escalation_type": "management",
+    "escalated_at": "2025-01-12T20:11:20Z"
+  },
+  {
+    "escalation_id": "ESC-0546",
+    "case_id": "CAS-01585",
+    "escalation_type": "management",
+    "escalated_at": "2025-06-27T22:33:02Z"
+  },
+  {
+    "escalation_id": "ESC-0547",
+    "case_id": "CAS-01587",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-09T21:25:08Z"
+  },
+  {
+    "escalation_id": "ESC-0548",
+    "case_id": "CAS-01588",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-11-07T20:30:02Z"
+  },
+  {
+    "escalation_id": "ESC-0549",
+    "case_id": "CAS-01591",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-17T19:06:44Z"
+  },
+  {
+    "escalation_id": "ESC-0550",
+    "case_id": "CAS-01596",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-12-01T11:32:22Z"
+  },
+  {
+    "escalation_id": "ESC-0551",
+    "case_id": "CAS-01602",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-12-18T07:21:26Z"
+  },
+  {
+    "escalation_id": "ESC-0552",
+    "case_id": "CAS-01609",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-02-11T20:59:22Z"
+  },
+  {
+    "escalation_id": "ESC-0553",
+    "case_id": "CAS-01612",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-01-20T09:14:46Z"
+  },
+  {
+    "escalation_id": "ESC-0554",
+    "case_id": "CAS-01614",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-11-11T11:12:15Z"
+  },
+  {
+    "escalation_id": "ESC-0555",
+    "case_id": "CAS-01617",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-11-22T15:45:29Z"
+  },
+  {
+    "escalation_id": "ESC-0556",
+    "case_id": "CAS-01627",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-07-14T23:31:28Z"
+  },
+  {
+    "escalation_id": "ESC-0557",
+    "case_id": "CAS-01636",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-11-12T13:52:25Z"
+  },
+  {
+    "escalation_id": "ESC-0558",
+    "case_id": "CAS-01638",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-12-24T11:33:08Z"
+  },
+  {
+    "escalation_id": "ESC-0559",
+    "case_id": "CAS-01639",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-09-05T21:16:26Z"
+  },
+  {
+    "escalation_id": "ESC-0560",
+    "case_id": "CAS-01642",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-04-12T04:50:15Z"
+  },
+  {
+    "escalation_id": "ESC-0561",
+    "case_id": "CAS-01645",
+    "escalation_type": "management",
+    "escalated_at": "2025-02-28T10:15:05Z"
+  },
+  {
+    "escalation_id": "ESC-0562",
+    "case_id": "CAS-01647",
+    "escalation_type": "management",
+    "escalated_at": "2025-11-02T14:10:45Z"
+  },
+  {
+    "escalation_id": "ESC-0563",
+    "case_id": "CAS-01648",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-05-10T20:17:29Z"
+  },
+  {
+    "escalation_id": "ESC-0564",
+    "case_id": "CAS-01649",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-08-27T07:45:10Z"
+  },
+  {
+    "escalation_id": "ESC-0565",
+    "case_id": "CAS-01650",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-02-07T07:56:40Z"
+  },
+  {
+    "escalation_id": "ESC-0566",
+    "case_id": "CAS-01651",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-12-10T08:40:44Z"
+  },
+  {
+    "escalation_id": "ESC-0567",
+    "case_id": "CAS-01652",
+    "escalation_type": "management",
+    "escalated_at": "2025-06-09T18:41:41Z"
+  },
+  {
+    "escalation_id": "ESC-0568",
+    "case_id": "CAS-01653",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-08-16T12:09:33Z"
+  },
+  {
+    "escalation_id": "ESC-0569",
+    "case_id": "CAS-01654",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-05-24T13:16:05Z"
+  },
+  {
+    "escalation_id": "ESC-0570",
+    "case_id": "CAS-01661",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-08-18T05:52:29Z"
+  },
+  {
+    "escalation_id": "ESC-0571",
+    "case_id": "CAS-01663",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-06-27T12:20:36Z"
+  },
+  {
+    "escalation_id": "ESC-0572",
+    "case_id": "CAS-01667",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-14T08:32:45Z"
+  },
+  {
+    "escalation_id": "ESC-0573",
+    "case_id": "CAS-01668",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-03T01:47:51Z"
+  },
+  {
+    "escalation_id": "ESC-0574",
+    "case_id": "CAS-01673",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-09T04:29:39Z"
+  },
+  {
+    "escalation_id": "ESC-0575",
+    "case_id": "CAS-01680",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-01-21T07:23:46Z"
+  },
+  {
+    "escalation_id": "ESC-0576",
+    "case_id": "CAS-01681",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-08-04T20:54:20Z"
+  },
+  {
+    "escalation_id": "ESC-0577",
+    "case_id": "CAS-01682",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-11-28T10:47:21Z"
+  },
+  {
+    "escalation_id": "ESC-0578",
+    "case_id": "CAS-01685",
+    "escalation_type": "management",
+    "escalated_at": "2025-04-25T07:52:08Z"
+  },
+  {
+    "escalation_id": "ESC-0579",
+    "case_id": "CAS-01695",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-11T18:23:21Z"
+  },
+  {
+    "escalation_id": "ESC-0580",
+    "case_id": "CAS-01696",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-28T20:10:27Z"
+  },
+  {
+    "escalation_id": "ESC-0581",
+    "case_id": "CAS-01698",
+    "escalation_type": "management",
+    "escalated_at": "2025-02-02T16:56:44Z"
+  },
+  {
+    "escalation_id": "ESC-0582",
+    "case_id": "CAS-01700",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-09-23T00:52:22Z"
+  },
+  {
+    "escalation_id": "ESC-0583",
+    "case_id": "CAS-01701",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-02-16T01:49:48Z"
+  },
+  {
+    "escalation_id": "ESC-0584",
+    "case_id": "CAS-01702",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-04-24T07:21:37Z"
+  },
+  {
+    "escalation_id": "ESC-0585",
+    "case_id": "CAS-01715",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-23T03:48:00Z"
+  },
+  {
+    "escalation_id": "ESC-0586",
+    "case_id": "CAS-01717",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-28T13:43:10Z"
+  },
+  {
+    "escalation_id": "ESC-0587",
+    "case_id": "CAS-01720",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-01-08T01:45:03Z"
+  },
+  {
+    "escalation_id": "ESC-0588",
+    "case_id": "CAS-01722",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-12-28T00:46:31Z"
+  },
+  {
+    "escalation_id": "ESC-0589",
+    "case_id": "CAS-01726",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-10T02:01:19Z"
+  },
+  {
+    "escalation_id": "ESC-0590",
+    "case_id": "CAS-01730",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-03-24T08:49:54Z"
+  },
+  {
+    "escalation_id": "ESC-0591",
+    "case_id": "CAS-01732",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-01-08T06:31:57Z"
+  },
+  {
+    "escalation_id": "ESC-0592",
+    "case_id": "CAS-01733",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-10-23T20:25:43Z"
+  },
+  {
+    "escalation_id": "ESC-0593",
+    "case_id": "CAS-01746",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-05-20T02:51:45Z"
+  },
+  {
+    "escalation_id": "ESC-0594",
+    "case_id": "CAS-01750",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-05-20T22:42:48Z"
+  },
+  {
+    "escalation_id": "ESC-0595",
+    "case_id": "CAS-01751",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-07-19T10:15:08Z"
+  },
+  {
+    "escalation_id": "ESC-0596",
+    "case_id": "CAS-01752",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-28T05:43:09Z"
+  },
+  {
+    "escalation_id": "ESC-0597",
+    "case_id": "CAS-01755",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-08-17T19:50:47Z"
+  },
+  {
+    "escalation_id": "ESC-0598",
+    "case_id": "CAS-01757",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-11-02T14:56:21Z"
+  },
+  {
+    "escalation_id": "ESC-0599",
+    "case_id": "CAS-01765",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-06-07T03:45:28Z"
+  },
+  {
+    "escalation_id": "ESC-0600",
+    "case_id": "CAS-01766",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-31T11:29:36Z"
+  },
+  {
+    "escalation_id": "ESC-0601",
+    "case_id": "CAS-01769",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-06-03T14:39:44Z"
+  },
+  {
+    "escalation_id": "ESC-0602",
+    "case_id": "CAS-01773",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-12-10T13:11:43Z"
+  },
+  {
+    "escalation_id": "ESC-0603",
+    "case_id": "CAS-01777",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-03-23T12:54:20Z"
+  },
+  {
+    "escalation_id": "ESC-0604",
+    "case_id": "CAS-01780",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-03-26T11:26:31Z"
+  },
+  {
+    "escalation_id": "ESC-0605",
+    "case_id": "CAS-01785",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-03-16T20:14:43Z"
+  },
+  {
+    "escalation_id": "ESC-0606",
+    "case_id": "CAS-01793",
+    "escalation_type": "management",
+    "escalated_at": "2025-02-06T11:38:00Z"
+  },
+  {
+    "escalation_id": "ESC-0607",
+    "case_id": "CAS-01798",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-08-26T03:49:40Z"
+  },
+  {
+    "escalation_id": "ESC-0608",
+    "case_id": "CAS-01799",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-05-02T21:13:17Z"
+  },
+  {
+    "escalation_id": "ESC-0609",
+    "case_id": "CAS-01801",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-14T21:15:51Z"
+  },
+  {
+    "escalation_id": "ESC-0610",
+    "case_id": "CAS-01803",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-02-24T20:55:52Z"
+  },
+  {
+    "escalation_id": "ESC-0611",
+    "case_id": "CAS-01805",
+    "escalation_type": "management",
+    "escalated_at": "2025-02-06T02:28:40Z"
+  },
+  {
+    "escalation_id": "ESC-0612",
+    "case_id": "CAS-01810",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-10-01T23:36:56Z"
+  },
+  {
+    "escalation_id": "ESC-0613",
+    "case_id": "CAS-01811",
+    "escalation_type": "management",
+    "escalated_at": "2025-09-27T04:52:39Z"
+  },
+  {
+    "escalation_id": "ESC-0614",
+    "case_id": "CAS-01813",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-03-05T12:12:51Z"
+  },
+  {
+    "escalation_id": "ESC-0615",
+    "case_id": "CAS-01815",
+    "escalation_type": "management",
+    "escalated_at": "2025-09-11T08:33:07Z"
+  },
+  {
+    "escalation_id": "ESC-0616",
+    "case_id": "CAS-01822",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-24T04:38:22Z"
+  },
+  {
+    "escalation_id": "ESC-0617",
+    "case_id": "CAS-01826",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-04-21T00:02:09Z"
+  },
+  {
+    "escalation_id": "ESC-0618",
+    "case_id": "CAS-01827",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-08-22T16:04:20Z"
+  },
+  {
+    "escalation_id": "ESC-0619",
+    "case_id": "CAS-01828",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-04-06T07:19:19Z"
+  },
+  {
+    "escalation_id": "ESC-0620",
+    "case_id": "CAS-01832",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-02T12:43:59Z"
+  },
+  {
+    "escalation_id": "ESC-0621",
+    "case_id": "CAS-01838",
+    "escalation_type": "management",
+    "escalated_at": "2025-11-07T03:07:22Z"
+  },
+  {
+    "escalation_id": "ESC-0622",
+    "case_id": "CAS-01844",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-01-19T01:19:39Z"
+  },
+  {
+    "escalation_id": "ESC-0623",
+    "case_id": "CAS-01846",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-03-05T12:24:19Z"
+  },
+  {
+    "escalation_id": "ESC-0624",
+    "case_id": "CAS-01850",
+    "escalation_type": "management",
+    "escalated_at": "2026-01-01T01:02:49Z"
+  },
+  {
+    "escalation_id": "ESC-0625",
+    "case_id": "CAS-01857",
+    "escalation_type": "management",
+    "escalated_at": "2025-06-15T17:16:21Z"
+  },
+  {
+    "escalation_id": "ESC-0626",
+    "case_id": "CAS-01860",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-03-28T15:14:37Z"
+  },
+  {
+    "escalation_id": "ESC-0627",
+    "case_id": "CAS-01862",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-03-11T05:51:24Z"
+  },
+  {
+    "escalation_id": "ESC-0628",
+    "case_id": "CAS-01865",
+    "escalation_type": "management",
+    "escalated_at": "2025-09-12T02:37:55Z"
+  },
+  {
+    "escalation_id": "ESC-0629",
+    "case_id": "CAS-01867",
+    "escalation_type": "management",
+    "escalated_at": "2025-05-12T14:26:03Z"
+  },
+  {
+    "escalation_id": "ESC-0630",
+    "case_id": "CAS-01870",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-04T05:51:17Z"
+  },
+  {
+    "escalation_id": "ESC-0631",
+    "case_id": "CAS-01880",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-02-20T18:48:33Z"
+  },
+  {
+    "escalation_id": "ESC-0632",
+    "case_id": "CAS-01881",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-06-27T19:48:02Z"
+  },
+  {
+    "escalation_id": "ESC-0633",
+    "case_id": "CAS-01882",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-10-14T17:03:30Z"
+  },
+  {
+    "escalation_id": "ESC-0634",
+    "case_id": "CAS-01889",
+    "escalation_type": "management",
+    "escalated_at": "2025-12-12T17:31:47Z"
+  },
+  {
+    "escalation_id": "ESC-0635",
+    "case_id": "CAS-01894",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-05-15T11:23:04Z"
+  },
+  {
+    "escalation_id": "ESC-0636",
+    "case_id": "CAS-01895",
+    "escalation_type": "management",
+    "escalated_at": "2025-02-19T05:49:24Z"
+  },
+  {
+    "escalation_id": "ESC-0637",
+    "case_id": "CAS-01896",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-12-15T15:43:31Z"
+  },
+  {
+    "escalation_id": "ESC-0638",
+    "case_id": "CAS-01900",
+    "escalation_type": "management",
+    "escalated_at": "2025-08-05T05:52:34Z"
+  },
+  {
+    "escalation_id": "ESC-0639",
+    "case_id": "CAS-01902",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-11-26T12:40:48Z"
+  },
+  {
+    "escalation_id": "ESC-0640",
+    "case_id": "CAS-01905",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-25T03:28:59Z"
+  },
+  {
+    "escalation_id": "ESC-0641",
+    "case_id": "CAS-01910",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-12-19T14:57:20Z"
+  },
+  {
+    "escalation_id": "ESC-0642",
+    "case_id": "CAS-01917",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-08T23:21:53Z"
+  },
+  {
+    "escalation_id": "ESC-0643",
+    "case_id": "CAS-01918",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-12-31T13:33:03Z"
+  },
+  {
+    "escalation_id": "ESC-0644",
+    "case_id": "CAS-01928",
+    "escalation_type": "management",
+    "escalated_at": "2025-11-07T10:42:51Z"
+  },
+  {
+    "escalation_id": "ESC-0645",
+    "case_id": "CAS-01932",
+    "escalation_type": "management",
+    "escalated_at": "2025-09-16T12:44:38Z"
+  },
+  {
+    "escalation_id": "ESC-0646",
+    "case_id": "CAS-01934",
+    "escalation_type": "management",
+    "escalated_at": "2025-08-07T06:32:34Z"
+  },
+  {
+    "escalation_id": "ESC-0647",
+    "case_id": "CAS-01938",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-04-28T04:59:03Z"
+  },
+  {
+    "escalation_id": "ESC-0648",
+    "case_id": "CAS-01939",
+    "escalation_type": "management",
+    "escalated_at": "2025-08-31T04:13:41Z"
+  },
+  {
+    "escalation_id": "ESC-0649",
+    "case_id": "CAS-01942",
+    "escalation_type": "management",
+    "escalated_at": "2025-02-11T01:56:55Z"
+  },
+  {
+    "escalation_id": "ESC-0650",
+    "case_id": "CAS-01947",
+    "escalation_type": "regulatory",
+    "escalated_at": "2025-08-13T04:15:29Z"
+  },
+  {
+    "escalation_id": "ESC-0651",
+    "case_id": "CAS-01948",
+    "escalation_type": "management",
+    "escalated_at": "2025-09-18T02:01:33Z"
+  },
+  {
+    "escalation_id": "ESC-0652",
+    "case_id": "CAS-01949",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-12T14:28:37Z"
+  },
+  {
+    "escalation_id": "ESC-0653",
+    "case_id": "CAS-01959",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-01-20T22:37:40Z"
+  },
+  {
+    "escalation_id": "ESC-0654",
+    "case_id": "CAS-01967",
+    "escalation_type": "management",
+    "escalated_at": "2025-11-25T02:12:37Z"
+  },
+  {
+    "escalation_id": "ESC-0655",
+    "case_id": "CAS-01968",
+    "escalation_type": "management",
+    "escalated_at": "2025-07-20T01:47:53Z"
+  },
+  {
+    "escalation_id": "ESC-0656",
+    "case_id": "CAS-01972",
+    "escalation_type": "management",
+    "escalated_at": "2025-03-22T22:00:48Z"
+  },
+  {
+    "escalation_id": "ESC-0657",
+    "case_id": "CAS-01973",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-01-20T04:35:57Z"
+  },
+  {
+    "escalation_id": "ESC-0658",
+    "case_id": "CAS-01974",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-09-28T06:55:53Z"
+  },
+  {
+    "escalation_id": "ESC-0659",
+    "case_id": "CAS-01977",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-11-13T23:33:45Z"
+  },
+  {
+    "escalation_id": "ESC-0660",
+    "case_id": "CAS-01978",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-06-06T14:39:31Z"
+  },
+  {
+    "escalation_id": "ESC-0661",
+    "case_id": "CAS-01986",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-07-22T20:10:03Z"
+  },
+  {
+    "escalation_id": "ESC-0662",
+    "case_id": "CAS-01988",
+    "escalation_type": "management",
+    "escalated_at": "2025-09-02T12:56:21Z"
+  },
+  {
+    "escalation_id": "ESC-0663",
+    "case_id": "CAS-01993",
+    "escalation_type": "incident_response",
+    "escalated_at": "2025-11-22T10:57:47Z"
+  },
+  {
+    "escalation_id": "ESC-0664",
+    "case_id": "CAS-01999",
+    "escalation_type": "specialist",
+    "escalated_at": "2025-03-12T12:19:33Z"
   }
 ]

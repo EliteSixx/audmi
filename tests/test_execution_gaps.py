@@ -143,14 +143,14 @@ class ExecutionGapTests(unittest.TestCase):
         self.assertEqual(analyze_evidence(evidence), [])
 
     def test_golden_dataset_finding_counts_are_unchanged(self) -> None:
-        # Pinned to the pre-registry implementation (commit 72d0b80) so that
-        # moving thresholds into YAML cannot silently change behaviour.
+        # Pinned to generator v2 (realistic baselines + overlapping duration
+        # distributions). A changed threshold or rule must show up here.
         counts = Counter(item.rule_id for item in self.findings)
         self.assertEqual(
             dict(counts),
             {
-                "missing_escalation": 581,
-                "unusually_short_investigation": 105,
+                "missing_escalation": 279,
+                "unusually_short_investigation": 127,
                 "repeated_alerts_without_remediation": 8,
             },
         )

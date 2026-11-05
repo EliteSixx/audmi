@@ -1,32 +1,32 @@
 [
   {
     "cse_id": "CSE-01",
-    "name": "Regional Cyber Security Entity 01",
-    "peer_group": "regional"
+    "name": "Energy Sector Cyber Security Entity 01",
+    "peer_group": "energy-large"
   },
   {
     "cse_id": "CSE-02",
-    "name": "Regional Cyber Security Entity 02",
-    "peer_group": "regional"
+    "name": "Banking Sector Cyber Security Entity 02",
+    "peer_group": "banking-critical"
   },
   {
     "cse_id": "CSE-03",
-    "name": "Regional Cyber Security Entity 03",
-    "peer_group": "regional"
+    "name": "Telecom Sector Cyber Security Entity 03",
+    "peer_group": "communications-critical"
   },
   {
     "cse_id": "CSE-04",
-    "name": "Regional Cyber Security Entity 04",
-    "peer_group": "regional"
+    "name": "Energy Sector Cyber Security Entity 04",
+    "peer_group": "energy-large"
   },
   {
     "cse_id": "CSE-05",
-    "name": "Regional Cyber Security Entity 05",
-    "peer_group": "regional"
+    "name": "Transport Sector Cyber Security Entity 05",
+    "peer_group": "communications-critical"
   },
   {
     "cse_id": "CSE-06",
-    "name": "Regional Cyber Security Entity 06",
-    "peer_group": "regional"
+    "name": "Banking Sector Cyber Security Entity 06",
+    "peer_group": "banking-critical"
   }
 ]

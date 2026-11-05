@@ -1,14 +1,45 @@
 {
-  "format_version": 1,
+  "format_version": 2,
+  "generator_version": "2.0.0",
   "seed": 42,
+  "periods": [
+    "2025-Q1",
+    "2025-Q2",
+    "2025-Q3",
+    "2025-Q4"
+  ],
+  "sectors": {
+    "CSE-01": "energy",
+    "CSE-02": "banking",
+    "CSE-03": "telecom",
+    "CSE-04": "energy",
+    "CSE-05": "transport",
+    "CSE-06": "banking"
+  },
+  "peer_groups": {
+    "CSE-01": "energy-large",
+    "CSE-02": "banking-critical",
+    "CSE-03": "communications-critical",
+    "CSE-04": "energy-large",
+    "CSE-05": "communications-critical",
+    "CSE-06": "banking-critical"
+  },
   "counts": {
     "cse": 6,
     "assets": 300,
     "alerts": 10000,
     "cases": 2000,
     "investigations": 1500,
-    "escalations": 300,
-    "remediations": 100
+    "escalations": 664,
+    "remediations": 260
+  },
+  "high_critical_escalation_rates": {
+    "CSE-01": 0.7447,
+    "CSE-02": 0.4711,
+    "CSE-03": 0.8115,
+    "CSE-04": 0.7864,
+    "CSE-05": 0.8167,
+    "CSE-06": 0.6705
   },
   "ground_truth_file": "ground_truth.json",
   "operational_record_labeling": false
