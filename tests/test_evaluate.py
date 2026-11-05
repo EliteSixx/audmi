@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 
 from src.core.findings import Finding
-from src.core.registry import load_registry
+from src.core.registry import RuleRegistry, load_registry
 from src.validation.evaluate import ALL_COHORTS, evaluate, format_table, run
 
 
@@ -87,10 +87,23 @@ class EvaluateFixtureTests(unittest.TestCase):
         self.assertEqual((row["seeded"], row["caught"], row["unclassified"]), (1, 1, 0))
 
     def test_condition_without_detector_is_reported(self) -> None:
-        row = _row(self.report, "negative_space_low_activity", "CSE-C")
+        # The registry decides whether a condition has a detector. Removing the
+        # negative-space rule must degrade the report, not crash it.
+        without_rule = RuleRegistry({
+            rule.id: rule for rule in REGISTRY
+            if rule.id != "negative_space_low_activity"
+        })
+        report = evaluate(self.findings, self.truth, without_rule)
+        row = _row(report, "negative_space_low_activity", "CSE-C")
         self.assertEqual(row["status"], "no detector")
         self.assertEqual(row["seeded"], 2)
-        self.assertIn("no detector", format_table(self.report))
+        self.assertIn("no detector", format_table(report))
+
+    def test_negative_space_is_scored_at_asset_level(self) -> None:
+        row = _row(self.report, "negative_space_low_activity", "CSE-C")
+        self.assertEqual(row["status"], "scored")
+        self.assertEqual(row["subject_type"], "asset")
+        self.assertEqual((row["flagged"], row["seeded"], row["missed"]), (0, 2, 2))
 
     def test_outside_flags_are_never_called_false_positives(self) -> None:
         text = json.dumps(self.report) + format_table(self.report)
@@ -111,6 +124,7 @@ class EvaluateGoldenDatasetTests(unittest.TestCase):
             "missing_escalation": (279, 70, 70, 0, 209),
             "unusually_short_investigation": (127, 105, 105, 0, 22),
             "repeated_alerts_without_remediation": (8, 8, 8, 0, 0),
+            "negative_space_low_activity": (8, 8, 8, 0, 0),
         }
         for condition_type, numbers in expected.items():
             row = _row(report, condition_type, ALL_COHORTS)
@@ -119,9 +133,6 @@ class EvaluateGoldenDatasetTests(unittest.TestCase):
                 numbers,
                 condition_type,
             )
-        self.assertEqual(
-            _row(report, "negative_space_low_activity", "CSE-05")["status"], "no detector"
-        )
 
 
 if __name__ == "__main__":

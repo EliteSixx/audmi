@@ -58,7 +58,7 @@ CONDITION_MAPPINGS: dict[str, ConditionMapping] = {
     "repeated_alerts_without_remediation": ConditionMapping(
         "repeated_alerts_without_remediation", SubjectType.ASSET, "asset_ids"),
     "negative_space_low_activity": ConditionMapping(
-        None, SubjectType.ASSET, "asset_ids"),
+        "negative_space_low_activity", SubjectType.ASSET, "asset_ids"),
 }
 
 

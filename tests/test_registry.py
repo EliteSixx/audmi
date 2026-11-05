@@ -10,6 +10,7 @@ from src.core.registry import RuleDefinitionError, load_registry, rule_from_dict
 
 EXPECTED_RULES = {
     "missing_escalation",
+    "negative_space_low_activity",
     "repeated_alerts_without_remediation",
     "unusually_short_investigation",
 }
@@ -39,9 +40,10 @@ class RegistryTests(unittest.TestCase):
         self.assertEqual(set(registry.ids()), EXPECTED_RULES)
         for rule in registry:
             self.assertIsInstance(rule.capability, Capability)
-            self.assertIs(rule.category, Category.EXECUTION_GAP)
+            self.assertIsInstance(rule.category, Category)
             self.assertTrue(rule.parameters)
             self.assertTrue(rule.false_positives)
+        self.assertIs(registry["negative_space_low_activity"].category, Category.NEGATIVE_SPACE)
 
     def test_thresholds_live_in_yaml(self) -> None:
         registry = load_registry()

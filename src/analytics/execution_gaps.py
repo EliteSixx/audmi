@@ -12,13 +12,17 @@ from __future__ import annotations
 
 import json
 import math
-import statistics
 from collections import defaultdict
-from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable, Iterable, TypeVar
 
+from src.analytics.common import (
+    EvidenceRecords,
+    median_absolute_deviation,
+    new_finding,
+)
+from src.analytics.negative_space import find_negative_space_low_activity
 from src.core.findings import Finding
 from src.core.registry import Rule, RuleRegistry, load_registry
 from src.normalization.evidence_model import (
@@ -39,36 +43,10 @@ DEFAULT_DATASET_DIR = (
 T = TypeVar("T")
 
 
-@dataclass(frozen=True, slots=True)
-class EvidenceRecords:
-    cse: tuple[CSE, ...]
-    assets: tuple[Asset, ...]
-    alerts: tuple[Alert, ...]
-    cases: tuple[Case, ...]
-    investigations: tuple[Investigation, ...] = ()
-    escalations: tuple[Escalation, ...] = ()
-    remediations: tuple[Remediation, ...] = ()
+def _new_finding(rule: Rule, **kwargs: Any) -> Finding:
+    """Backwards-compatible alias for the shared finding builder."""
+    return new_finding(rule, **kwargs)
 
-
-def _new_finding(rule: Rule, *, finding_id: str, cse_id: str, subject_id: str,
-                 reason: str, supporting_record_ids: tuple[str, ...],
-                 baseline: dict[str, Any],
-                 data_quality_notes: tuple[str, ...] = ()) -> Finding:
-    """Build a Finding whose rule metadata comes from the registry entry."""
-    return Finding(
-        finding_id=finding_id,
-        rule_id=rule.id,
-        rule_version=rule.version,
-        capability=rule.capability,
-        category=rule.category,
-        cse_id=cse_id,
-        subject_type=rule.subject_type,
-        subject_id=subject_id,
-        reason=reason,
-        supporting_record_ids=supporting_record_ids,
-        baseline=baseline,
-        data_quality_notes=data_quality_notes,
-    )
 
 
 def _parse_timestamp_fields(row: dict[str, Any], names: Iterable[str]) -> dict[str, Any]:
@@ -143,9 +121,8 @@ def load_evidence(dataset_dir: str | Path = DEFAULT_DATASET_DIR) -> EvidenceReco
 
 
 def _median_absolute_deviation(values: list[float]) -> tuple[float, float]:
-    median = statistics.median(values)
-    mad = statistics.median(abs(value - median) for value in values)
-    return median, mad
+    """Backwards-compatible alias for the shared robust-statistics helper."""
+    return median_absolute_deviation(values)
 
 
 def _duration_baseline(
@@ -387,6 +364,7 @@ RULE_FUNCTIONS: dict[str, RuleFunction] = {
     "missing_escalation": find_missing_escalations,
     "unusually_short_investigation": find_short_investigations,
     "repeated_alerts_without_remediation": find_repeated_alerts_without_remediation,
+    "negative_space_low_activity": find_negative_space_low_activity,
 }
 
 

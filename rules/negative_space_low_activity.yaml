@@ -1,0 +1,31 @@
+id: negative_space_low_activity
+title: Critical asset reports no activity while peers are active
+version: 1.0.0
+status: experimental
+level: high
+capability: threat_detection
+category: negative_space
+subject_type: asset
+description: >
+  A critical or high asset whose alert count is at or below max_alert_count,
+  inside a peer group (defined on the CSE) with at least min_peer_assets and a
+  median asset alert count of at least min_peer_median_alerts. The rule
+  describes potential missing activity, not proof that nothing happened.
+parameters:
+  # Only assets whose own criticality says they should be monitored.
+  criticalities:
+    - critical
+    - high
+  # Zero (or almost zero) alerts; raise this only with a stated justification.
+  max_alert_count: 0
+  # A peer group needs enough comparable assets for a meaningful median.
+  min_peer_assets: 20
+  # If the peer group is quiet too, silence is not a signal.
+  min_peer_median_alerts: 5
+  # How many active peers to cite as supporting evidence in each finding.
+  max_supporting_peers: 5
+false_positives:
+  - A genuinely quiet asset that is not exposed to the monitored attack surface.
+  - A newly commissioned asset that has not yet been onboarded to logging.
+  - A planned sensor or agent outage already recorded outside the submission.
+  - Peers that are active because of one noisy detection rule rather than real coverage.

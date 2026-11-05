@@ -3,7 +3,6 @@ import unittest
 from collections import Counter
 from datetime import datetime, timedelta, timezone
 
-from src.core.findings import Category
 from src.core.registry import RuleRegistry, load_registry, rule_from_dict
 
 from src.analytics.execution_gaps import (
@@ -99,7 +98,7 @@ class ExecutionGapTests(unittest.TestCase):
         for finding in self.findings:
             self.assertTrue(finding.supporting_record_ids)
             self.assertTrue(all(finding.supporting_record_ids))
-            self.assertIn("Potential execution gap", finding.reason)
+            self.assertIn("Potential", finding.reason)
 
     def test_findings_are_deterministic(self) -> None:
         again = detect_execution_gaps()
@@ -152,6 +151,7 @@ class ExecutionGapTests(unittest.TestCase):
                 "missing_escalation": 279,
                 "unusually_short_investigation": 127,
                 "repeated_alerts_without_remediation": 8,
+                "negative_space_low_activity": 8,
             },
         )
 
@@ -161,7 +161,7 @@ class ExecutionGapTests(unittest.TestCase):
             rule = registry[finding.rule_id]
             self.assertEqual(finding.rule_version, rule.version)
             self.assertIs(finding.capability, rule.capability)
-            self.assertIs(finding.category, Category.EXECUTION_GAP)
+            self.assertIs(finding.category, rule.category)
             self.assertIs(finding.subject_type, rule.subject_type)
             self.assertTrue(finding.baseline)
             self.assertIn(finding.subject_id, finding.supporting_record_ids)
