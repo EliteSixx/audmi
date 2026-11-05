@@ -37,7 +37,7 @@ export default function Footer() {
               >
                 GitHub Repository ↗
               </a>
-              <span>SIH 2026 — PS26157</span>
+              <span>SIH 2026 — SIH26157</span>
               <span>SAT-SA Project</span>
             </div>
           </div>

@@ -3,7 +3,7 @@
 > Read this first. It explains what AudMi is, what is actually built, how it works, what we measured, and where we are going.
 > Verified on **5 Nov 2026** against the tip of branch `phase0/base` (Phase 0, 6 commits ahead of `main`). Phase 0 is not yet in `main` (`4d55104`); `origin/main` is still `72d0b80`. On 5 Nov 2026 `develop` and all six `feature/*` branches were reset onto `phase0/base` (they previously sat on `520728d "first commit"`). See `docs/design/phase0.md`. If you change anything listed under "Implemented", update this file in the same PR.
 
-**AudMi (Auditor's Microscope)** — SIH 2026, Problem Statement SIHPS26157, *Supervisory Analytics Tool for SOC Assessment (SAT-SA)*, NTRO / NCIIPC. Team Elite Sixx.
+**AudMi (Auditor's Microscope)** — SIH 2026, Problem Statement SIH26157, *Supervisory Analytics Tool for SOC Assessment (SAT-SA)*, NTRO / NCIIPC. Team Elite Sixx.
 
 *"Inspect the evidence. Surface the gaps. Prioritize the review."*
 *AudMi does not replace the examiner. It helps the examiner see where to look.*

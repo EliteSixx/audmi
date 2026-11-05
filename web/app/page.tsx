@@ -34,7 +34,7 @@ export default function Home() {
       {/* Hero */}
       <section className="hero" id="hero">
         <div className="container">
-          <span className="hero-tagline">SIH 2026 — PS26157 · SAT-SA</span>
+          <span className="hero-tagline">SIH 2026 — SIH26157 · SAT-SA</span>
           <h1 className="hero-title">
             AudMi — Auditor&apos;s Microscope
           </h1>
