@@ -1,7 +1,7 @@
 # AudMi — Project Context
 
 > Read this first. It explains what AudMi is, what is actually built, how it works, what we measured, and where we are going.
-> Verified against `main` at commit `72d0b80` on 19 Oct 2026; sections 3–6 and 8 updated for branch `phase0/base` (see `docs/design/phase0.md`). If you change anything listed under "Implemented", update this file in the same PR.
+> Verified on **5 Nov 2026** against the tip of branch `phase0/base` (Phase 0, 6 commits ahead of `main`). Phase 0 is not yet in `main` (`4d55104`); `origin/main` is still `72d0b80`. On 5 Nov 2026 `develop` and all six `feature/*` branches were reset onto `phase0/base` (they previously sat on `520728d "first commit"`). See `docs/design/phase0.md`. If you change anything listed under "Implemented", update this file in the same PR.
 
 **AudMi (Auditor's Microscope)** — SIH 2026, Problem Statement SIHPS26157, *Supervisory Analytics Tool for SOC Assessment (SAT-SA)*, NTRO / NCIIPC. Team Elite Sixx.
 
@@ -194,7 +194,7 @@ New supervisory terms you'll meet:
    - escalation policy
 5. The loader silently skips malformed rows. It should produce a data-quality report instead.
 6. `web/app/globals.css` imports Google Fonts, which breaks offline use. Mock numbers don't match the golden dataset. Links still point at `rudythetechy/audmi`; the repo has moved to **`EliteSixx/audmi`**.
-7. Team feature branches are still at the first commit and need resetting onto `main` (see `TEAM_PLAN.md`).
+7. Branch layout: `phase0/base` holds Phase 0 and is the current baseline. `develop` and the six `feature/*` branches were reset onto it on 5 Nov 2026. `main` (`4d55104`) and `origin/main` (`72d0b80`) are still behind and should be fast-forwarded at the phase-end merge. `README.md` is partially stale: its status table now marks evaluation as implemented, but it still links to `rudythetechy/audmi` and describes some planned work as if it were the design target.
 
 ## 10. Where we're going
 

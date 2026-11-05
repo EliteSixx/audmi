@@ -120,16 +120,20 @@ Each one has a supervisory question, so everyone can explain *why* their part ex
 
 ## 5. Git workflow
 
-The `feature/*` branches are still at the first commit. Reset each one onto `main` **once** (safe, because they contain no work):
+**Done on 5 Nov 2026:** `develop` and all six `feature/*` branches were reset onto `phase0/base` (`99b41a2`), which is now the shared baseline. They previously sat on `520728d "first commit"` and contained no work, so nothing was lost. `main` (`4d55104`) stays behind until the phase-end merge.
+
+If a branch needs recreating, or Phase 0 moves on, start from the baseline branch:
 
 ```powershell
 git remote set-url origin https://github.com/EliteSixx/audmi.git
 git fetch origin
-git checkout -B feature/<name> origin/main
+git checkout -B feature/<name> origin/phase0/base
 git push --force-with-lease origin feature/<name>
-git checkout -B develop origin/main
+git checkout -B develop origin/phase0/base      # only if develop must be reset again
 git push --force-with-lease origin develop
 ```
+
+At the end of Phase 0, fast-forward `main` to `phase0/base` (no merge commit needed), push it, and from then on use `origin/main` as the baseline.
 
 Then, every day:
 

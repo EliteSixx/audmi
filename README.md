@@ -20,13 +20,14 @@ The current repository contains the evidence model, synthetic dataset generator,
 |---|---|
 | Canonical evidence model and JSON schema | Implemented and tested |
 | Deterministic synthetic dataset generator | Implemented and tested |
-| Execution-gap analytics | Implemented and tested |
+| Execution-gap analytics (3 registry-driven rules) | Implemented and tested |
+| Finding schema v1 and Sigma-like rule registry | Implemented and tested |
 | Negative-space analytics | Planned |
 | Peer and contextual analysis | Planned |
 | Workflow pattern analysis | Planned |
 | External SOC data ingestion and validation | Planned |
 | Evidence-linked prioritization and review workflow | Planned |
-| Ground-truth-based precision and recall evaluation | Planned |
+| Ground-truth-based precision and recall evaluation | Implemented and tested (synthetic data only; read the caveats in `docs/PROJECT_CONTEXT.md` §5.4) |
 | Offline packaging and air-gapped verification | Planned |
 | Next.js web demonstration | Implemented with mock synthetic data |
 
@@ -146,7 +147,7 @@ For local web development:
 - npm
 - A modern web browser
 
-The existing Python modules use the standard library. No additional Python packages are required to run the implemented generator and analytics module.
+The analytics and generator use the Python standard library plus **PyYAML** (to read `rules/*.yaml`). Install the pinned requirements before running:
 
 ### 1. Clone the Repository
 
