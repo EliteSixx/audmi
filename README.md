@@ -152,7 +152,7 @@ The analytics and generator use the Python standard library plus **PyYAML** (to 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/rudythetechy/audmi.git
+git clone https://github.com/EliteSixx/audmi.git
 cd audmi
 ```
 

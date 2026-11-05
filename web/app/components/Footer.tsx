@@ -30,7 +30,7 @@ export default function Footer() {
             <div className="footer-heading">Project</div>
             <div className="footer-links">
               <a
-                href="https://github.com/rudythetechy/audmi"
+                href="https://github.com/EliteSixx/audmi"
                 target="_blank"
                 rel="noopener noreferrer"
                 id="footer-link-github"

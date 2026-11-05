@@ -4,7 +4,7 @@
    Navy / Teal / Amber / Neutral.
    =================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+/* No remote font imports: the demo must render with the network off. */
 
 /* --- Tokens -------------------------------------------------------- */
 :root {
@@ -95,8 +95,8 @@
   --sp-24: 96px;
 
   /* Typography */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
 
   --text-xs:  0.75rem;
   --text-sm:  0.875rem;

@@ -168,7 +168,7 @@ export default function InstallationPage() {
                 </p>
                 <div className="code-block">
                   <div className="code-block-header">Shell (planned)</div>
-                  git clone https://github.com/rudythetechy/audmi.git{"\n"}
+                  git clone https://github.com/EliteSixx/audmi.git{"\n"}
                   cd audmi
                 </div>
               </div>
@@ -321,7 +321,7 @@ export default function InstallationPage() {
               Try the Online Demo →
             </Link>
             <a
-              href="https://github.com/rudythetechy/audmi"
+              href="https://github.com/EliteSixx/audmi"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-outline btn-lg"
