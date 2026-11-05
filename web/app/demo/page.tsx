@@ -34,6 +34,7 @@ function DemoWarning() {
           <li>The full AudMi application is intended to support local, offline execution.</li>
           <li>Do not upload real or sensitive SOC data to this public demo.</li>
           <li>The Python analytics engine is not running — results shown are pre-computed fixtures.</li>
+          <li>For results computed live by the Python engine, start the local API and open the Live Analysis screen.</li>
         </ul>
       </div>
     </div>
