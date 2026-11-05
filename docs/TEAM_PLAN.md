@@ -27,12 +27,12 @@ Once both are fixed, all six workstreams can run in parallel.
 
 ## 2. Phases
 
-| Phase | Goal | Who |
-|---|---|---|
-| **0 · Base** | `AGENTS.md`, Finding schema v1, rule registry, `audmi eval` command, offline-safe CI, branches reset | Rudy (+ Claude). Everyone else does their **learning task** (section 4) and reads the code. |
-| **1 · Parallel build** | Each workstream delivers its first milestone behind the shared contracts | All six |
-| **2 · Integration** | One real end-to-end slice: upload → validate → rules → API → one UI screen on real data | All, led by W6 + W1 |
-| **3 · Hardening** | Evaluation report, offline Docker image tested with the network off, demo video, docs | All |
+| Phase | Goal | Status | Who |
+|---|---|---|---|
+| **0 · Base** | `AGENTS.md`, Finding schema v1, rule registry, eval command, offline-safe CI, branches reset | **Done** (`c0d4086`) | Rudy (+ Claude). Everyone else does their **learning task** (section 4) and reads the code. |
+| **1 · Parallel build** | Each workstream delivers its first milestone behind the shared contracts | **Started** — generator v2 (P1), negative space (P2), ingestion (P3), API + live screen (P4) | All six |
+| **2 · Integration** | One real end-to-end slice: validate → rules → API → one UI screen on real data | **Working slice** — `python -m src.ingestion` → rules → `python -m src.api` → `/live` | All, led by W6 + W1 |
+| **3 · Hardening** | Evaluation report, offline Docker image tested with the network off, demo video, docs | **Not started** | All |
 
 **Rule:** nobody starts Phase 1 until Phase 0 is merged. Otherwise six people build on six different assumptions.
 
@@ -64,29 +64,29 @@ Each one has a supervisory question, so everyone can explain *why* their part ex
 
 ### W3 · Ingestion, validation & integrity — **Sinu** (`feature/sinu`)
 - **Question:** "Is this submission complete and untampered before we analyse it?"
-- **Build:**
-  - CSV/JSON import with a column-mapping file
-  - a **data-quality report**: schema errors, broken links, timestamp order, duplicates
+- **Done (P3):** JSON ingestion with a **data-quality report** (schema errors, duplicates, broken links, CSE mismatches, timestamp order) and a **SHA-256 manifest** with a reproducible combined digest. Run `python -m src.ingestion`.
+- **Next:**
+  - CSV import with a column-mapping file
   - storage in SQLite or DuckDB
-  - a **SHA-256 manifest** of each submission and each analysis run
+  - a manifest of each analysis *run*, not just each submission
 - **Owns:** `src/ingestion/`, `src/evidence/`.
 - **Learn:** data validation, referential integrity, hashing for integrity (the I in CIA), the chain of custody idea from DF.
 
 ### W4 · Execution-gap analytics — **Ishan** (`feature/ishan`)
 - **Question:** "Where do the records show the SOC isn't really doing what it reports?"
-- **Build:**
-  - move the 3 existing rules into the registry
-  - add critical alerts closed unusually fast
-  - add **closure bursts** (many cases closed in a few minutes)
-  - add the analyst-level pattern of the same analyst closing everything fast
+- **Done (P1–P2):** the 3 rules are registry-driven and measured against generator v2. Shared plumbing lives in `src/analytics/common.py`.
+- **Next:**
+  - critical alerts closed unusually fast
+  - **closure bursts** (many cases closed in a few minutes)
+  - the analyst-level pattern of the same analyst closing everything fast
   - once the model has notes: **template/near-duplicate investigation notes** (TF-IDF + cosine similarity)
 - **Owns:** `src/analytics/execution_gaps.py` and new rule modules.
 - **Learn:** robust statistics (MAD), text similarity, false-positive thinking.
 
 ### W5 · Negative space & peer benchmarking — **Samir** (`feature/samir`)
 - **Question:** "What evidence is missing that should be there?"
-- **Build:**
-  - critical assets with zero or near-zero alerts (ground truth already exists)
+- **Done (P2):** `negative_space_low_activity` flags critical/high assets with zero alerts in an active CSE peer group. 8 seeded, 8 caught.
+- **Next:**
   - expected alert categories that never appear, mapped to **MITRE ATT&CK tactic coverage**
   - periods with no escalations
   - **peer percentiles** inside a peer group
@@ -95,11 +95,10 @@ Each one has a supervisory question, so everyone can explain *why* their part ex
 
 ### W6 · API, UI integration & reports — **Brajesh** (`feature/brajesh`)
 - **Question:** "Can an examiner actually use this offline?"
-- **Build:**
-  - FastAPI endpoints (`/entities`, `/findings`, `/findings/{id}/evidence`)
+- **Done (P0, P4):** dependency-free loopback JSON API (`/summary`, `/entities`, `/findings`, `/findings/{id}`, `/findings/{id}/evidence`), `/live` screen reading it, Google Fonts removed, offline guard added. Chose stdlib `http.server` over FastAPI to avoid another offline wheel.
+- **Next:**
   - review actions (confirm / dismiss / note) with an **audit log**
-  - switch one demo screen from mock data to the API
-  - remove Google Fonts so the UI works offline
+  - switch more `/demo` screens from fixtures to the API
   - findings report export
 - **Owns:** `src/api/`, `web/`.
 - **Learn:** REST API design, frontend–backend integration, audit trails, offline deployment.
@@ -120,20 +119,20 @@ Each one has a supervisory question, so everyone can explain *why* their part ex
 
 ## 5. Git workflow
 
-**Done on 5 Nov 2026:** `develop` and all six `feature/*` branches were reset onto `phase0/base` (`99b41a2`), which is now the shared baseline. They previously sat on `520728d "first commit"` and contained no work, so nothing was lost. `main` (`4d55104`) stays behind until the phase-end merge.
+**Current state (5 Nov 2026):** `phase0/base`, `main` and `origin/main` are at `9872743`. `develop` is five commits ahead (`c0d4086` P0, `12380de` P1, `4236608` P2, `cd6b290` P3, `0392086` P4). The six `feature/*` branches still sit on `9872743`; start new work from `develop` so you build on P0–P4. Fast-forward `main` to `develop` at the phase-end merge.
 
-If a branch needs recreating, or Phase 0 moves on, start from the baseline branch:
+If a branch needs recreating, or the baseline moves on, start from the current integration branch:
 
 ```powershell
 git remote set-url origin https://github.com/EliteSixx/audmi.git
 git fetch origin
-git checkout -B feature/<name> origin/phase0/base
+git checkout -B feature/<name> origin/develop
 git push --force-with-lease origin feature/<name>
-git checkout -B develop origin/phase0/base      # only if develop must be reset again
+git checkout -B develop origin/develop        # only if develop must be reset again
 git push --force-with-lease origin develop
 ```
 
-At the end of Phase 0, fast-forward `main` to `phase0/base` (no merge commit needed), push it, and from then on use `origin/main` as the baseline.
+At the end of Phase 0, fast-forward `main` to `develop` (no merge commit needed), push it, and from then on use `origin/main` as the baseline.
 
 Then, every day:
 
@@ -148,7 +147,8 @@ Then open a pull request **into `develop`**, small, ideally under 400 lines. `de
 
 **Definition of done for any PR:**
 - [ ] tests added and `python -m pytest -q` passes
-- [ ] `audmi eval` numbers in the PR description (for rule changes)
+- [ ] `python -m src.validation.evaluate` numbers in the PR description (for rule changes)
+- [ ] `python scripts/check_offline.py` passes
 - [ ] no network calls, no cloud or SaaS dependency
 - [ ] status board in `PROJECT_CONTEXT.md` updated if a feature moved category
 - [ ] findings say "potential", never "non-compliant"
@@ -167,4 +167,5 @@ Write these only once the work is merged and measured. Fill in real numbers from
 - *Built explainable SOC-supervision rules (robust statistics, expected-vs-observed checks) over 14k+ synthetic SOC records, validated against seeded ground truth.*
 - *Designed a Sigma-style versioned rule registry and evaluation harness reporting per-rule precision/recall.*
 - *Built an integrity-preserving ingestion pipeline with data-quality reports and SHA-256 manifests for an air-gapped deployment.*
+- *Shipped an end-to-end offline slice: Python engine → loopback JSON API → Next.js live findings screen.*
 - *Mapped detection coverage gaps to MITRE ATT&CK tactics across peer entities.*

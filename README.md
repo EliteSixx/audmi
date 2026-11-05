@@ -14,24 +14,27 @@ AudMi is not a SIEM, a real-time SOC, a SOC replacement, or a monitoring platfor
 
 AudMi is a research prototype developed for Smart India Hackathon 2026. All demonstration and testing data is synthetic. No real NCIIPC or Critical Sector Entity (CSE) data is used.
 
-The current repository contains the evidence model, synthetic dataset generator, execution-gap analytics, and a web demonstration. The complete end-to-end offline product is still under development.
+The current repository contains the evidence model, synthetic dataset generator v2, four registry-driven analytics rules, an ingestion/data-quality and SHA-256 integrity layer, an offline loopback JSON API, and a web application with both a fixture demo and a live findings screen.
 
 | Component | Status |
 |---|---|
 | Canonical evidence model and JSON schema | Implemented and tested |
-| Deterministic synthetic dataset generator | Implemented and tested |
+| Deterministic synthetic dataset generator v2 (realistic baselines, decoys, peer groups) | Implemented and tested |
 | Execution-gap analytics (3 registry-driven rules) | Implemented and tested |
+| Negative-space analytics (silent high-value assets vs peer group) | Implemented and tested |
 | Finding schema v1 and Sigma-like rule registry | Implemented and tested |
-| Negative-space analytics | Planned |
-| Peer and contextual analysis | Planned |
+| Submission ingestion, data-quality report and SHA-256 manifest | Implemented and tested |
+| Offline loopback JSON API | Implemented and tested |
+| Live findings screen reading the API | Implemented and tested (`/live`) |
+| Peer and contextual analysis (beyond alert volume) | Planned |
 | Workflow pattern analysis | Planned |
-| External SOC data ingestion and validation | Planned |
-| Evidence-linked prioritization and review workflow | Planned |
+| External SOC CSV import and persistent storage | Planned |
+| Evidence-linked prioritization and review write-actions | Planned |
 | Ground-truth-based precision and recall evaluation | Implemented and tested (synthetic data only; read the caveats in `docs/PROJECT_CONTEXT.md` §5.4) |
-| Offline packaging and air-gapped verification | Planned |
-| Next.js web demonstration | Implemented with mock synthetic data |
+| Offline packaging and air-gapped verification | Planned (a static offline guard exists) |
+| Next.js web demonstration | Implemented with mock synthetic data (`/demo`) and live API data (`/live`) |
 
-**Deployment goal:** Local, controlled, offline operation without dependence on cloud services or external AI APIs. Air-gapped operation has not yet been verified.
+**Deployment goal:** Local, controlled, offline operation without dependence on cloud services or external AI APIs. The product code makes no outbound calls and `scripts/check_offline.py` guards that, but a full air-gapped installation has not yet been verified.
 
 ## Repository Structure
 
@@ -56,19 +59,40 @@ audmi/
 │   ├── normalization/
 │   │   └── evidence_model.py
 │   ├── analytics/
-│   │   └── execution_gaps.py
+│   │   ├── common.py
+│   │   ├── execution_gaps.py
+│   │   └── negative_space.py
 │   ├── ingestion/
+│   │   ├── quality.py
+│   │   └── manifest.py
+│   ├── api/
+│   │   └── server.py
 │   ├── evidence/
 │   ├── explainability/
 │   ├── prioritization/
 │   ├── review/
 │   └── validation/
+├── rules/
+│   ├── missing_escalation.yaml
+│   ├── unusually_short_investigation.yaml
+│   ├── repeated_alerts_without_remediation.yaml
+│   └── negative_space_low_activity.yaml
+├── scripts/
+│   └── check_offline.py
+├── .github/
+│   └── workflows/
+│       └── ci.yml
 ├── tests/
 │   ├── test_evidence_model.py
+│   ├── test_synthetic_generator.py
 │   ├── test_execution_gaps.py
-│   └── test_synthetic_generator.py
+│   ├── test_negative_space.py
+│   ├── test_ingestion.py
+│   ├── test_api.py
+│   ├── test_registry.py
+│   └── test_evaluate.py
 ├── web/
-│   └── Next.js demonstration application
+│   └── Next.js application (`/demo` fixtures, `/live` API-backed)
 ├── docs/
 │   ├── ARCHITECTURE.html
 │   └── AudMi_Architecture.pdf
@@ -100,7 +124,7 @@ For example, a case without an associated escalation record may warrant review. 
 
 The repository includes a deterministic synthetic dataset for development and testing.
 
-The dataset generated with seed `42` contains:
+The dataset generated with seed `42` contains **14,730 operational records**:
 
 | Record type | Expected count |
 |---|---:|
@@ -109,25 +133,23 @@ The dataset generated with seed `42` contains:
 | Alerts | 10,000 |
 | Cases | 2,000 |
 | Investigations | 1,500 |
-| Escalations | 300 |
-| Remediations | 100 |
+| Escalations | 664 |
+| Remediations | 260 |
 
-The dataset includes seeded conditions and a separate `ground_truth.json` file containing expected labels.
+Two further files sit beside the operational data: `ground_truth.json` (the seeded labels) and `dataset_manifest.json` (generator version, periods, sectors and peer groups).
 
-This separation is intended to support future evaluation of detection performance without placing ground-truth labels directly into the operational records being analyzed.
+Generator v2 deliberately makes detection non-trivial: high/critical cases are escalated at roughly 80% per entity (CSE-02 is deliberately weak at ~50%), investigation durations overlap between normal and planted fast cases, 40 legitimate fast decoys exist below the rule's threshold, and remediated decoys are volume-matched to the repeated-alert cases. v1's disjoint distributions made the rules look perfect for the wrong reason.
 
-The counts describe the configured synthetic dataset, not real-world SOC activity or supervisory findings.
+The operational files carry no labels. `ground_truth.json` is separate, so rules cannot read the answers while analysing the records.
 
-AudMi includes a reproducible synthetic dataset generated with seed 42, comprising 14,206 operational records across six Critical Sector Entities (CSEs).
+The ground-truth file defines seeded test conditions for:
 
-The accompanying ground-truth file defines seeded test conditions for:
+- [x] Missing escalation records
+- [x] Repeated alerts without remediation
+- [x] Unusually short investigations
+- [x] Critical assets exhibiting low activity (negative space)
 
-- [ ] Missing escalation records
-- [ ] Repeated alerts without remediation
-- [ ] Unusually short investigations
-- [ ] Critical assets exhibiting low activity
-
-These conditions provide known scenarios for testing supervisory analytics. The ground-truth references are not a complete record-level labelling of the operational dataset, and detection accuracy has not yet been established.
+These conditions provide known scenarios for testing supervisory analytics. The ground-truth references are not a complete record-level labelling of the operational dataset, and synthetic detection numbers are not real-world accuracy figures.
 
 ## Setup and Installation
 
@@ -190,27 +212,50 @@ The generator creates linked synthetic records and seeded conditions for testing
 
 **Note:** Regenerating the dataset may overwrite the existing generated records. Preserve any local changes you need before running the generator.
 
-### 3. Run the Execution-Gap Analytics
+### 3. Validate the Submission and Run the Analytics
 
-The current implementation supports deterministic execution-gap analysis.
+Ingestion runs first. It validates every row, reports data-quality problems, and writes a SHA-256 manifest without changing the evidence:
 
-Run the module from the repository root:
+```bash
+python -m src.ingestion
+```
+
+Outputs go to `data/outputs/quality_report.json` and `data/outputs/submission_manifest.json`. The combined digest is reproducible with standard `sha256sum`-style output.
+
+Then run the rules:
 
 ```bash
 python -m src.analytics.execution_gaps
 ```
 
-The module reports potential signals for supported conditions, including:
+The module reports potential signals for supported conditions:
 
 - Cases with missing escalation records
 - Investigations with unusually short durations
 - Repeated alerts without corresponding remediation records
+- Critical/high assets with no alerts while their peer group is active (negative space)
 
-The output represents rule-based signals on synthetic data. It is not a set of confirmed incidents, proof of non-compliance, or a measurement of detection accuracy.
+The output represents rule-based signals on synthetic data. It is not a set of confirmed incidents, proof of non-compliance, or a measurement of real-world detection accuracy.
 
-Rule thresholds and detection performance still require systematic evaluation against the synthetic ground truth.
+To score the rules against the seeded ground truth:
 
-### 4. Run the Tests
+```bash
+python -m src.validation.evaluate
+```
+
+This prints a per-rule, per-cohort table and writes `data/outputs/eval_report.json`. Flags outside ground truth are reported as *unclassified*, not as false positives, and precision is a lower bound.
+
+### 4. Start the Offline API
+
+The API uses the Python standard library and binds to loopback only:
+
+```bash
+python -m src.api --port 8000
+```
+
+It exposes `/health`, `/summary`, `/entities`, `/findings`, `/findings/{id}` and `/findings/{id}/evidence`. It reads only the local evidence directory and makes no outbound calls.
+
+### 5. Run the Tests
 
 Install `pytest` if necessary:
 
@@ -224,13 +269,22 @@ Run the test suite from the repository root:
 python -m pytest -v
 ```
 
-The tests cover the evidence model, execution-gap analytics, and synthetic dataset generator.
+The tests cover the evidence model, generated dataset, all four rules, the rule registry, the evaluation harness, ingestion/manifest behaviour, and the API.
 
-### 5. Access the Web Demonstration
+To check that no product code reaches the network:
+
+```bash
+python scripts/check_offline.py
+```
+
+### 6. Access the Web Application
 
 The hosted Vercel deployment is the primary demonstration interface for evaluation. Use the deployment URL supplied with the SIH submission.
 
-The web demonstration uses mock synthetic data. It is a separate frontend and does not currently execute the Python analytics modules.
+The web application has two modes:
+
+- **`/demo`** — the full examiner journey on illustrative fixtures from `web/app/data/mock-data.ts`. It needs no backend.
+- **`/live`** — server-rendered findings computed by the Python engine and read from the local API. Start `python -m src.api --port 8000` first. If the API is down, the page explains how to start it.
 
 To run the web interface locally for development:
 
@@ -246,13 +300,15 @@ Open the address printed by Next.js, normally:
 http://localhost:3000
 ```
 
+With the API running, open `http://localhost:3000/live`. Set `AUDMI_API_URL` if the API is on a different loopback port.
+
 To check whether the frontend can produce a production build:
 
 ```bash
 npm run build
 ```
 
-These commands build or run the web interface only. They do not install the complete supervisory analytics backend or establish offline operation.
+`/live` is dynamic, so the build succeeds without the API running. These commands do not install a packaged, air-gapped product.
 
 ## Planned Final Product Deployment
 
@@ -282,9 +338,9 @@ Containerized deployment using Docker Compose is a candidate approach. The final
 
 ### 3. Data Ingestion and Validation
 
-The planned ingestion layer will initially target periodic SOC submissions in CSV and JSON formats.
+The current prototype validates canonical JSON submissions and produces a data-quality report plus a SHA-256 manifest before analysis. CSV import with a column-mapping file and a persistent store (SQLite or DuckDB) are planned.
 
-Incoming records will be mapped to the canonical evidence model. Validation is intended to check:
+Incoming records are mapped to the canonical evidence model. Validation checks:
 
 - Required fields and data types
 - Identifiers and entity relationships
@@ -292,7 +348,7 @@ Incoming records will be mapped to the canonical evidence model. Validation is i
 - Schema compatibility
 - Missing or incomplete records
 
-Invalid or incomplete submissions should generate a validation report rather than silently entering the analytics pipeline.
+Invalid or incomplete submissions generate a validation report rather than silently entering the analytics pipeline. Malformed rows are counted and listed, never repaired or dropped silently.
 
 Missing records must be interpreted in context. AudMi should distinguish between evidence that is genuinely absent and evidence that was not supplied in the input dataset.
 
@@ -308,7 +364,7 @@ Identifies potentially missing or incomplete workflow steps. The initial impleme
 
 **Negative-space analysis**
 
-Intended to identify expected evidence or telemetry that is absent, where the available data supports that conclusion.
+Identifies expected evidence or telemetry that is absent. The current rule flags critical/high assets with zero alerts while their CSE peer group is active. ATT&CK-tactic coverage and whole-period checks remain planned.
 
 **Workflow pattern analysis**
 
@@ -322,7 +378,7 @@ Intended to compare entities where sufficient, comparable data is available. Com
 
 Intended to organize potential signals for manual review and preserve references to supporting records and the rules that generated them.
 
-Only execution-gap analytics are implemented in the current prototype. The other capabilities remain planned.
+Execution-gap analytics and one negative-space rule are implemented in the current prototype. Workflow-pattern, broader peer/contextual, and prioritization capabilities remain planned.
 
 ### 5. Findings Review and Export
 
@@ -361,13 +417,12 @@ The architecture describes the target design. Components marked as planned shoul
 ## Limitations
 
 - The repository is a research prototype, not a complete production deployment.
-- The web demonstration uses mock synthetic data and does not execute the Python analytics.
-- Only the execution-gap analytics module is currently implemented.
-- Negative-space, peer/contextual, workflow-pattern, and prioritization capabilities remain planned.
-- External SOC data ingestion and the complete review workflow remain planned.
-- Detection thresholds have not been fully validated against ground truth.
-- No verified precision, recall, or production performance figures are available.
-- Offline and air-gapped operation has not yet been verified.
+- The web application's `/demo` screen uses mock synthetic data; `/live` does execute the Python analytics through the local API.
+- Execution-gap analytics and one negative-space rule are implemented. Broader negative-space, peer/contextual, workflow-pattern, and prioritization capabilities remain planned.
+- Canonical JSON ingestion and integrity hashing are implemented; CSV import and persistent storage remain planned.
+- Detection thresholds have been measured against synthetic ground truth, not real SOC data.
+- Synthetic precision and recall figures are available in `docs/PROJECT_CONTEXT.md` §5.4, but no real-world accuracy figures exist.
+- Offline product code is guarded by `scripts/check_offline.py`; full air-gapped operation has not yet been verified.
 - Potential signals require human review and must not be treated as definitive findings of fault.
 
 ## Team

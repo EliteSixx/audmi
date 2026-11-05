@@ -1,7 +1,7 @@
 # AudMi — Project Context
 
 > Read this first. It explains what AudMi is, what is actually built, how it works, what we measured, and where we are going.
-> Verified on **5 Nov 2026** against the tip of branch `phase0/base` (Phase 0, 6 commits ahead of `main`). Phase 0 is not yet in `main` (`4d55104`); `origin/main` is still `72d0b80`. On 5 Nov 2026 `develop` and all six `feature/*` branches were reset onto `phase0/base` (they previously sat on `520728d "first commit"`). See `docs/design/phase0.md`. If you change anything listed under "Implemented", update this file in the same PR.
+> Verified on **5 Nov 2026** against `develop` (`0392086`, five commits ahead of `main`). `main`, `origin/main` and `phase0/base` are at `9872743`; `develop` carries P0–P4 and will be fast-forwarded into `main` at the phase-end merge. If you change anything listed under "Implemented", update this file in the same PR.
 
 **AudMi (Auditor's Microscope)** — SIH 2026, Problem Statement SIH26157, *Supervisory Analytics Tool for SOC Assessment (SAT-SA)*, NTRO / NCIIPC. Team Elite Sixx.
 
@@ -31,9 +31,9 @@ Every feature is in exactly one of these. **Never present a feature from row 1 o
 
 | | Category | What's in it |
 |---|---|---|
-| 1 | **Demonstrated in the UI** (mock data) | Full examiner journey in `web/`: entity overview, 8 capability views, ranked findings, evidence drill-down, review actions. Everything reads from `web/app/data/mock-data.ts`. |
-| 2 | **Implemented and testable** | Evidence model, evidence JSON schema, synthetic generator + ground truth, **Finding schema v1** (+ JSON Schema), **Sigma-like rule registry** (`rules/*.yaml`), 3 execution-gap rules driven by the registry, **evaluation harness** (`python -m src.validation.evaluate`), 49 passing tests. |
-| 3 | **Proposed / not yet integrated** | Ingestion and data-quality reports, storage, API, negative space, peer benchmarking, text similarity, workflow sequences, report-vs-record reconciliation, review-activity analytics, prioritisation score, SATPACK exchange, offline packaging, offline CI, `audmi` CLI entry point, frontend↔backend link. |
+| 1 | **Demonstrated in the UI** (mock data) | Full examiner journey at `/demo` in `web/`: entity overview, 8 capability views, ranked findings, evidence drill-down, review actions. Everything reads from `web/app/data/mock-data.ts`. |
+| 2 | **Implemented and testable** | Evidence model, evidence JSON schema, synthetic **generator v2** + ground truth, **Finding schema v1** (+ JSON Schema), **Sigma-like rule registry** (`rules/*.yaml`), **4 rules** (3 execution-gap + 1 negative-space), **evaluation harness** (`python -m src.validation.evaluate`), **submission ingestion** with data-quality report and SHA-256 manifest (`python -m src.ingestion`), **offline JSON API** (`python -m src.api`), **`/live` UI screen** reading that API, offline guard (`scripts/check_offline.py`), CI workflow, **93 tests**. |
+| 3 | **Proposed / not yet integrated** | External SOC CSV/column-mapping import, persistent storage (SQLite/DuckDB), additional rules (critical alerts closed fast, closure bursts, analyst patterns, template/near-duplicate notes), ATT&CK coverage mapping, peer percentiles, review write-actions with an audit log, entity priority score, findings report export, SATPACK exchange, offline Docker packaging, `audmi` CLI entry point. |
 
 ## 4. Repository map
 
@@ -43,20 +43,27 @@ audmi/
 │   ├── core/findings.py                  IMPLEMENTED  Finding schema v1 (shared output contract)
 │   ├── core/registry.py                  IMPLEMENTED  loads + validates rules/*.yaml
 │   ├── normalization/evidence_model.py   IMPLEMENTED  canonical record types + validation
-│   ├── analytics/execution_gaps.py       IMPLEMENTED  loader + 3 registry-driven rules
+│   ├── analytics/common.py               IMPLEMENTED  shared EvidenceRecords + finding/robust-stat helpers
+│   ├── analytics/execution_gaps.py       IMPLEMENTED  loader/runner + 3 execution-gap rules
+│   ├── analytics/negative_space.py       IMPLEMENTED  negative-space rule (silent high-value assets)
+│   ├── ingestion/quality.py              IMPLEMENTED  data-quality report (schema, refs, duplicates, timestamps)
+│   ├── ingestion/manifest.py             IMPLEMENTED  SHA-256 submission manifest + verification
+│   ├── api/server.py                     IMPLEMENTED  stdlib loopback JSON API + CLI
 │   ├── validation/evaluate.py            IMPLEMENTED  eval harness vs ground truth
-│   └── ingestion/ evidence/ explainability/ prioritization/ review/
+│   └── evidence/ explainability/ prioritization/ review/
 │                                         EMPTY        placeholder packages for planned work
 ├── rules/*.yaml                          IMPLEMENTED  Sigma-like rule definitions (thresholds live here)
 ├── data/
 │   ├── schemas/core-evidence.schema.json IMPLEMENTED  JSON Schema mirror of the evidence model
 │   ├── schemas/finding.schema.json       IMPLEMENTED  JSON Schema mirror of Finding v1
-│   ├── outputs/                          GITIGNORED   eval_report.json and other run output
+│   ├── outputs/                          GITIGNORED   eval_report.json, quality_report.json, submission_manifest.json
 │   └── synthetic/
-│       ├── generator.py                  IMPLEMENTED  deterministic dataset generator (seed 42)
-│       └── golden_dataset/*.json         GENERATED    14,206 records + ground_truth.json
-├── tests/                                IMPLEMENTED  49 tests (model, generator, findings, registry, rules, eval)
-├── web/                                  DEMO         Next.js 16 / React 19 UI on mock data
+│       ├── generator.py                  IMPLEMENTED  deterministic dataset generator v2 (seed 42)
+│       └── golden_dataset/*.json         GENERATED    14,730 records + ground_truth.json + dataset_manifest.json
+├── scripts/check_offline.py              IMPLEMENTED  fails if product code imports network libs or loads remote assets
+├── .github/workflows/ci.yml              IMPLEMENTED  tests, ingestion, eval, offline guard, web build
+├── tests/                                IMPLEMENTED  93 tests (+9 subtests)
+├── web/                                  DEMO         Next.js 16 / React 19 UI; `/demo` fixtures, `/live` reads the API
 ├── docs/audmi_architecture_document.pdf  architecture doc for SIH
 ├── docs/design/phase0.md                 Phase 0 design note (why the contracts look like this)
 ├── check_counts.py                       helper: prints record counts per dataset file
@@ -85,23 +92,32 @@ Every record checks itself on creation:
 
 *Why one model?* Every rule reads the same shape. Without it, each rule would have to parse each CSE's format on its own.
 
-### 5.2 Synthetic generator (`data/synthetic/generator.py`)
+### 5.2 Synthetic generator v2 (`data/synthetic/generator.py`)
 Real SOC data is sensitive and we don't have any. The generator builds a fake but structured world with a fixed random seed, so every run produces identical output:
 
 | CSEs | Assets | Alerts | Cases | Investigations | Escalations | Remediations |
 |---|---|---|---|---|---|---|
-| 6 | 300 | 10,000 | 2,000 | 1,500 | 300 | 100 |
+| 6 | 300 | 10,000 | 2,000 | 1,500 | 664 | 260 |
+
+**Why v2 exists.** v1 escalated only ~10% of high/critical cases in every CSE and put every planted short investigation in a separate duration range. The rules looked perfect for the wrong reason. v2 uses:
+
+- a **~80% per-entity escalation baseline**, with CSE-02 deliberately weak at ~50%
+- **log-normal investigation durations that overlap** the planted fast ones
+- **40 legitimate fast decoys** (180–720 s) that no ground-truth label covers
+- **volume-matched remediated decoys** for the repeated-alert rule
+- **four quarters** of activity instead of one narrow window
+- sector and **peer-group** metadata in `dataset_manifest.json`
 
 It **plants known problems** and writes them only to `ground_truth.json`. The operational files carry no labels, so the rules can't cheat.
 
 | Planted condition | Where | Size |
 |---|---|---|
-| Missing escalation | CSE-02 (+ small mixed cohort in CSE-06) | 100 + 10 cases |
+| Missing escalation | CSE-02 (+ small mixed cohort in CSE-06) | 60 + 10 cases |
 | Unusually short investigation | CSE-04 (+ CSE-06) | 100 + 5 investigations |
 | Repeated alerts without remediation | CSE-03 | 8 critical assets |
 | Negative space: critical assets with no alerts | CSE-05 | 8 assets |
 
-### 5.3 The three rules (`src/analytics/execution_gaps.py`)
+### 5.3 The four rules
 Each rule's thresholds live in `rules/<rule_id>.yaml` (Sigma-like: id, version, status, level, capability, category, parameters, false_positives) and are loaded by `src/core/registry.py`. Each rule returns **Finding v1** objects (`src/core/findings.py`): `finding_id`, `rule_id` + `rule_version`, `capability` (one of the 8), `category`, `cse_id`, `subject_type` + `subject_id`, a plain-language `reason`, `supporting_record_ids` (the evidence chain), a `baseline` dict with the numbers behind the decision, and `data_quality_notes`.
 
 1. **`missing_escalation`.** The case's alert is high or critical, an investigation exists, and there's no escalation record. This is a pure expected-vs-observed check.
@@ -109,6 +125,9 @@ Each rule's thresholds live in `rules/<rule_id>.yaml` (Sigma-like: id, version, 
    - *Why MAD and not mean/standard deviation?* A few extreme values drag the mean around; the median barely moves. Robust statistics suit messy operational data.
    - *Why log?* Durations are skewed (minutes vs days), and the log makes "10× shorter" comparable across the whole range.
 3. **`repeated_alerts_without_remediation`.** An asset's alert count must be above its CSE's robust fence (median + 3·MAD, and at least 2× the median). It also needs ≥3 cases, with ≤10% of those cases having any remediation record.
+4. **`negative_space_low_activity`.** A critical or high asset is flagged when it has **zero alerts** while its **CSE peer group** (a `peer_group` shared by comparable CSEs) is demonstrably active: at least 20 peers and a peer median of at least 5 alerts. The rule cites up to five active peers so the examiner can see the comparison.
+   - *Why peer groups, not the whole dataset?* A silent asset in a quiet group is not evidence of anything. The question is always *compared with what?*
+   - *Why only zero alerts?* Raising `max_alert_count` is a one-line YAML change, but each step needs a stated justification. A narrow rule is easier to defend.
 
 A finding is a **potential** indicator. Missing evidence isn't proof of missing activity: the submission may just be incomplete.
 
@@ -116,29 +135,63 @@ A finding is a **potential** indicator. Missing evidence isn't proof of missing 
 
 | Rule | Flagged | Seeded | Seeded caught | Flagged outside ground truth |
 |---|---:|---:|---:|---:|
-| missing_escalation | 581 | 110 | **110** | 471 |
-| unusually_short_investigation | 105 | 105 | **105** | 0 |
+| missing_escalation | 279 | 70 | **70** | 209 |
+| unusually_short_investigation | 127 | 105 | **105** | 22 |
 | repeated_alerts_without_remediation | 8 assets | 8 assets | **8** | 0 |
-| negative space (low activity) | — | 8 assets | no detector yet | — |
+| negative_space_low_activity | 8 assets | 8 assets | **8** | 0 |
 
 **How to read this honestly:**
-- **Missing escalation.** Recall is complete. The 471 extra flags are *unclassified*, not proven false positives. The background data escalates only ~12% of high/critical cases in **every** CSE, so the data can't tell the planted cases apart from normal behaviour. That's a generator realism problem.
-- **Short investigation.** Planted durations are 30–179 s and every normal one is ≥1,800 s. The two groups never overlap, so any threshold would pass. This proves the plumbing works, **not** that the method is good.
-- **Repeated alerts.** Correct at asset level. Ground truth also lists case IDs, so score this at **asset** level.
-- The evaluation harness now exists: `python -m src.validation.evaluate` reproduces this table per cohort and writes `data/outputs/eval_report.json`. Flags outside ground truth are reported as *unclassified*, and precision is a lower bound.
-- **Don't quote** precision, recall or accuracy figures in slides until generator v2 makes the test meaningful.
+- **Missing escalation.** Recall is complete against the seeded cases. The 209 extra flags are *unclassified*, not proven false positives. With an ~80% background escalation rate, some unlabeled high/critical cases still lack escalation and are plausible real gaps; others are normal variation. The rule's lower-bound precision is **0.251** (`70 / 279`). Do not present the extra flags as errors, and do not call the rule precise.
+- **Short investigation.** Planted durations are 120–290 s; the v2 threshold is ≈447 s, and 40 legitimate fast decoys sit at 180–720 s. The 22 unclassified flags are mostly those legitimate fast cases. That overlap is the point: the rule can no longer "win" by separating two disjoint ranges, so the result says something about the method rather than the fixture. It still cannot tell a legitimate rapid triage from a shortcut — a human must.
+- **Repeated alerts.** Correct at asset level, with volume-matched decoys that are fully remediated. Ground truth also lists case IDs, so score this at **asset** level.
+- **Negative space.** The 8 critical CSE-05 assets with zero alerts are exactly the 8 seeded; no other asset in the dataset is flagged. CSE-03 is the active peer (`communications-critical`, peer median 30 alerts), which is why the comparison is meaningful.
+- The evaluation harness reproduces this table per cohort: `python -m src.validation.evaluate` (writes `data/outputs/eval_report.json`). Flags outside ground truth are reported as *unclassified*, and precision is a lower bound.
+- These are **synthetic** numbers. They validate plumbing and method behaviour, not real-world detection accuracy.
+
+### 5.5 Ingestion and integrity (`src/ingestion/`)
+Before a rule runs, `python -m src.ingestion` answers "is this submission complete and untampered?" without changing it:
+
+- parses every canonical JSON file and validates each row against the evidence model
+- reports schema errors, duplicate IDs, broken references, cross-entity CSE mismatches and timestamp-order violations
+- counts and lists malformed rows instead of silently dropping them
+- writes `data/outputs/quality_report.json` and `data/outputs/submission_manifest.json`
+
+The manifest records the size and SHA-256 of every submission file, then hashes the sorted `digest  name` lines into one combined digest (the same shape as `sha256sum` output). That digest is the chain-of-custody anchor an examiner can reproduce offline.
+
+*Why not repair bad data?* Silent repair hides exactly the evidence an examiner needs. The report says what is wrong; the human decides.
+
+### 5.6 Offline API and live screen (`src/api/`, `web/app/live/`)
+`python -m src.api --port 8000` starts a **Python standard-library** `http.server` bound to `127.0.0.1`. It pre-computes findings, the submission manifest and the quality report once, then serves:
+
+```
+GET /health
+GET /summary
+GET /entities
+GET /findings?cse_id=&rule_id=&level=&limit=&offset=
+GET /findings/{id}
+GET /findings/{id}/evidence
+```
+
+*Why stdlib and not FastAPI?* Every extra package is another wheel to carry into an air-gapped exam room. The API only needs JSON over loopback, which `http.server` already does. It makes no outbound calls.
+
+`web/app/live/page.tsx` is a server component (`force-dynamic`) that reads `AUDMI_API_URL` (default `http://127.0.0.1:8000`) and renders the summary, filterable findings and entity table. If the API is down it explains how to start it and points back to `/demo`. The fixture demo is unchanged.
 
 ## 6. How to run (Windows PowerShell, from `D:\audmi`)
 
 ```powershell
 pip install -r requirements.txt                  # PyYAML + pytest
-python -m pytest -q                              # 49 tests should pass
+python -m pytest -q                              # 93 tests + 9 subtests should pass
+python -m src.ingestion                          # validate submission + write quality report and manifest
 python -m src.analytics.execution_gaps           # prints finding counts
 python -m src.validation.evaluate                # precision/recall table vs ground truth
+python -m src.api --port 8000                    # offline loopback JSON API
 python -m data.synthetic.generator --seed 42     # regenerate dataset
 python check_counts.py                           # record counts per file
-cd web; npm install; npm run dev                 # demo UI at http://localhost:3000
+python scripts/check_offline.py                  # fail if product code reaches the network
+cd web; npm install; npm run dev                 # demo UI at http://localhost:3000 (and /live)
 ```
+
+To see live engine results, run `python -m src.api --port 8000` in one terminal and `npm run dev` in another, then open `/live`. Without the API the page shows a setup message; `/demo` still works from fixtures.
 
 ## 7. Your SOC knowledge → AudMi
 
@@ -171,30 +224,29 @@ New supervisory terms you'll meet:
 |---|---|
 | Deterministic rules before ML | Explainable, testable, and they give a baseline that ML has to beat. The problem statement scores explainability and auditability. |
 | Synthetic data with separate ground truth | No access to real SOC data; lets us measure detection without leaking labels |
+| Generator v2 with realistic baselines and decoys | v1 made the rules look perfect because the classes were trivially separable. A test that cannot fail proves nothing. |
 | Robust statistics (median/MAD) | Operational data is skewed and full of outliers |
 | Findings carry record IDs + baseline numbers | The examiner must be able to see *why*, not just trust a score |
 | Python stdlib + PyYAML only | Air-gapped deployment: every dependency has to be carried in offline. PyYAML is the one exception, because rule files need comments for reviewers |
+| Loopback `http.server` API, not FastAPI | Another package is another offline wheel; JSON over loopback is all the UI needs |
 | Thresholds in versioned YAML rules, not code | Examiners can read them; every finding cites the rule version that produced it |
 | One shared Finding schema | Six workstreams can build rules, API and UI in parallel against one output shape |
 | Outside-ground-truth flags are "unclassified" | Ground truth only labels planted problems; an unlabelled flag isn't proven wrong |
+| Ingestion reports bad rows, never repairs them | Silent repair hides the evidence an examiner needs; a human decides |
 | Demo UI built ahead of the backend | SIH idea stage: show the full workflow while the engine is being built |
+| `/live` is dynamic, `/demo` is fixtures | `next build` must work without the API running; the fixture screen stays a stable demonstration |
 
 ## 9. Known issues
 
-1. The generator's background escalation rate is unrealistically low everywhere, so missing-escalation results are noisy (see 5.4).
-2. Short-investigation test data is trivially separable.
-3. There is no negative-space detector, even though ground truth exists for one.
-4. Missing from the evidence model:
-   - periods/submissions
-   - sector and multiple peer groups (all CSEs are `regional`)
-   - alert disposition
-   - closure analyst
-   - investigation notes
-   - reported KPIs
-   - escalation policy
-5. The loader silently skips malformed rows. It should produce a data-quality report instead.
-6. `web/app/globals.css` imports Google Fonts, which breaks offline use. Mock numbers don't match the golden dataset. Links still point at `rudythetechy/audmi`; the repo has moved to **`EliteSixx/audmi`**.
-7. Branch layout: `phase0/base` holds Phase 0 and is the current baseline. `develop` and the six `feature/*` branches were reset onto it on 5 Nov 2026. `main` (`4d55104`) and `origin/main` (`72d0b80`) are still behind and should be fast-forwarded at the phase-end merge. `README.md` is partially stale: its status table now marks evaluation as implemented, but it still links to `rudythetechy/audmi` and describes some planned work as if it were the design target.
+1. **Synthetic-only results.** The generator is more realistic than v1, but it still cannot label every real-looking anomaly. Missing-escalation has 209 unclassified flags and short-investigation has 22; neither rule has a defensible precision number yet.
+2. **Short investigations overlap by design.** The rule cannot distinguish a legitimate 3-minute triage from a planted shortcut. That is a human-review question, not a threshold tweak.
+3. **Negative space is narrow.** It only covers zero-alert critical/high assets in active peer groups. It does not yet map missing alert *categories* to ATT&CK tactics or check whole quarters with no escalations.
+4. Missing from the evidence model: periods/submissions, sector and multiple peer groups per asset, alert disposition, closure analyst, investigation notes, reported KPIs, escalation policy.
+5. **Ingestion is JSON-only.** No CSV column-mapping import, no persistent store (SQLite/DuckDB), no identity resolution across submissions.
+6. **The API is read-only.** No authentication, no review actions, no audit log, and it binds to loopback only — by design for a local examiner workstation, but not a multi-user deployment.
+7. **Web state.** `/demo` still uses `mock-data.ts`; `/live` needs the Python API running. There is no packaged or air-gapped-verified image yet, and CI does not run a network-off install test.
+8. **Branch state.** `develop` is five commits ahead of `main` and `phase0/base` (`9872743`). Fast-forward `main` at the phase-end merge, then treat `origin/main` as the baseline.
+9. The offline guard (`scripts/check_offline.py`) is a static check. It catches network imports and remote asset URLs, not every possible runtime egress path.
 
 ## 10. Where we're going
 
